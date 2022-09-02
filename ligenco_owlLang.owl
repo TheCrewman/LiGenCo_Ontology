@@ -1,0 +1,4611 @@
+<?xml version="1.0"?>
+<Ontology xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     ontologyIRI="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco">
+    <Prefix name="" IRI="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#"/>
+    <Prefix name="dc" IRI="http://protege.stanford.edu/plugins/owl/dc/protege-dc.owl#"/>
+    <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+    <Prefix name="xml" IRI="http://www.w3.org/XML/1998/namespace"/>
+    <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
+    <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
+    <Prefix name="vann" IRI="http://purl.org/vocab/vann/"/>
+    <Prefix name="ligenco" IRI="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#"/>
+    <Import>http://protege.stanford.edu/plugins/owl/dc/protege-dc.owl</Import>
+    <Import>http://www.ontologydesignpatterns.org/cp/owl/list.owl</Import>
+    <Annotation>
+        <AnnotationProperty IRI="http://purl.org/dc/elements/1.1/creator"/>
+        <Literal xml:lang="en">Daniele Liberatore</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty IRI="http://purl.org/dc/elements/1.1/creator"/>
+        <Literal xml:lang="en">Matteo Palazzo</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty IRI="http://purl.org/dc/elements/1.1/date"/>
+        <Literal>2022-09-13</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty IRI="http://purl.org/dc/elements/1.1/description"/>
+        <Literal xml:lang="en">An ontology used to describe the distribution and production of book genres across the world.</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty IRI="http://purl.org/dc/elements/1.1/title"/>
+        <Literal xml:lang="en">Literary Genres by Country</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="vann:preferredNamespacePrefix"/>
+        <Literal>ligenco</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="vann:preferredNamespaceUri"/>
+        <Literal>http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <Literal xml:lang="en">LiGenCo</Literal>
+    </Annotation>
+    <Declaration>
+        <Class IRI="http://purl.org/spar/fabio/Biography"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://purl.org/spar/fabio/Book"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://purl.org/spar/fabio/BookSeries"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://purl.org/spar/fabio/BookSet"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://purl.org/spar/fabio/Diary"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://purl.org/spar/fabio/Essay"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://purl.org/spar/fabio/MusicalComposition"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://purl.org/spar/fabio/Novel"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://purl.org/spar/fabio/Play"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://purl.org/spar/fabio/Poem"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://purl.org/spar/fabio/ShortStory"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://purl.org/spar/fabio/Song"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#AdventureRomance"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#AncientBook"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Aphorisms"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Ballata"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Bildungsromance"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#BilingualWriter"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Biography"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Book"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#BookCollection"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#BookEdition"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#BookSeries"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#ChameleonicWriter"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#ChildrenRomance"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Comedy"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#ComedyRomance"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Country"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#CrimefictionRomance"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#DetectivefictionRomance"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Dialogue"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Diary"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#DidacticPoetry"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Divulgative"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Drama"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#EpicPoetry"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#EroticRomance"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Essay"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Fable"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#FantahistoricalRomance"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#FantasyRomance"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#GeographicalArea"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#HistoricalRomance"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#HorrorRomance"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#IndividualBook"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#LiteraryMovement"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#LyricPoetry"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Madrigal"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Manifest"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#ModernBook"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Narrative"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#NoirRomance"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Playwright"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Poet"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Poetry"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Prose"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#ProseWriter"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Publisher"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Romance"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#RomanticRomance"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#SciencefictionRomance"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#SequenceBook"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#ShortStories"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Song"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Sonnet"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#ThrillerRomance"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Tragedy"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#TranslatedBook"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Treatise"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#WandovagoWriter"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Writer"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="https://d-nb.info/standards/elementset/gnd#Author"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="https://d-nb.info/standards/elementset/gnd#Poet"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://www.ontologydesignpatterns.org/cp/owl/bag.owl#itemContent"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#belongToMovement"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasBeenPublished"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasBeenPublishedInCountry"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasCollection"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasPublisher"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isCoevalTo"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isCompatriotWith"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#livedIn"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#livedInTheSameEpochAs"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#locatedIn"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#overlapsWith"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#publishedBy"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#publishedIn"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#relatedTo"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#relatedToIndividualBook"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#relatedToSequenceBook"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#setIn"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#wrote"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#wroteBy"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#birth_date"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#country_name"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#death_date"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#edition_date"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#edition_language"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#edition_title"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#end_date"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#original_date"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#original_language"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#original_title"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#publisher_name"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#start_date"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#viaf_id"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#writer_name"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Absurdism"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Adelphi"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Africa"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#America"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Antarctica"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Antonio_Damasio"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Asia"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Australasia"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Biblioteca_Scientifica"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Central_America"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Central_Asia"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Central_Europe"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Contemporary"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Dada"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Decadent_movement"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#East_Asia"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Eastern_Europe"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Europe"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Exhalation"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Expressionism"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Futurism"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Giacomo_Leopardi"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Giuseppe_Tratteur"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Il_fu_Mattia_Pascal"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Il_fu_Mattia_Pascal_Mondadori"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Il_prigioniero_libero"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Il_prigioniero_libero_Adelphi"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Il_prigioniero_libero_collezioneAdelphi"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Italy"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#LaFeltrinelli"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#La_difesa_di_Luzin"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Lo_strano_ordine_delle_cose"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Lo_strano_ordine_delle_cose_collezioneAdelphi"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Lolita"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Luigi_Pirandello"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Magical_realism"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Melanesia"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Micronesia"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Modernism"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Mondadori"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Naturalism"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#North_Africa"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#North_America"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#North_Asia"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#North_Europe"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Oceania"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Operette_morali"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Operette_morali_Mondadori"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Operette_morali_laFeltrinelli"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Polynesia"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Portugal"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Postmodernism"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Pre_Renaissance"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Realism"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Romanticism"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Russia"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Sei_personaggi_in_cerca_d_autore"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Sei_personaggi_in_cerca_d_autore_Mondadori"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#South_America"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#South_Asia"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#South_East_Asia"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#South_Europe"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Spain"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#SpurlEditions"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Sub-Saharan_Africa"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Surrealism"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Symbolism"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Ted_Chiang"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Transcendentalism"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#United_States_of_America"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Uno_nessuno_centomila"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Uno_nessuno_centomila_Mondadori"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Uno_nessuno_centomila_SpurlEditions"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Verismo"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Vladimir_Nabokov"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Western_Asia"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Western_Europe"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty abbreviatedIRI="vann:preferredNamespacePrefix"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty abbreviatedIRI="vann:preferredNamespaceUri"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty IRI="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://www.ontologydesignpatterns.org/cp/owl/bag.owl#hasItem"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://www.ontologydesignpatterns.org/cp/owl/bag.owl#Item"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://www.ontologydesignpatterns.org/cp/owl/bag.owl#Bag"/>
+    </Declaration>
+    <EquivalentClasses>
+        <Class IRI="http://purl.org/spar/fabio/Biography"/>
+        <Class IRI="#Biography"/>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="http://purl.org/spar/fabio/Book"/>
+        <Class IRI="#Book"/>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="http://purl.org/spar/fabio/BookSeries"/>
+        <Class IRI="#BookCollection"/>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="http://purl.org/spar/fabio/BookSet"/>
+        <Class IRI="#BookSeries"/>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="http://purl.org/spar/fabio/Diary"/>
+        <Class IRI="#Diary"/>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="http://purl.org/spar/fabio/Essay"/>
+        <Class IRI="#Essay"/>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="http://purl.org/spar/fabio/Novel"/>
+        <Class IRI="#Romance"/>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="http://purl.org/spar/fabio/Play"/>
+        <Class IRI="#Drama"/>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="http://purl.org/spar/fabio/ShortStory"/>
+        <Class IRI="#ShortStories"/>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="http://purl.org/spar/fabio/Song"/>
+        <Class IRI="#Song"/>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#AncientBook"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Book"/>
+            <ObjectComplementOf>
+                <Class IRI="#ModernBook"/>
+            </ObjectComplementOf>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#ChameleonicWriter"/>
+        <ObjectIntersectionOf>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#wrote"/>
+                <Class IRI="#Drama"/>
+            </ObjectSomeValuesFrom>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#wrote"/>
+                <Class IRI="#Poetry"/>
+            </ObjectSomeValuesFrom>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#wrote"/>
+                <Class IRI="#Prose"/>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#GeographicalArea"/>
+        <ObjectOneOf>
+            <NamedIndividual IRI="#Africa"/>
+            <NamedIndividual IRI="#America"/>
+            <NamedIndividual IRI="#Antarctica"/>
+            <NamedIndividual IRI="#Asia"/>
+            <NamedIndividual IRI="#Australasia"/>
+            <NamedIndividual IRI="#Central_America"/>
+            <NamedIndividual IRI="#Central_Asia"/>
+            <NamedIndividual IRI="#Central_Europe"/>
+            <NamedIndividual IRI="#East_Asia"/>
+            <NamedIndividual IRI="#Eastern_Europe"/>
+            <NamedIndividual IRI="#Europe"/>
+            <NamedIndividual IRI="#Melanesia"/>
+            <NamedIndividual IRI="#Micronesia"/>
+            <NamedIndividual IRI="#North_Africa"/>
+            <NamedIndividual IRI="#North_America"/>
+            <NamedIndividual IRI="#North_Asia"/>
+            <NamedIndividual IRI="#North_Europe"/>
+            <NamedIndividual IRI="#Oceania"/>
+            <NamedIndividual IRI="#Polynesia"/>
+            <NamedIndividual IRI="#South_America"/>
+            <NamedIndividual IRI="#South_Asia"/>
+            <NamedIndividual IRI="#South_East_Asia"/>
+            <NamedIndividual IRI="#South_Europe"/>
+            <NamedIndividual IRI="#Sub-Saharan_Africa"/>
+            <NamedIndividual IRI="#Western_Asia"/>
+            <NamedIndividual IRI="#Western_Europe"/>
+        </ObjectOneOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#ModernBook"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#original_date"/>
+            <DatatypeRestriction>
+                <Datatype abbreviatedIRI="xsd:nonNegativeInteger"/>
+                <FacetRestriction facet="http://www.w3.org/2001/XMLSchema#minExclusive">
+                    <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1830</Literal>
+                </FacetRestriction>
+            </DatatypeRestriction>
+        </DataSomeValuesFrom>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Playwright"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#wrote"/>
+            <Class IRI="#Drama"/>
+        </ObjectSomeValuesFrom>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Poet"/>
+        <Class IRI="https://d-nb.info/standards/elementset/gnd#Poet"/>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Poet"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#wrote"/>
+            <Class IRI="#Poetry"/>
+        </ObjectSomeValuesFrom>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#ProseWriter"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#wrote"/>
+            <Class IRI="#Prose"/>
+        </ObjectSomeValuesFrom>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#WandovagoWriter"/>
+        <ObjectMinCardinality cardinality="2">
+            <ObjectProperty IRI="#livedIn"/>
+            <Class IRI="#Country"/>
+        </ObjectMinCardinality>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Writer"/>
+        <Class IRI="https://d-nb.info/standards/elementset/gnd#Author"/>
+    </EquivalentClasses>
+    <SubClassOf>
+        <Class IRI="http://purl.org/spar/fabio/Poem"/>
+        <Class IRI="#Poetry"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#AdventureRomance"/>
+        <Class IRI="#Romance"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#AncientBook"/>
+        <Class IRI="#Book"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Aphorisms"/>
+        <Class IRI="#Divulgative"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Ballata"/>
+        <Class IRI="#LyricPoetry"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Bildungsromance"/>
+        <Class IRI="#Romance"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#BilingualWriter"/>
+        <Class IRI="#Writer"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Biography"/>
+        <Class IRI="#Narrative"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#BookCollection"/>
+        <Class IRI="http://www.ontologydesignpatterns.org/cp/owl/bag.owl#Bag"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#BookSeries"/>
+        <Class IRI="http://www.ontologydesignpatterns.org/cp/owl/list.owl#List"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#ChameleonicWriter"/>
+        <Class IRI="#Writer"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#ChildrenRomance"/>
+        <Class IRI="#Romance"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Comedy"/>
+        <Class IRI="#Drama"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#ComedyRomance"/>
+        <Class IRI="#Romance"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Country"/>
+        <Class IRI="#GeographicalArea"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#CrimefictionRomance"/>
+        <Class IRI="#Romance"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#DetectivefictionRomance"/>
+        <Class IRI="#CrimefictionRomance"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Dialogue"/>
+        <Class IRI="#Divulgative"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Diary"/>
+        <Class IRI="#Narrative"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#DidacticPoetry"/>
+        <Class IRI="#Poetry"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Divulgative"/>
+        <Class IRI="#Prose"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Drama"/>
+        <Class IRI="#Book"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#EpicPoetry"/>
+        <Class IRI="http://purl.org/spar/fabio/Poem"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#EpicPoetry"/>
+        <Class IRI="#Poetry"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#EroticRomance"/>
+        <Class IRI="#Romance"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Essay"/>
+        <Class IRI="#Divulgative"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Fable"/>
+        <Class IRI="#Narrative"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#FantahistoricalRomance"/>
+        <Class IRI="#HistoricalRomance"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#FantasyRomance"/>
+        <Class IRI="#Romance"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#HistoricalRomance"/>
+        <Class IRI="#Romance"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#HorrorRomance"/>
+        <Class IRI="#Romance"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#IndividualBook"/>
+        <Class IRI="http://www.ontologydesignpatterns.org/cp/owl/bag.owl#Item"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#LyricPoetry"/>
+        <Class IRI="#Poetry"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Madrigal"/>
+        <Class IRI="#LyricPoetry"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Manifest"/>
+        <Class IRI="#Divulgative"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#ModernBook"/>
+        <Class IRI="#Book"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Narrative"/>
+        <Class IRI="#Prose"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#NoirRomance"/>
+        <Class IRI="#CrimefictionRomance"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Playwright"/>
+        <Class IRI="#Writer"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Poet"/>
+        <Class IRI="#Writer"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Poetry"/>
+        <Class IRI="#Book"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Prose"/>
+        <Class IRI="#Book"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#ProseWriter"/>
+        <Class IRI="#Writer"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Romance"/>
+        <Class IRI="#Narrative"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#RomanticRomance"/>
+        <Class IRI="#Romance"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#SciencefictionRomance"/>
+        <Class IRI="#Romance"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#SequenceBook"/>
+        <Class IRI="http://www.ontologydesignpatterns.org/cp/owl/list.owl#ListItem"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#ShortStories"/>
+        <Class IRI="#Narrative"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Song"/>
+        <Class IRI="http://purl.org/spar/fabio/MusicalComposition"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Song"/>
+        <Class IRI="#LyricPoetry"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Sonnet"/>
+        <Class IRI="#LyricPoetry"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#ThrillerRomance"/>
+        <Class IRI="#Romance"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Tragedy"/>
+        <Class IRI="#Drama"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#TranslatedBook"/>
+        <Class IRI="#Book"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Treatise"/>
+        <Class IRI="#Divulgative"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#WandovagoWriter"/>
+        <Class IRI="#Writer"/>
+    </SubClassOf>
+    <DisjointClasses>
+        <Class IRI="http://purl.org/spar/fabio/Poem"/>
+        <Class IRI="#DidacticPoetry"/>
+        <Class IRI="#EpicPoetry"/>
+        <Class IRI="#LyricPoetry"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://www.ontologydesignpatterns.org/cp/owl/bag.owl#Bag"/>
+        <Class IRI="http://www.ontologydesignpatterns.org/cp/owl/bag.owl#Item"/>
+        <Class IRI="#Book"/>
+        <Class IRI="#BookEdition"/>
+        <Class IRI="#GeographicalArea"/>
+        <Class IRI="#LiteraryMovement"/>
+        <Class IRI="#Publisher"/>
+        <Class IRI="#Writer"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#AdventureRomance"/>
+        <Class IRI="#Bildungsromance"/>
+        <Class IRI="#ChildrenRomance"/>
+        <Class IRI="#ComedyRomance"/>
+        <Class IRI="#CrimefictionRomance"/>
+        <Class IRI="#EroticRomance"/>
+        <Class IRI="#FantasyRomance"/>
+        <Class IRI="#HistoricalRomance"/>
+        <Class IRI="#HorrorRomance"/>
+        <Class IRI="#RomanticRomance"/>
+        <Class IRI="#SciencefictionRomance"/>
+        <Class IRI="#ThrillerRomance"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#AncientBook"/>
+        <Class IRI="#ModernBook"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#Aphorisms"/>
+        <Class IRI="#Dialogue"/>
+        <Class IRI="#Essay"/>
+        <Class IRI="#Manifest"/>
+        <Class IRI="#Treatise"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#Ballata"/>
+        <Class IRI="#Madrigal"/>
+        <Class IRI="#Song"/>
+        <Class IRI="#Sonnet"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#Biography"/>
+        <Class IRI="#Diary"/>
+        <Class IRI="#Fable"/>
+        <Class IRI="#Romance"/>
+        <Class IRI="#ShortStories"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#Comedy"/>
+        <Class IRI="#Tragedy"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#DetectivefictionRomance"/>
+        <Class IRI="#NoirRomance"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#Divulgative"/>
+        <Class IRI="#Narrative"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#Drama"/>
+        <Class IRI="#Poetry"/>
+        <Class IRI="#Prose"/>
+    </DisjointClasses>
+    <ClassAssertion>
+        <Class IRI="#LiteraryMovement"/>
+        <NamedIndividual IRI="#Absurdism"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Publisher"/>
+        <NamedIndividual IRI="#Adelphi"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#GeographicalArea"/>
+        <NamedIndividual IRI="#Africa"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#GeographicalArea"/>
+        <NamedIndividual IRI="#America"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#GeographicalArea"/>
+        <NamedIndividual IRI="#Antarctica"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Writer"/>
+        <NamedIndividual IRI="#Antonio_Damasio"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#GeographicalArea"/>
+        <NamedIndividual IRI="#Asia"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#GeographicalArea"/>
+        <NamedIndividual IRI="#Australasia"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#BookCollection"/>
+        <NamedIndividual IRI="#Biblioteca_Scientifica"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#GeographicalArea"/>
+        <NamedIndividual IRI="#Central_America"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#GeographicalArea"/>
+        <NamedIndividual IRI="#Central_Asia"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#GeographicalArea"/>
+        <NamedIndividual IRI="#Central_Europe"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#LiteraryMovement"/>
+        <NamedIndividual IRI="#Contemporary"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#LiteraryMovement"/>
+        <NamedIndividual IRI="#Dada"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#LiteraryMovement"/>
+        <NamedIndividual IRI="#Decadent_movement"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#GeographicalArea"/>
+        <NamedIndividual IRI="#East_Asia"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#GeographicalArea"/>
+        <NamedIndividual IRI="#Eastern_Europe"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#GeographicalArea"/>
+        <NamedIndividual IRI="#Europe"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#ShortStories"/>
+        <NamedIndividual IRI="#Exhalation"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#LiteraryMovement"/>
+        <NamedIndividual IRI="#Expressionism"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#LiteraryMovement"/>
+        <NamedIndividual IRI="#Futurism"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Writer"/>
+        <NamedIndividual IRI="#Giacomo_Leopardi"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Writer"/>
+        <NamedIndividual IRI="#Giuseppe_Tratteur"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#ComedyRomance"/>
+        <NamedIndividual IRI="#Il_fu_Mattia_Pascal"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#BookEdition"/>
+        <NamedIndividual IRI="#Il_fu_Mattia_Pascal_Mondadori"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Essay"/>
+        <NamedIndividual IRI="#Il_prigioniero_libero"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#BookEdition"/>
+        <NamedIndividual IRI="#Il_prigioniero_libero_Adelphi"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#IndividualBook"/>
+        <NamedIndividual IRI="#Il_prigioniero_libero_collezioneAdelphi"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Country"/>
+        <NamedIndividual IRI="#Italy"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Publisher"/>
+        <NamedIndividual IRI="#LaFeltrinelli"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#ComedyRomance"/>
+        <NamedIndividual IRI="#La_difesa_di_Luzin"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Essay"/>
+        <NamedIndividual IRI="#Lo_strano_ordine_delle_cose"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#IndividualBook"/>
+        <NamedIndividual IRI="#Lo_strano_ordine_delle_cose_collezioneAdelphi"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#RomanticRomance"/>
+        <NamedIndividual IRI="#Lolita"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Writer"/>
+        <NamedIndividual IRI="#Luigi_Pirandello"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#LiteraryMovement"/>
+        <NamedIndividual IRI="#Magical_realism"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#GeographicalArea"/>
+        <NamedIndividual IRI="#Melanesia"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#GeographicalArea"/>
+        <NamedIndividual IRI="#Micronesia"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#LiteraryMovement"/>
+        <NamedIndividual IRI="#Modernism"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Publisher"/>
+        <NamedIndividual IRI="#Mondadori"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#LiteraryMovement"/>
+        <NamedIndividual IRI="#Naturalism"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#GeographicalArea"/>
+        <NamedIndividual IRI="#North_Africa"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#GeographicalArea"/>
+        <NamedIndividual IRI="#North_America"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#GeographicalArea"/>
+        <NamedIndividual IRI="#North_Asia"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#GeographicalArea"/>
+        <NamedIndividual IRI="#North_Europe"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#GeographicalArea"/>
+        <NamedIndividual IRI="#Oceania"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#ShortStories"/>
+        <NamedIndividual IRI="#Operette_morali"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#BookEdition"/>
+        <NamedIndividual IRI="#Operette_morali_Mondadori"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#BookEdition"/>
+        <NamedIndividual IRI="#Operette_morali_laFeltrinelli"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#GeographicalArea"/>
+        <NamedIndividual IRI="#Polynesia"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Country"/>
+        <NamedIndividual IRI="#Portugal"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#LiteraryMovement"/>
+        <NamedIndividual IRI="#Postmodernism"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#LiteraryMovement"/>
+        <NamedIndividual IRI="#Pre_Renaissance"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#LiteraryMovement"/>
+        <NamedIndividual IRI="#Realism"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#LiteraryMovement"/>
+        <NamedIndividual IRI="#Romanticism"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Country"/>
+        <NamedIndividual IRI="#Russia"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Tragedy"/>
+        <NamedIndividual IRI="#Sei_personaggi_in_cerca_d_autore"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#BookEdition"/>
+        <NamedIndividual IRI="#Sei_personaggi_in_cerca_d_autore_Mondadori"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#GeographicalArea"/>
+        <NamedIndividual IRI="#South_America"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#GeographicalArea"/>
+        <NamedIndividual IRI="#South_Asia"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#GeographicalArea"/>
+        <NamedIndividual IRI="#South_East_Asia"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#GeographicalArea"/>
+        <NamedIndividual IRI="#South_Europe"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Country"/>
+        <NamedIndividual IRI="#Spain"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Publisher"/>
+        <NamedIndividual IRI="#SpurlEditions"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#GeographicalArea"/>
+        <NamedIndividual IRI="#Sub-Saharan_Africa"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#LiteraryMovement"/>
+        <NamedIndividual IRI="#Surrealism"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#LiteraryMovement"/>
+        <NamedIndividual IRI="#Symbolism"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Writer"/>
+        <NamedIndividual IRI="#Ted_Chiang"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#LiteraryMovement"/>
+        <NamedIndividual IRI="#Transcendentalism"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Country"/>
+        <NamedIndividual IRI="#United_States_of_America"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#ComedyRomance"/>
+        <NamedIndividual IRI="#Uno_nessuno_centomila"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#BookEdition"/>
+        <NamedIndividual IRI="#Uno_nessuno_centomila_Mondadori"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#BookEdition"/>
+        <NamedIndividual IRI="#Uno_nessuno_centomila_SpurlEditions"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#LiteraryMovement"/>
+        <NamedIndividual IRI="#Verismo"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Writer"/>
+        <NamedIndividual IRI="#Vladimir_Nabokov"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#GeographicalArea"/>
+        <NamedIndividual IRI="#Western_Asia"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#GeographicalArea"/>
+        <NamedIndividual IRI="#Western_Europe"/>
+    </ClassAssertion>
+    <DifferentIndividuals>
+        <NamedIndividual IRI="#Absurdism"/>
+        <NamedIndividual IRI="#Contemporary"/>
+        <NamedIndividual IRI="#Dada"/>
+        <NamedIndividual IRI="#Decadent_movement"/>
+        <NamedIndividual IRI="#Expressionism"/>
+        <NamedIndividual IRI="#Futurism"/>
+        <NamedIndividual IRI="#Magical_realism"/>
+        <NamedIndividual IRI="#Modernism"/>
+        <NamedIndividual IRI="#Naturalism"/>
+        <NamedIndividual IRI="#Postmodernism"/>
+        <NamedIndividual IRI="#Pre_Renaissance"/>
+        <NamedIndividual IRI="#Realism"/>
+        <NamedIndividual IRI="#Romanticism"/>
+        <NamedIndividual IRI="#Surrealism"/>
+        <NamedIndividual IRI="#Symbolism"/>
+        <NamedIndividual IRI="#Transcendentalism"/>
+        <NamedIndividual IRI="#Verismo"/>
+    </DifferentIndividuals>
+    <DifferentIndividuals>
+        <NamedIndividual IRI="#Adelphi"/>
+        <NamedIndividual IRI="#LaFeltrinelli"/>
+        <NamedIndividual IRI="#Mondadori"/>
+        <NamedIndividual IRI="#SpurlEditions"/>
+    </DifferentIndividuals>
+    <DifferentIndividuals>
+        <NamedIndividual IRI="#Africa"/>
+        <NamedIndividual IRI="#America"/>
+        <NamedIndividual IRI="#Antarctica"/>
+        <NamedIndividual IRI="#Asia"/>
+        <NamedIndividual IRI="#Australasia"/>
+        <NamedIndividual IRI="#Central_America"/>
+        <NamedIndividual IRI="#Central_Asia"/>
+        <NamedIndividual IRI="#Central_Europe"/>
+        <NamedIndividual IRI="#East_Asia"/>
+        <NamedIndividual IRI="#Eastern_Europe"/>
+        <NamedIndividual IRI="#Europe"/>
+        <NamedIndividual IRI="#Melanesia"/>
+        <NamedIndividual IRI="#Micronesia"/>
+        <NamedIndividual IRI="#North_Africa"/>
+        <NamedIndividual IRI="#North_America"/>
+        <NamedIndividual IRI="#North_Asia"/>
+        <NamedIndividual IRI="#North_Europe"/>
+        <NamedIndividual IRI="#Oceania"/>
+        <NamedIndividual IRI="#Polynesia"/>
+        <NamedIndividual IRI="#South_America"/>
+        <NamedIndividual IRI="#South_Asia"/>
+        <NamedIndividual IRI="#South_East_Asia"/>
+        <NamedIndividual IRI="#South_Europe"/>
+        <NamedIndividual IRI="#Sub-Saharan_Africa"/>
+        <NamedIndividual IRI="#Western_Asia"/>
+        <NamedIndividual IRI="#Western_Europe"/>
+    </DifferentIndividuals>
+    <DifferentIndividuals>
+        <NamedIndividual IRI="#Antonio_Damasio"/>
+        <NamedIndividual IRI="#Giacomo_Leopardi"/>
+        <NamedIndividual IRI="#Giuseppe_Tratteur"/>
+        <NamedIndividual IRI="#Luigi_Pirandello"/>
+        <NamedIndividual IRI="#Ted_Chiang"/>
+    </DifferentIndividuals>
+    <DifferentIndividuals>
+        <NamedIndividual IRI="#Exhalation"/>
+        <NamedIndividual IRI="#Il_fu_Mattia_Pascal"/>
+        <NamedIndividual IRI="#Il_prigioniero_libero"/>
+        <NamedIndividual IRI="#La_difesa_di_Luzin"/>
+        <NamedIndividual IRI="#Lo_strano_ordine_delle_cose"/>
+        <NamedIndividual IRI="#Lolita"/>
+        <NamedIndividual IRI="#Operette_morali"/>
+        <NamedIndividual IRI="#Sei_personaggi_in_cerca_d_autore"/>
+        <NamedIndividual IRI="#Uno_nessuno_centomila"/>
+    </DifferentIndividuals>
+    <DifferentIndividuals>
+        <NamedIndividual IRI="#Il_fu_Mattia_Pascal_Mondadori"/>
+        <NamedIndividual IRI="#Il_prigioniero_libero_Adelphi"/>
+        <NamedIndividual IRI="#Operette_morali_Mondadori"/>
+        <NamedIndividual IRI="#Operette_morali_laFeltrinelli"/>
+        <NamedIndividual IRI="#Sei_personaggi_in_cerca_d_autore_Mondadori"/>
+        <NamedIndividual IRI="#Uno_nessuno_centomila_Mondadori"/>
+        <NamedIndividual IRI="#Uno_nessuno_centomila_SpurlEditions"/>
+    </DifferentIndividuals>
+    <DifferentIndividuals>
+        <NamedIndividual IRI="#Italy"/>
+        <NamedIndividual IRI="#Portugal"/>
+        <NamedIndividual IRI="#Russia"/>
+        <NamedIndividual IRI="#Spain"/>
+        <NamedIndividual IRI="#United_States_of_America"/>
+    </DifferentIndividuals>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongToMovement"/>
+        <NamedIndividual IRI="#Antonio_Damasio"/>
+        <NamedIndividual IRI="#Contemporary"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#livedIn"/>
+        <NamedIndividual IRI="#Antonio_Damasio"/>
+        <NamedIndividual IRI="#Portugal"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#relatedTo"/>
+        <NamedIndividual IRI="#Antonio_Damasio"/>
+        <NamedIndividual IRI="#Portugal"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#wrote"/>
+        <NamedIndividual IRI="#Antonio_Damasio"/>
+        <NamedIndividual IRI="#Lo_strano_ordine_delle_cose"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#locatedIn"/>
+        <NamedIndividual IRI="#Australasia"/>
+        <NamedIndividual IRI="#Oceania"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://www.ontologydesignpatterns.org/cp/owl/bag.owl#hasItem"/>
+        <NamedIndividual IRI="#Biblioteca_Scientifica"/>
+        <NamedIndividual IRI="#Il_prigioniero_libero_collezioneAdelphi"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://www.ontologydesignpatterns.org/cp/owl/bag.owl#hasItem"/>
+        <NamedIndividual IRI="#Biblioteca_Scientifica"/>
+        <NamedIndividual IRI="#Lo_strano_ordine_delle_cose_collezioneAdelphi"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasPublisher"/>
+        <NamedIndividual IRI="#Biblioteca_Scientifica"/>
+        <NamedIndividual IRI="#Adelphi"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#locatedIn"/>
+        <NamedIndividual IRI="#Central_America"/>
+        <NamedIndividual IRI="#America"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#locatedIn"/>
+        <NamedIndividual IRI="#Central_Asia"/>
+        <NamedIndividual IRI="#Asia"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#locatedIn"/>
+        <NamedIndividual IRI="#Central_Europe"/>
+        <NamedIndividual IRI="#Europe"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#locatedIn"/>
+        <NamedIndividual IRI="#East_Asia"/>
+        <NamedIndividual IRI="#Asia"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#locatedIn"/>
+        <NamedIndividual IRI="#Eastern_Europe"/>
+        <NamedIndividual IRI="#Europe"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongToMovement"/>
+        <NamedIndividual IRI="#Giacomo_Leopardi"/>
+        <NamedIndividual IRI="#Romanticism"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#livedIn"/>
+        <NamedIndividual IRI="#Giacomo_Leopardi"/>
+        <NamedIndividual IRI="#Italy"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#relatedTo"/>
+        <NamedIndividual IRI="#Giacomo_Leopardi"/>
+        <NamedIndividual IRI="#Italy"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#wrote"/>
+        <NamedIndividual IRI="#Giacomo_Leopardi"/>
+        <NamedIndividual IRI="#Operette_morali"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongToMovement"/>
+        <NamedIndividual IRI="#Giuseppe_Tratteur"/>
+        <NamedIndividual IRI="#Contemporary"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#livedIn"/>
+        <NamedIndividual IRI="#Giuseppe_Tratteur"/>
+        <NamedIndividual IRI="#Italy"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#relatedTo"/>
+        <NamedIndividual IRI="#Giuseppe_Tratteur"/>
+        <NamedIndividual IRI="#Italy"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#wrote"/>
+        <NamedIndividual IRI="#Giuseppe_Tratteur"/>
+        <NamedIndividual IRI="#Il_prigioniero_libero"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasBeenPublished"/>
+        <NamedIndividual IRI="#Il_fu_Mattia_Pascal"/>
+        <NamedIndividual IRI="#Il_fu_Mattia_Pascal_Mondadori"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#publishedBy"/>
+        <NamedIndividual IRI="#Il_fu_Mattia_Pascal_Mondadori"/>
+        <NamedIndividual IRI="#Mondadori"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#publishedIn"/>
+        <NamedIndividual IRI="#Il_fu_Mattia_Pascal_Mondadori"/>
+        <NamedIndividual IRI="#Italy"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasBeenPublished"/>
+        <NamedIndividual IRI="#Il_prigioniero_libero"/>
+        <NamedIndividual IRI="#Il_prigioniero_libero_Adelphi"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#publishedBy"/>
+        <NamedIndividual IRI="#Il_prigioniero_libero_Adelphi"/>
+        <NamedIndividual IRI="#Adelphi"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#publishedIn"/>
+        <NamedIndividual IRI="#Il_prigioniero_libero_Adelphi"/>
+        <NamedIndividual IRI="#Italy"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#relatedToIndividualBook"/>
+        <NamedIndividual IRI="#Il_prigioniero_libero_collezioneAdelphi"/>
+        <NamedIndividual IRI="#Il_prigioniero_libero"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#locatedIn"/>
+        <NamedIndividual IRI="#Italy"/>
+        <NamedIndividual IRI="#Western_Europe"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#relatedToIndividualBook"/>
+        <NamedIndividual IRI="#Lo_strano_ordine_delle_cose_collezioneAdelphi"/>
+        <NamedIndividual IRI="#Lo_strano_ordine_delle_cose"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongToMovement"/>
+        <NamedIndividual IRI="#Luigi_Pirandello"/>
+        <NamedIndividual IRI="#Modernism"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#livedIn"/>
+        <NamedIndividual IRI="#Luigi_Pirandello"/>
+        <NamedIndividual IRI="#Italy"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#relatedTo"/>
+        <NamedIndividual IRI="#Luigi_Pirandello"/>
+        <NamedIndividual IRI="#Italy"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#wrote"/>
+        <NamedIndividual IRI="#Luigi_Pirandello"/>
+        <NamedIndividual IRI="#Il_fu_Mattia_Pascal"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#wrote"/>
+        <NamedIndividual IRI="#Luigi_Pirandello"/>
+        <NamedIndividual IRI="#Sei_personaggi_in_cerca_d_autore"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#wrote"/>
+        <NamedIndividual IRI="#Luigi_Pirandello"/>
+        <NamedIndividual IRI="#Uno_nessuno_centomila"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#locatedIn"/>
+        <NamedIndividual IRI="#Melanesia"/>
+        <NamedIndividual IRI="#Oceania"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#locatedIn"/>
+        <NamedIndividual IRI="#Micronesia"/>
+        <NamedIndividual IRI="#Oceania"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#locatedIn"/>
+        <NamedIndividual IRI="#North_Africa"/>
+        <NamedIndividual IRI="#Africa"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#locatedIn"/>
+        <NamedIndividual IRI="#North_America"/>
+        <NamedIndividual IRI="#America"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#locatedIn"/>
+        <NamedIndividual IRI="#North_Asia"/>
+        <NamedIndividual IRI="#Asia"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#locatedIn"/>
+        <NamedIndividual IRI="#North_Europe"/>
+        <NamedIndividual IRI="#Europe"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasBeenPublished"/>
+        <NamedIndividual IRI="#Operette_morali"/>
+        <NamedIndividual IRI="#Operette_morali_Mondadori"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasBeenPublished"/>
+        <NamedIndividual IRI="#Operette_morali"/>
+        <NamedIndividual IRI="#Operette_morali_laFeltrinelli"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#publishedBy"/>
+        <NamedIndividual IRI="#Operette_morali_Mondadori"/>
+        <NamedIndividual IRI="#Mondadori"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#publishedIn"/>
+        <NamedIndividual IRI="#Operette_morali_Mondadori"/>
+        <NamedIndividual IRI="#Italy"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#publishedBy"/>
+        <NamedIndividual IRI="#Operette_morali_laFeltrinelli"/>
+        <NamedIndividual IRI="#LaFeltrinelli"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#publishedIn"/>
+        <NamedIndividual IRI="#Operette_morali_laFeltrinelli"/>
+        <NamedIndividual IRI="#Italy"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#locatedIn"/>
+        <NamedIndividual IRI="#Polynesia"/>
+        <NamedIndividual IRI="#Oceania"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#locatedIn"/>
+        <NamedIndividual IRI="#Portugal"/>
+        <NamedIndividual IRI="#Western_Europe"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#locatedIn"/>
+        <NamedIndividual IRI="#Russia"/>
+        <NamedIndividual IRI="#Eastern_Europe"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasBeenPublished"/>
+        <NamedIndividual IRI="#Sei_personaggi_in_cerca_d_autore"/>
+        <NamedIndividual IRI="#Sei_personaggi_in_cerca_d_autore_Mondadori"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#publishedBy"/>
+        <NamedIndividual IRI="#Sei_personaggi_in_cerca_d_autore_Mondadori"/>
+        <NamedIndividual IRI="#Mondadori"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#publishedIn"/>
+        <NamedIndividual IRI="#Sei_personaggi_in_cerca_d_autore_Mondadori"/>
+        <NamedIndividual IRI="#Italy"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#locatedIn"/>
+        <NamedIndividual IRI="#South_America"/>
+        <NamedIndividual IRI="#America"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#locatedIn"/>
+        <NamedIndividual IRI="#South_Asia"/>
+        <NamedIndividual IRI="#Asia"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#locatedIn"/>
+        <NamedIndividual IRI="#South_East_Asia"/>
+        <NamedIndividual IRI="#Asia"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#locatedIn"/>
+        <NamedIndividual IRI="#South_Europe"/>
+        <NamedIndividual IRI="#Europe"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#locatedIn"/>
+        <NamedIndividual IRI="#Spain"/>
+        <NamedIndividual IRI="#Western_Europe"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#locatedIn"/>
+        <NamedIndividual IRI="#Sub-Saharan_Africa"/>
+        <NamedIndividual IRI="#Africa"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongToMovement"/>
+        <NamedIndividual IRI="#Ted_Chiang"/>
+        <NamedIndividual IRI="#Contemporary"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#livedIn"/>
+        <NamedIndividual IRI="#Ted_Chiang"/>
+        <NamedIndividual IRI="#United_States_of_America"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#relatedTo"/>
+        <NamedIndividual IRI="#Ted_Chiang"/>
+        <NamedIndividual IRI="#United_States_of_America"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#wrote"/>
+        <NamedIndividual IRI="#Ted_Chiang"/>
+        <NamedIndividual IRI="#Exhalation"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#locatedIn"/>
+        <NamedIndividual IRI="#United_States_of_America"/>
+        <NamedIndividual IRI="#North_America"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasBeenPublished"/>
+        <NamedIndividual IRI="#Uno_nessuno_centomila"/>
+        <NamedIndividual IRI="#Uno_nessuno_centomila_Mondadori"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasBeenPublished"/>
+        <NamedIndividual IRI="#Uno_nessuno_centomila"/>
+        <NamedIndividual IRI="#Uno_nessuno_centomila_SpurlEditions"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#publishedBy"/>
+        <NamedIndividual IRI="#Uno_nessuno_centomila_Mondadori"/>
+        <NamedIndividual IRI="#Mondadori"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#publishedIn"/>
+        <NamedIndividual IRI="#Uno_nessuno_centomila_Mondadori"/>
+        <NamedIndividual IRI="#Italy"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#publishedBy"/>
+        <NamedIndividual IRI="#Uno_nessuno_centomila_SpurlEditions"/>
+        <NamedIndividual IRI="#SpurlEditions"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#publishedIn"/>
+        <NamedIndividual IRI="#Uno_nessuno_centomila_SpurlEditions"/>
+        <NamedIndividual IRI="#United_States_of_America"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongToMovement"/>
+        <NamedIndividual IRI="#Vladimir_Nabokov"/>
+        <NamedIndividual IRI="#Modernism"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#livedIn"/>
+        <NamedIndividual IRI="#Vladimir_Nabokov"/>
+        <NamedIndividual IRI="#Russia"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#livedIn"/>
+        <NamedIndividual IRI="#Vladimir_Nabokov"/>
+        <NamedIndividual IRI="#United_States_of_America"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#relatedTo"/>
+        <NamedIndividual IRI="#Vladimir_Nabokov"/>
+        <NamedIndividual IRI="#Russia"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#wrote"/>
+        <NamedIndividual IRI="#Vladimir_Nabokov"/>
+        <NamedIndividual IRI="#La_difesa_di_Luzin"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#wrote"/>
+        <NamedIndividual IRI="#Vladimir_Nabokov"/>
+        <NamedIndividual IRI="#Lolita"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#locatedIn"/>
+        <NamedIndividual IRI="#Western_Asia"/>
+        <NamedIndividual IRI="#Asia"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#locatedIn"/>
+        <NamedIndividual IRI="#Western_Europe"/>
+        <NamedIndividual IRI="#Europe"/>
+    </ObjectPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#end_date"/>
+        <NamedIndividual IRI="#Absurdism"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1960</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#start_date"/>
+        <NamedIndividual IRI="#Absurdism"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1950</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#publisher_name"/>
+        <NamedIndividual IRI="#Adelphi"/>
+        <Literal>Adelphi</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#birth_date"/>
+        <NamedIndividual IRI="#Antonio_Damasio"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#dateTime">1944-02-25T00:00:00</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#viaf_id"/>
+        <NamedIndividual IRI="#Antonio_Damasio"/>
+        <Literal>79104198</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#writer_name"/>
+        <NamedIndividual IRI="#Antonio_Damasio"/>
+        <Literal>Antonio Rosa Damasio</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#end_date"/>
+        <NamedIndividual IRI="#Contemporary"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2022</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#start_date"/>
+        <NamedIndividual IRI="#Contemporary"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1990</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#end_date"/>
+        <NamedIndividual IRI="#Dada"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1920</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#start_date"/>
+        <NamedIndividual IRI="#Dada"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1910</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#end_date"/>
+        <NamedIndividual IRI="#Decadent_movement"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1890</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#start_date"/>
+        <NamedIndividual IRI="#Decadent_movement"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1880</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#original_date"/>
+        <NamedIndividual IRI="#Exhalation"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2019</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#original_language"/>
+        <NamedIndividual IRI="#Exhalation"/>
+        <Literal>english</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#original_title"/>
+        <NamedIndividual IRI="#Exhalation"/>
+        <Literal>Exhalation: Stories</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#end_date"/>
+        <NamedIndividual IRI="#Expressionism"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1920</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#start_date"/>
+        <NamedIndividual IRI="#Expressionism"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1905</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#end_date"/>
+        <NamedIndividual IRI="#Futurism"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1945</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#start_date"/>
+        <NamedIndividual IRI="#Futurism"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1909</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#birth_date"/>
+        <NamedIndividual IRI="#Giacomo_Leopardi"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#dateTime">1798-06-29T00:00:00</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#death_date"/>
+        <NamedIndividual IRI="#Giacomo_Leopardi"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#dateTime">1837-06-14T00:00:00</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#viaf_id"/>
+        <NamedIndividual IRI="#Giacomo_Leopardi"/>
+        <Literal>12311353</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#writer_name"/>
+        <NamedIndividual IRI="#Giacomo_Leopardi"/>
+        <Literal>Giacomo Leopardi</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#birth_date"/>
+        <NamedIndividual IRI="#Giuseppe_Tratteur"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#dateTime">1936-12-05T00:00:00</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#viaf_id"/>
+        <NamedIndividual IRI="#Giuseppe_Tratteur"/>
+        <Literal>523155042808172402269</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#writer_name"/>
+        <NamedIndividual IRI="#Giuseppe_Tratteur"/>
+        <Literal>Giuseppe Trautteur</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#original_date"/>
+        <NamedIndividual IRI="#Il_fu_Mattia_Pascal"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1904</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#original_language"/>
+        <NamedIndividual IRI="#Il_fu_Mattia_Pascal"/>
+        <Literal>italian</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#original_title"/>
+        <NamedIndividual IRI="#Il_fu_Mattia_Pascal"/>
+        <Literal>Il fu Mattia Pascal</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#edition_language"/>
+        <NamedIndividual IRI="#Il_fu_Mattia_Pascal_Mondadori"/>
+        <Literal>italian</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#original_date"/>
+        <NamedIndividual IRI="#Il_prigioniero_libero"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2020</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#original_language"/>
+        <NamedIndividual IRI="#Il_prigioniero_libero"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#language">italian</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#original_title"/>
+        <NamedIndividual IRI="#Il_prigioniero_libero"/>
+        <Literal>Il prigioniero libero</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#edition_language"/>
+        <NamedIndividual IRI="#Il_prigioniero_libero_Adelphi"/>
+        <Literal>italian</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#country_name"/>
+        <NamedIndividual IRI="#Italy"/>
+        <Literal>Italy</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#publisher_name"/>
+        <NamedIndividual IRI="#LaFeltrinelli"/>
+        <Literal>LaFeltrinelli</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#original_date"/>
+        <NamedIndividual IRI="#La_difesa_di_Luzin"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1930</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#original_language"/>
+        <NamedIndividual IRI="#La_difesa_di_Luzin"/>
+        <Literal>russian</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#original_title"/>
+        <NamedIndividual IRI="#La_difesa_di_Luzin"/>
+        <Literal>Zaščita Lužina</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#original_date"/>
+        <NamedIndividual IRI="#Lo_strano_ordine_delle_cose"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2017</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#original_language"/>
+        <NamedIndividual IRI="#Lo_strano_ordine_delle_cose"/>
+        <Literal>portugal</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#original_title"/>
+        <NamedIndividual IRI="#Lo_strano_ordine_delle_cose"/>
+        <Literal>A Estranha Ordem das Coisas</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#original_date"/>
+        <NamedIndividual IRI="#Lolita"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1955</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#original_language"/>
+        <NamedIndividual IRI="#Lolita"/>
+        <Literal>english</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#original_title"/>
+        <NamedIndividual IRI="#Lolita"/>
+        <Literal>Lolita</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#birth_date"/>
+        <NamedIndividual IRI="#Luigi_Pirandello"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#dateTime">1867-06-28T00:00:00</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#viaf_id"/>
+        <NamedIndividual IRI="#Luigi_Pirandello"/>
+        <Literal>64010465</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#writer_name"/>
+        <NamedIndividual IRI="#Luigi_Pirandello"/>
+        <Literal>Luigi Pirandello</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#end_date"/>
+        <NamedIndividual IRI="#Magical_realism"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1967</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#start_date"/>
+        <NamedIndividual IRI="#Magical_realism"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1962</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#end_date"/>
+        <NamedIndividual IRI="#Modernism"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1940</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#start_date"/>
+        <NamedIndividual IRI="#Modernism"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1900</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#publisher_name"/>
+        <NamedIndividual IRI="#Mondadori"/>
+        <Literal>Mondadori</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#end_date"/>
+        <NamedIndividual IRI="#Naturalism"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1900</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#start_date"/>
+        <NamedIndividual IRI="#Naturalism"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1865</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#original_date"/>
+        <NamedIndividual IRI="#Operette_morali"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1827</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#original_language"/>
+        <NamedIndividual IRI="#Operette_morali"/>
+        <Literal>italian</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#original_title"/>
+        <NamedIndividual IRI="#Operette_morali"/>
+        <Literal>Operette morali</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#edition_language"/>
+        <NamedIndividual IRI="#Operette_morali_Mondadori"/>
+        <Literal>italian</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#edition_language"/>
+        <NamedIndividual IRI="#Operette_morali_laFeltrinelli"/>
+        <Literal>italian</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#country_name"/>
+        <NamedIndividual IRI="#Portugal"/>
+        <Literal>Portugal</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#end_date"/>
+        <NamedIndividual IRI="#Postmodernism"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1990</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#start_date"/>
+        <NamedIndividual IRI="#Postmodernism"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1970</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#end_date"/>
+        <NamedIndividual IRI="#Pre_Renaissance"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1400</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#start_date"/>
+        <NamedIndividual IRI="#Pre_Renaissance"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1300</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#end_date"/>
+        <NamedIndividual IRI="#Realism"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1900</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#start_date"/>
+        <NamedIndividual IRI="#Realism"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1840</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#end_date"/>
+        <NamedIndividual IRI="#Romanticism"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1850</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#start_date"/>
+        <NamedIndividual IRI="#Romanticism"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1800</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#country_name"/>
+        <NamedIndividual IRI="#Russia"/>
+        <Literal>Russia</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#original_date"/>
+        <NamedIndividual IRI="#Sei_personaggi_in_cerca_d_autore"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1921</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#original_language"/>
+        <NamedIndividual IRI="#Sei_personaggi_in_cerca_d_autore"/>
+        <Literal>italian</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#original_title"/>
+        <NamedIndividual IRI="#Sei_personaggi_in_cerca_d_autore"/>
+        <Literal>Sei personaggi in cerca d&apos;autore</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#edition_language"/>
+        <NamedIndividual IRI="#Sei_personaggi_in_cerca_d_autore_Mondadori"/>
+        <Literal>italian</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#country_name"/>
+        <NamedIndividual IRI="#Spain"/>
+        <Literal>Spain</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#publisher_name"/>
+        <NamedIndividual IRI="#SpurlEditions"/>
+        <Literal>Spurl Editions</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#end_date"/>
+        <NamedIndividual IRI="#Surrealism"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1950</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#start_date"/>
+        <NamedIndividual IRI="#Surrealism"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1910</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#end_date"/>
+        <NamedIndividual IRI="#Symbolism"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1900</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#start_date"/>
+        <NamedIndividual IRI="#Symbolism"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1857</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#birth_date"/>
+        <NamedIndividual IRI="#Ted_Chiang"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#dateTime">1967-01-01T00:00:00</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#viaf_id"/>
+        <NamedIndividual IRI="#Ted_Chiang"/>
+        <Literal>85807457</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#writer_name"/>
+        <NamedIndividual IRI="#Ted_Chiang"/>
+        <Literal>Ted Chiang</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#end_date"/>
+        <NamedIndividual IRI="#Transcendentalism"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1855</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#start_date"/>
+        <NamedIndividual IRI="#Transcendentalism"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1830</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#country_name"/>
+        <NamedIndividual IRI="#United_States_of_America"/>
+        <Literal>United States of America</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#original_date"/>
+        <NamedIndividual IRI="#Uno_nessuno_centomila"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1926</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#original_language"/>
+        <NamedIndividual IRI="#Uno_nessuno_centomila"/>
+        <Literal>italian</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#original_title"/>
+        <NamedIndividual IRI="#Uno_nessuno_centomila"/>
+        <Literal>Uno, nessuno e centomila</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#edition_language"/>
+        <NamedIndividual IRI="#Uno_nessuno_centomila_Mondadori"/>
+        <Literal>italian</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#edition_date"/>
+        <NamedIndividual IRI="#Uno_nessuno_centomila_SpurlEditions"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#dateTime">2018-10-22T00:00:00</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#edition_language"/>
+        <NamedIndividual IRI="#Uno_nessuno_centomila_SpurlEditions"/>
+        <Literal>english</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#edition_title"/>
+        <NamedIndividual IRI="#Uno_nessuno_centomila_SpurlEditions"/>
+        <Literal>One, No One, and One Hundred Thousand</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#end_date"/>
+        <NamedIndividual IRI="#Verismo"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1900</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#start_date"/>
+        <NamedIndividual IRI="#Verismo"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1875</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#birth_date"/>
+        <NamedIndividual IRI="#Vladimir_Nabokov"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#dateTime">1899-04-22T00:00:00</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#death_date"/>
+        <NamedIndividual IRI="#Vladimir_Nabokov"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#dateTime">1977-07-02T00:00:00</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#writer_name"/>
+        <NamedIndividual IRI="#Vladimir_Nabokov"/>
+        <Literal>Vladimir Nabokov</Literal>
+    </DataPropertyAssertion>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#relatedToIndividualBook"/>
+        <ObjectProperty IRI="http://www.ontologydesignpatterns.org/cp/owl/bag.owl#itemContent"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#relatedToSequenceBook"/>
+        <ObjectProperty IRI="http://www.ontologydesignpatterns.org/cp/owl/bag.owl#itemContent"/>
+    </SubObjectPropertyOf>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#hasCollection"/>
+        <ObjectProperty IRI="#hasPublisher"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#wrote"/>
+        <ObjectProperty IRI="#wroteBy"/>
+    </InverseObjectProperties>
+    <FunctionalObjectProperty>
+        <ObjectProperty IRI="#belongToMovement"/>
+    </FunctionalObjectProperty>
+    <FunctionalObjectProperty>
+        <ObjectProperty IRI="#publishedBy"/>
+    </FunctionalObjectProperty>
+    <FunctionalObjectProperty>
+        <ObjectProperty IRI="#setIn"/>
+    </FunctionalObjectProperty>
+    <InverseFunctionalObjectProperty>
+        <ObjectProperty IRI="#hasBeenPublished"/>
+    </InverseFunctionalObjectProperty>
+    <InverseFunctionalObjectProperty>
+        <ObjectProperty IRI="#hasPublisher"/>
+    </InverseFunctionalObjectProperty>
+    <SymmetricObjectProperty>
+        <ObjectProperty IRI="#isCoevalTo"/>
+    </SymmetricObjectProperty>
+    <SymmetricObjectProperty>
+        <ObjectProperty IRI="#isCompatriotWith"/>
+    </SymmetricObjectProperty>
+    <SymmetricObjectProperty>
+        <ObjectProperty IRI="#livedInTheSameEpochAs"/>
+    </SymmetricObjectProperty>
+    <SymmetricObjectProperty>
+        <ObjectProperty IRI="#overlapsWith"/>
+    </SymmetricObjectProperty>
+    <TransitiveObjectProperty>
+        <ObjectProperty IRI="#locatedIn"/>
+    </TransitiveObjectProperty>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#belongToMovement"/>
+        <Class IRI="#Writer"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasBeenPublished"/>
+        <Class IRI="#Book"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasPublisher"/>
+        <Class IRI="#BookCollection"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#isCoevalTo"/>
+        <Class IRI="#Book"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#isCompatriotWith"/>
+        <Class IRI="#Writer"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#livedIn"/>
+        <Class IRI="#Writer"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#livedInTheSameEpochAs"/>
+        <Class IRI="#Writer"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#locatedIn"/>
+        <Class IRI="#GeographicalArea"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#overlapsWith"/>
+        <Class IRI="#LiteraryMovement"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#publishedBy"/>
+        <Class IRI="#BookEdition"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#publishedIn"/>
+        <Class IRI="#BookEdition"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#relatedTo"/>
+        <Class IRI="#Writer"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#relatedToIndividualBook"/>
+        <Class IRI="#IndividualBook"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#relatedToSequenceBook"/>
+        <Class IRI="#SequenceBook"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#setIn"/>
+        <Class IRI="#Publisher"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#wrote"/>
+        <Class IRI="#Writer"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#wroteBy"/>
+        <Class IRI="#Book"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#belongToMovement"/>
+        <Class IRI="#LiteraryMovement"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasBeenPublished"/>
+        <Class IRI="#BookEdition"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasPublisher"/>
+        <Class IRI="#Publisher"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#isCoevalTo"/>
+        <Class IRI="#Book"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#isCompatriotWith"/>
+        <Class IRI="#Writer"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#livedIn"/>
+        <Class IRI="#Country"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#livedInTheSameEpochAs"/>
+        <Class IRI="#Writer"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#locatedIn"/>
+        <Class IRI="#GeographicalArea"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#overlapsWith"/>
+        <Class IRI="#LiteraryMovement"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#publishedBy"/>
+        <Class IRI="#Publisher"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#publishedIn"/>
+        <Class IRI="#Country"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#relatedTo"/>
+        <Class IRI="#Country"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#relatedToIndividualBook"/>
+        <Class IRI="#Book"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#relatedToSequenceBook"/>
+        <Class IRI="#Book"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#setIn"/>
+        <Class IRI="#Country"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#wrote"/>
+        <Class IRI="#Book"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#wroteBy"/>
+        <Class IRI="#Writer"/>
+    </ObjectPropertyRange>
+    <SubObjectPropertyOf>
+        <ObjectPropertyChain>
+            <ObjectProperty IRI="#hasBeenPublished"/>
+            <ObjectProperty IRI="#publishedIn"/>
+        </ObjectPropertyChain>
+        <ObjectProperty IRI="#hasBeenPublishedInCountry"/>
+    </SubObjectPropertyOf>
+    <FunctionalDataProperty>
+        <DataProperty IRI="#birth_date"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty IRI="#country_name"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty IRI="#death_date"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty IRI="#edition_date"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty IRI="#edition_title"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty IRI="#end_date"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty IRI="#original_date"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty IRI="#original_language"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty IRI="#original_title"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty IRI="#publisher_name"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty IRI="#start_date"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty IRI="#writer_name"/>
+    </FunctionalDataProperty>
+    <DataPropertyDomain>
+        <DataProperty IRI="#birth_date"/>
+        <Class IRI="#Writer"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#country_name"/>
+        <Class IRI="#Country"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#death_date"/>
+        <Class IRI="#Writer"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#edition_date"/>
+        <Class IRI="#BookEdition"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#edition_language"/>
+        <Class IRI="#BookEdition"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#edition_title"/>
+        <Class IRI="#BookEdition"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#end_date"/>
+        <Class IRI="#LiteraryMovement"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#original_date"/>
+        <Class IRI="#Book"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#original_language"/>
+        <Class IRI="#Book"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#original_title"/>
+        <Class IRI="#Book"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#publisher_name"/>
+        <Class IRI="#Publisher"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#start_date"/>
+        <Class IRI="#LiteraryMovement"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#viaf_id"/>
+        <Class IRI="#Writer"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#writer_name"/>
+        <Class IRI="#Writer"/>
+    </DataPropertyDomain>
+    <DataPropertyRange>
+        <DataProperty IRI="#birth_date"/>
+        <Datatype abbreviatedIRI="xsd:dateTime"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#country_name"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#death_date"/>
+        <Datatype abbreviatedIRI="xsd:dateTime"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#edition_date"/>
+        <Datatype abbreviatedIRI="xsd:dateTime"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#edition_language"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#edition_title"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#end_date"/>
+        <Datatype abbreviatedIRI="xsd:nonNegativeInteger"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#original_date"/>
+        <Datatype abbreviatedIRI="xsd:nonNegativeInteger"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#original_language"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#original_title"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#publisher_name"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#start_date"/>
+        <Datatype abbreviatedIRI="xsd:nonNegativeInteger"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#viaf_id"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#writer_name"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty IRI="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled"/>
+            <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+        </Annotation>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Check for translated books.</Literal>
+        </Annotation>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+            <Literal>S1</Literal>
+        </Annotation>
+        <Body>
+            <ClassAtom>
+                <Class IRI="#Book"/>
+                <Variable IRI="#b"/>
+            </ClassAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#original_language"/>
+                <Variable IRI="#b"/>
+                <Variable IRI="#ol"/>
+            </DataPropertyAtom>
+            <ObjectPropertyAtom>
+                <ObjectProperty IRI="#hasBeenPublished"/>
+                <Variable IRI="#b"/>
+                <Variable IRI="#be"/>
+            </ObjectPropertyAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#edition_language"/>
+                <Variable IRI="#be"/>
+                <Variable IRI="#el"/>
+            </DataPropertyAtom>
+            <BuiltInAtom IRI="http://www.w3.org/2003/11/swrlb#notEqual">
+                <Variable IRI="#ol"/>
+                <Variable IRI="#el"/>
+            </BuiltInAtom>
+        </Body>
+        <Head>
+            <ClassAtom>
+                <Class IRI="#TranslatedBook"/>
+                <Variable IRI="#b"/>
+            </ClassAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty IRI="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled"/>
+            <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+        </Annotation>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Find coeval books (i.e. books with the same first publication date)</Literal>
+        </Annotation>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+            <Literal>S3</Literal>
+        </Annotation>
+        <Body>
+            <ClassAtom>
+                <Class IRI="#Book"/>
+                <Variable IRI="#b1"/>
+            </ClassAtom>
+            <ClassAtom>
+                <Class IRI="#Book"/>
+                <Variable IRI="#b2"/>
+            </ClassAtom>
+            <BuiltInAtom IRI="http://www.w3.org/2003/11/swrlb#equal">
+                <Variable IRI="#odb1"/>
+                <Variable IRI="#odb2"/>
+            </BuiltInAtom>
+            <DifferentIndividualsAtom>
+                <Variable IRI="#b1"/>
+                <Variable IRI="#b2"/>
+            </DifferentIndividualsAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#original_date"/>
+                <Variable IRI="#b1"/>
+                <Variable IRI="#odb1"/>
+            </DataPropertyAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#original_date"/>
+                <Variable IRI="#b2"/>
+                <Variable IRI="#odb2"/>
+            </DataPropertyAtom>
+        </Body>
+        <Head>
+            <ObjectPropertyAtom>
+                <ObjectProperty IRI="#isCoevalTo"/>
+                <Variable IRI="#b1"/>
+                <Variable IRI="#b2"/>
+            </ObjectPropertyAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty IRI="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled"/>
+            <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+        </Annotation>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Check for overlapping epochs.</Literal>
+        </Annotation>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+            <Literal>S6</Literal>
+        </Annotation>
+        <Body>
+            <ClassAtom>
+                <Class IRI="#LiteraryMovement"/>
+                <Variable IRI="#lm1"/>
+            </ClassAtom>
+            <ClassAtom>
+                <Class IRI="#LiteraryMovement"/>
+                <Variable IRI="#lm2"/>
+            </ClassAtom>
+            <DifferentIndividualsAtom>
+                <Variable IRI="#lm1"/>
+                <Variable IRI="#lm2"/>
+            </DifferentIndividualsAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#start_date"/>
+                <Variable IRI="#lm1"/>
+                <Variable IRI="#slm1"/>
+            </DataPropertyAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#start_date"/>
+                <Variable IRI="#lm2"/>
+                <Variable IRI="#slm2"/>
+            </DataPropertyAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#end_date"/>
+                <Variable IRI="#lm1"/>
+                <Variable IRI="#elm1"/>
+            </DataPropertyAtom>
+            <BuiltInAtom IRI="http://www.w3.org/2003/11/swrlb#lessThan">
+                <Variable IRI="#slm2"/>
+                <Variable IRI="#elm1"/>
+            </BuiltInAtom>
+            <BuiltInAtom IRI="http://www.w3.org/2003/11/swrlb#greaterThan">
+                <Variable IRI="#slm2"/>
+                <Variable IRI="#slm1"/>
+            </BuiltInAtom>
+        </Body>
+        <Head>
+            <ObjectPropertyAtom>
+                <ObjectProperty IRI="#overlapsWith"/>
+                <Variable IRI="#lm1"/>
+                <Variable IRI="#lm2"/>
+            </ObjectPropertyAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty IRI="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled"/>
+            <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+        </Annotation>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Check for bilingual writers</Literal>
+        </Annotation>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+            <Literal>S2</Literal>
+        </Annotation>
+        <Body>
+            <ClassAtom>
+                <Class IRI="#Writer"/>
+                <Variable IRI="#w"/>
+            </ClassAtom>
+            <ObjectPropertyAtom>
+                <ObjectProperty IRI="#wrote"/>
+                <Variable IRI="#w"/>
+                <Variable IRI="#b1"/>
+            </ObjectPropertyAtom>
+            <ObjectPropertyAtom>
+                <ObjectProperty IRI="#wrote"/>
+                <Variable IRI="#w"/>
+                <Variable IRI="#b2"/>
+            </ObjectPropertyAtom>
+            <DifferentIndividualsAtom>
+                <Variable IRI="#b1"/>
+                <Variable IRI="#b2"/>
+            </DifferentIndividualsAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#original_language"/>
+                <Variable IRI="#b1"/>
+                <Variable IRI="#olb1"/>
+            </DataPropertyAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#original_language"/>
+                <Variable IRI="#b2"/>
+                <Variable IRI="#olb2"/>
+            </DataPropertyAtom>
+            <BuiltInAtom IRI="http://www.w3.org/2003/11/swrlb#notEqual">
+                <Variable IRI="#olb1"/>
+                <Variable IRI="#olb2"/>
+            </BuiltInAtom>
+        </Body>
+        <Head>
+            <ClassAtom>
+                <Class IRI="#BilingualWriter"/>
+                <Variable IRI="#w"/>
+            </ClassAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty IRI="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled"/>
+            <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+        </Annotation>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Find writers who lived during the same epoch.</Literal>
+        </Annotation>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+            <Literal>S4</Literal>
+        </Annotation>
+        <Body>
+            <ClassAtom>
+                <Class IRI="#Writer"/>
+                <Variable IRI="#w1"/>
+            </ClassAtom>
+            <ClassAtom>
+                <Class IRI="#Writer"/>
+                <Variable IRI="#w2"/>
+            </ClassAtom>
+            <DifferentIndividualsAtom>
+                <Variable IRI="#w1"/>
+                <Variable IRI="#w2"/>
+            </DifferentIndividualsAtom>
+            <ObjectPropertyAtom>
+                <ObjectProperty IRI="#belongToMovement"/>
+                <Variable IRI="#w1"/>
+                <Variable IRI="#m1"/>
+            </ObjectPropertyAtom>
+            <ObjectPropertyAtom>
+                <ObjectProperty IRI="#belongToMovement"/>
+                <Variable IRI="#w2"/>
+                <Variable IRI="#m2"/>
+            </ObjectPropertyAtom>
+            <SameIndividualAtom>
+                <Variable IRI="#m1"/>
+                <Variable IRI="#m2"/>
+            </SameIndividualAtom>
+        </Body>
+        <Head>
+            <ObjectPropertyAtom>
+                <ObjectProperty IRI="#livedInTheSameEpochAs"/>
+                <Variable IRI="#w1"/>
+                <Variable IRI="#w2"/>
+            </ObjectPropertyAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty IRI="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled"/>
+            <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+        </Annotation>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Find writers who lived in the same country.</Literal>
+        </Annotation>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+            <Literal>S5</Literal>
+        </Annotation>
+        <Body>
+            <ClassAtom>
+                <Class IRI="#Writer"/>
+                <Variable IRI="#w1"/>
+            </ClassAtom>
+            <ClassAtom>
+                <Class IRI="#Writer"/>
+                <Variable IRI="#w2"/>
+            </ClassAtom>
+            <DifferentIndividualsAtom>
+                <Variable IRI="#w1"/>
+                <Variable IRI="#w2"/>
+            </DifferentIndividualsAtom>
+            <ObjectPropertyAtom>
+                <ObjectProperty IRI="#livedIn"/>
+                <Variable IRI="#w1"/>
+                <Variable IRI="#c"/>
+            </ObjectPropertyAtom>
+            <ObjectPropertyAtom>
+                <ObjectProperty IRI="#livedIn"/>
+                <Variable IRI="#w2"/>
+                <Variable IRI="#c"/>
+            </ObjectPropertyAtom>
+        </Body>
+        <Head>
+            <ObjectPropertyAtom>
+                <ObjectProperty IRI="#isCompatriotWith"/>
+                <Variable IRI="#w1"/>
+                <Variable IRI="#w2"/>
+            </ObjectPropertyAtom>
+        </Head>
+    </DLSafeRule>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>vann:preferredNamespacePrefix</AbbreviatedIRI>
+        <Literal xml:lang="en">The preferred namespace prefix to use when using terms from this vocabulary in an XML document.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <AbbreviatedIRI>vann:preferredNamespacePrefix</AbbreviatedIRI>
+        <Literal>http://purl.org/vocab/vann/</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>vann:preferredNamespacePrefix</AbbreviatedIRI>
+        <Literal xml:lang="en">Preferred Namespace Prefix</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>vann:preferredNamespaceUri</AbbreviatedIRI>
+        <Literal xml:lang="en">The preferred namespace URI to use when using terms from this vocabulary in an XML document.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <AbbreviatedIRI>vann:preferredNamespaceUri</AbbreviatedIRI>
+        <Literal>http://purl.org/vocab/vann/</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>vann:preferredNamespaceUri</AbbreviatedIRI>
+        <Literal xml:lang="en">Preferred Namespace Uri</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Absurdism</IRI>
+        <Literal xml:lang="en">Literary genre, where character cannot find a purpose in life</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Absurdism</IRI>
+        <Literal xml:lang="en">Absurdism</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Adelphi</IRI>
+        <Literal>Publishing house in Milan, Italy</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Adelphi</IRI>
+        <Literal xml:lang="en">Adelphi</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#AdventureRomance</IRI>
+        <Literal xml:lang="en">Type of fiction that usually presents danger, or gives the reader a sense of excitement.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#AdventureRomance</IRI>
+        <Literal xml:lang="en">Adventure romance</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Africa</IRI>
+        <Literal xml:lang="en">A world continent</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Africa</IRI>
+        <Literal xml:lang="en">Africa</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#America</IRI>
+        <Literal xml:lang="en">A world continent</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#America</IRI>
+        <Literal xml:lang="en">America</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#AncientBook</IRI>
+        <Literal xml:lang="en">A book written and published before 1830.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#AncientBook</IRI>
+        <Literal xml:lang="en">Ancient book</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Antarctica</IRI>
+        <Literal xml:lang="en">A world continent</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Antarctica</IRI>
+        <Literal xml:lang="en">Antarctica</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Antonio_Damasio</IRI>
+        <Literal xml:lang="en">A portuguese author born in 1944</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Antonio_Damasio</IRI>
+        <Literal xml:lang="en">Antonio Rosa Damasio</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Aphorisms</IRI>
+        <Literal xml:lang="en">A concise, terse, laconic or memorable expression of a general truth or principle.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Aphorisms</IRI>
+        <Literal xml:lang="en">Aphorisms</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Asia</IRI>
+        <Literal xml:lang="en">A world continent</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Asia</IRI>
+        <Literal xml:lang="en">Asia</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Australasia</IRI>
+        <Literal xml:lang="en">Subregion of Oceania</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Australasia</IRI>
+        <Literal xml:lang="en">Australasia</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Ballata</IRI>
+        <Literal xml:lang="en">Italian poetry with the musical structure AbbaA</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Ballata</IRI>
+        <Literal xml:lang="en">Ballata</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Biblioteca_Scientifica</IRI>
+        <Literal xml:lang="en">An Adelphi collection mostly composed by essays.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Biblioteca_Scientifica</IRI>
+        <Literal xml:lang="en">Biblioteca Scientifica</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Bildungsromance</IRI>
+        <Literal xml:lang="en">A novel dealing with one person&apos;s formative years or spiritual education.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Bildungsromance</IRI>
+        <Literal xml:lang="en">Bildungsromance</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Biography</IRI>
+        <Literal xml:lang="en">Detailed description of a person life.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Biography</IRI>
+        <Literal xml:lang="en">Biography</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Book</IRI>
+        <Literal xml:lang="en">Medium for information recording (digital or on paper) composed of may pages.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Book</IRI>
+        <Literal xml:lang="en">Book</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#BookCollection</IRI>
+        <Literal xml:lang="en">A collection of books grouped by gnere or aruthor and belonging to a specific publisher.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#BookCollection</IRI>
+        <Literal xml:lang="en">Book collection</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#BookEdition</IRI>
+        <Literal xml:lang="en">Book version distributed by a specific publisher.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#BookEdition</IRI>
+        <Literal xml:lang="en">Book edition</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#BookSeries</IRI>
+        <Literal xml:lang="en">An ordered collection of books related to the same plot.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#BookSeries</IRI>
+        <Literal xml:lang="en">Book series</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Central_America</IRI>
+        <Literal xml:lang="en">Subregion of America</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Central_America</IRI>
+        <Literal xml:lang="en">Central America</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Central_Asia</IRI>
+        <Literal xml:lang="en">Subregion of Asia</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Central_Asia</IRI>
+        <Literal xml:lang="en">Central Asia</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Central_Europe</IRI>
+        <Literal xml:lang="en">Subregion of europe</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Central_Europe</IRI>
+        <Literal xml:lang="en">Central Europe</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#ChameleonicWriter</IRI>
+        <Literal xml:lang="en">Writer which wrote books of every type: drama, poetry and prose.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#ChameleonicWriter</IRI>
+        <Literal xml:lang="en">Chameleonic writer</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#ChildrenRomance</IRI>
+        <Literal xml:lang="en">Novel written for children</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#ChildrenRomance</IRI>
+        <Literal xml:lang="en">Children romance</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Comedy</IRI>
+        <Literal xml:lang="en">Dramatic works that combines elements of comedy and drama.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Comedy</IRI>
+        <Literal xml:lang="en">Comedy</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#ComedyRomance</IRI>
+        <Literal xml:lang="en">Type of comedy and slice-of-life fiction, focusing on lighthearted, humorous plot lines centered on romantic ideas, such as how true love is able to surmount most obstacles.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#ComedyRomance</IRI>
+        <Literal xml:lang="en">Comedy romance</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Contemporary</IRI>
+        <Literal xml:lang="en">Literary movement that started in 1990 and is still going. Composed by
+the contemporary author</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Contemporary</IRI>
+        <Literal xml:lang="en">Contemporary</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Country</IRI>
+        <Literal xml:lang="en">Nation with its own government occupying a particular territory.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Country</IRI>
+        <Literal xml:lang="en">Country</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#CrimefictionRomance</IRI>
+        <Literal xml:lang="en">Narratives centred on criminal acts and especially on the investigation.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#CrimefictionRomance</IRI>
+        <Literal xml:lang="en">Crimefiction romance</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Dada</IRI>
+        <Literal xml:lang="en">A literary movement of the post 2 world war, that is often satirical and nonsensical.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Dada</IRI>
+        <Literal xml:lang="en">Dada</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Decadent_movement</IRI>
+        <Literal xml:lang="en">A late-19th-century artistic and literary movement, centered in Western Europe, that followed an aesthetic ideology of excess and artificiality.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Decadent_movement</IRI>
+        <Literal xml:lang="en">Decadent movement</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#DetectivefictionRomance</IRI>
+        <Literal xml:lang="en">Novel in which an investigator or a detective investigates a crime, often murder.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#DetectivefictionRomance</IRI>
+        <Literal xml:lang="en">Detectivefiction romance</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Dialogue</IRI>
+        <Literal xml:lang="en">Transcript of a conversation between two or more speakers.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Dialogue</IRI>
+        <Literal xml:lang="en">Dialogue</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Diary</IRI>
+        <Literal xml:lang="en">Written record with discrete entries arranged by date reporting on what happened during a day or other period.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Diary</IRI>
+        <Literal xml:lang="en">Diary</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#DidacticPoetry</IRI>
+        <Literal xml:lang="en">Didactic poetry</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="owl:versionInfo"/>
+        <IRI>#DidacticPoetry</IRI>
+        <Literal xml:lang="en">Poetry that instructs, either in terms of morals or by providing knowledge.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Divulgative</IRI>
+        <Literal xml:lang="en">Written text with the inteded mean of spreading ideas or specific knowledge.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Divulgative</IRI>
+        <Literal xml:lang="en">Divulgative prose</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Drama</IRI>
+        <Literal xml:lang="en">Book describing the setting and plot of a show which will take place on a stage.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Drama</IRI>
+        <Literal xml:lang="en">Drama</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#East_Asia</IRI>
+        <Literal xml:lang="en">Subregion of Asia</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#East_Asia</IRI>
+        <Literal xml:lang="en">East Asia</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Eastern_Europe</IRI>
+        <Literal xml:lang="en">Subregion of Europe</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Eastern_Europe</IRI>
+        <Literal xml:lang="en">Eastern Europe</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#EpicPoetry</IRI>
+        <Literal xml:lang="en">A lengthy poem about extraordinary deeds of extraordinary characters.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#EpicPoetry</IRI>
+        <Literal xml:lang="en">Epic poetry</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#EroticRomance</IRI>
+        <Literal xml:lang="en">Written stories about the development of a romantic relationship through sexual interaction.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#EroticRomance</IRI>
+        <Literal xml:lang="en">Erotic romance</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Essay</IRI>
+        <Literal xml:lang="en">Piece of writing that give the author&apos;s own argument about a specific topic.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Essay</IRI>
+        <Literal xml:lang="en">Essay</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Europe</IRI>
+        <Literal xml:lang="en">A world continent</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Europe</IRI>
+        <Literal xml:lang="en">Europe</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Exhalation</IRI>
+        <Literal xml:lang="en">Sci-Fi short story collection, written by Ted Chiang, originally published in 2019</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Exhalation</IRI>
+        <Literal xml:lang="en">Exhalation</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Expressionism</IRI>
+        <Literal xml:lang="en">Literary movement of the pre first world war society that tried to convey emotion and meaning rather than reality</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Expressionism</IRI>
+        <Literal xml:lang="en">Expressionism</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Fable</IRI>
+        <Literal xml:lang="en">Prose that features animals, legendary creatures, etc. that illustrates o leads to a particular moral lesson.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Fable</IRI>
+        <Literal xml:lang="en">Fable</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#FantahistoricalRomance</IRI>
+        <Literal xml:lang="en">Historical fiction that incorporates fantastic elements, such as magic, into a more realistic narrative.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#FantahistoricalRomance</IRI>
+        <Literal xml:lang="en">Fantahistorical romance</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#FantasyRomance</IRI>
+        <Literal xml:lang="en">Novel set in an imaginary universe, often but not always without any locations, events, or people from the real world.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#FantasyRomance</IRI>
+        <Literal xml:lang="en">Fantasy romance</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Futurism</IRI>
+        <Literal xml:lang="en">Futurism is a modernist avant-garde movement in literature and part of the Futurism art movement that originated in Italy in the early 20th century</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Futurism</IRI>
+        <Literal xml:lang="en">Futurism</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#GeographicalArea</IRI>
+        <Literal xml:lang="en">A continent or one of its part.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#GeographicalArea</IRI>
+        <Literal xml:lang="en">Geographical area</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Giacomo_Leopardi</IRI>
+        <Literal xml:lang="en">Italian XIX century&apos;s poet that belonged to the romanticism movement</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Giacomo_Leopardi</IRI>
+        <Literal xml:lang="en">Giacomo Leopardi</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Giuseppe_Tratteur</IRI>
+        <Literal xml:lang="en">Italian phisic born in 1963</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Giuseppe_Tratteur</IRI>
+        <Literal xml:lang="en">Giuseppe Tratteur</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#HistoricalRomance</IRI>
+        <Literal xml:lang="en">Fictional text in which the plot takes place in a setting related to past events.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#HistoricalRomance</IRI>
+        <Literal xml:lang="en">Historical romance</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#HorrorRomance</IRI>
+        <Literal xml:lang="en">Fiction in prose of variable length which shocks, or even frightens, the reader or perhaps induces a feeling of repulsion.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#HorrorRomance</IRI>
+        <Literal xml:lang="en">Horror romance</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Il_fu_Mattia_Pascal</IRI>
+        <Literal xml:lang="en">A comedy romance book written by Pirandello in 1904</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Il_fu_Mattia_Pascal</IRI>
+        <Literal xml:lang="en">Il fu Mattia Pascal</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Il_fu_Mattia_Pascal_Mondadori</IRI>
+        <Literal xml:lang="en">Mondadori edition of &quot;Il fu Mattia Pascal&quot;</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Il_fu_Mattia_Pascal_Mondadori</IRI>
+        <Literal xml:lang="en">Il fu Mattia Pascal Mondadori</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Il_prigioniero_libero</IRI>
+        <Literal xml:lang="en">Philosophic essay written by Giuseppe Tratteur, originally published in 2020</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Il_prigioniero_libero</IRI>
+        <Literal xml:lang="en">Il prigioniero libero</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Il_prigioniero_libero_Adelphi</IRI>
+        <Literal xml:lang="en">Adelphi edition of &quot;Il prigioniero libero&quot;</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Il_prigioniero_libero_Adelphi</IRI>
+        <Literal xml:lang="en">Il prigioniero libero Adelphi</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Il_prigioniero_libero_collezioneAdelphi</IRI>
+        <Literal xml:lang="en">&quot;Il prigioniero libero&quot; edition belonging to the &quot;Biblioteca Scientifica Adelphi&apos;s collection</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Il_prigioniero_libero_collezioneAdelphi</IRI>
+        <Literal xml:lang="en">Il prigioniero libero collezione Adelphi</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#IndividualBook</IRI>
+        <Literal xml:lang="en">Book part of a book collection.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#IndividualBook</IRI>
+        <Literal xml:lang="en">Individual book</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Italy</IRI>
+        <Literal xml:lang="en">A country located in Southern Europe</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Italy</IRI>
+        <Literal xml:lang="en">Italy</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#LaFeltrinelli</IRI>
+        <Literal xml:lang="en">Publishing house in Milan, Italy</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#LaFeltrinelli</IRI>
+        <Literal xml:lang="en">LaFeltrinelli</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#La_difesa_di_Luzin</IRI>
+        <Literal xml:lang="en">A comedy romance book written by Vladimir Nabokov 1930</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#La_difesa_di_Luzin</IRI>
+        <Literal xml:lang="en">La difesa di Luzin</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#LiteraryMovement</IRI>
+        <Literal xml:lang="en">Period of time mainly characterized by a particular literary genre.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#LiteraryMovement</IRI>
+        <Literal xml:lang="en">Literary movement</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Lo_strano_ordine_delle_cose</IRI>
+        <Literal xml:lang="en">Philosophic essay written by Antonio Damasio, originally published in 2017</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Lo_strano_ordine_delle_cose</IRI>
+        <Literal xml:lang="en">Lo strano ordine delle cose</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Lo_strano_ordine_delle_cose_collezioneAdelphi</IRI>
+        <Literal xml:lang="en">&quot;Lo strano ordine delle cose&quot; edition belonging to the &quot;Biblioteca Scientifica Adelphi&apos;s collection</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Lo_strano_ordine_delle_cose_collezioneAdelphi</IRI>
+        <Literal xml:lang="en">Lo strano ordine delle cose collezione Adelphi</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Lolita</IRI>
+        <Literal xml:lang="en">A romantic romance book written by Vladimir Nabokov in 1955</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Lolita</IRI>
+        <Literal xml:lang="en">Lolita</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Luigi_Pirandello</IRI>
+        <Literal xml:lang="en">An Italian Modernist author born in 1867</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Luigi_Pirandello</IRI>
+        <Literal xml:lang="en">Luigi Pirandello</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#LyricPoetry</IRI>
+        <Literal xml:lang="en">Poetry wich express personal emotions or feelings.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#LyricPoetry</IRI>
+        <Literal xml:lang="en">Lyric poetry</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Madrigal</IRI>
+        <Literal xml:lang="en">Secular vocal music composition</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Madrigal</IRI>
+        <Literal xml:lang="en">Madrigal</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Magical_realism</IRI>
+        <Literal xml:lang="en">Literary movement that paints a realistic view of the world while also adding magical elements</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Magical_realism</IRI>
+        <Literal xml:lang="en">Magical realism</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Manifest</IRI>
+        <Literal xml:lang="en">A published declaration of the intentions, motives or views of the issuer.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Manifest</IRI>
+        <Literal xml:lang="en">Manifest</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Melanesia</IRI>
+        <Literal xml:lang="en">Subregion of Oceania</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Melanesia</IRI>
+        <Literal xml:lang="en">Melanesia</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Micronesia</IRI>
+        <Literal xml:lang="en">Subregion of Oceania</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Micronesia</IRI>
+        <Literal xml:lang="en">Micronesia</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#ModernBook</IRI>
+        <Literal xml:lang="en">A book written and published after 1830.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#ModernBook</IRI>
+        <Literal xml:lang="en">Modern book</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Modernism</IRI>
+        <Literal xml:lang="en">Literary movement originated in the late 19th and early 20th centuries, mainly in Europe and North America, characterized by a self-conscious break with traditional ways of writing, in both poetry and prose fiction writing.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Modernism</IRI>
+        <Literal xml:lang="en">Modernism</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Mondadori</IRI>
+        <Literal xml:lang="en">Publishing house in Segrate, Italy</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Mondadori</IRI>
+        <Literal xml:lang="en">Mondadori</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Narrative</IRI>
+        <Literal xml:lang="en">Any account of a series of related event or experience, whether non-fictional or fictional.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Narrative</IRI>
+        <Literal xml:lang="en">Narrative</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Naturalism</IRI>
+        <Literal xml:lang="en">Naturalism is a literary movement beginning in the late nineteenth century, similar to literary realism in its rejection of Romanticism, but distinct in its embrace of determinism, detachment, scientific objectivism, and social commentary.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Naturalism</IRI>
+        <Literal xml:lang="en">Naturalism</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#NoirRomance</IRI>
+        <Literal xml:lang="en">Novel marked by darkness in theme and subject matter, generally featuring a disturbing mixture of sex and violence.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#NoirRomance</IRI>
+        <Literal xml:lang="en">Noir romance</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#North_Africa</IRI>
+        <Literal xml:lang="en">Subregion of Africa</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#North_Africa</IRI>
+        <Literal xml:lang="en">North Africa</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#North_America</IRI>
+        <Literal xml:lang="en">Subregion of America</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#North_America</IRI>
+        <Literal xml:lang="en">North America</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#North_Asia</IRI>
+        <Literal xml:lang="en">Subregion of Asia</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#North_Asia</IRI>
+        <Literal xml:lang="en">North Asia</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#North_Europe</IRI>
+        <Literal xml:lang="en">Subregion of Europe</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#North_Europe</IRI>
+        <Literal xml:lang="en">North Europe</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Oceania</IRI>
+        <Literal xml:lang="en">A world continent</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Oceania</IRI>
+        <Literal xml:lang="en">Oceania</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Operette_morali</IRI>
+        <Literal xml:lang="en">Collection of philosophical short stories written by Giacomo Leopardi</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Operette_morali</IRI>
+        <Literal xml:lang="en">Operette morali</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Operette_morali_Mondadori</IRI>
+        <Literal xml:lang="en">Operette morali edition published by Mondadori</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Operette_morali_Mondadori</IRI>
+        <Literal xml:lang="en">Operette morali Mondadori</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Operette_morali_laFeltrinelli</IRI>
+        <Literal xml:lang="en">Operette morali edition published by La Feltrinelli</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Operette_morali_laFeltrinelli</IRI>
+        <Literal xml:lang="en">Operette morali LaFeltrinelli</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Playwright</IRI>
+        <Literal xml:lang="en">Writer who has written at least one drama.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Playwright</IRI>
+        <Literal xml:lang="en">Playwright</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Poet</IRI>
+        <Literal xml:lang="en">Writer who has written at least one poetry.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Poet</IRI>
+        <Literal xml:lang="en">Poet</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Poetry</IRI>
+        <Literal xml:lang="en">Literary composition written by a poet that uses aesthetic and rhyhmic qualities of language.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Poetry</IRI>
+        <Literal xml:lang="en">Poetry</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Polynesia</IRI>
+        <Literal xml:lang="en">Subregion of Oceania</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Polynesia</IRI>
+        <Literal xml:lang="en">Polynesia</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Portugal</IRI>
+        <Literal xml:lang="en">A country located in Europe</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Portugal</IRI>
+        <Literal xml:lang="en">Portugal</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Postmodernism</IRI>
+        <Literal xml:lang="en">Form of literature that is characterized by the use of metafiction, unreliable narration, self-reflexivity, intertextuality, and which often thematizes both historical and political issues</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Postmodernism</IRI>
+        <Literal xml:lang="en">Postmodernism</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Pre_Renaissance</IRI>
+        <Literal xml:lang="en">Literary movement that anticipated most of the Renaissance themes</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Pre_Renaissance</IRI>
+        <Literal xml:lang="en">Pre-Renaissance</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Prose</IRI>
+        <Literal xml:lang="en">Written text in his ordinary form without metrical structure.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Prose</IRI>
+        <Literal xml:lang="en">Prose</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#ProseWriter</IRI>
+        <Literal xml:lang="en">Writer who has written at least a prose.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#ProseWriter</IRI>
+        <Literal xml:lang="en">Prose writer</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Publisher</IRI>
+        <Literal xml:lang="en">Entity which publish and distribute a book.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Publisher</IRI>
+        <Literal xml:lang="en">Publisher</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Realism</IRI>
+        <Literal xml:lang="en">The Realist movement began in the mid-19th century as a reaction to Romanticism. In favor of depictions of &apos;real&apos; life, the Realist used common laborers, and ordinary people in ordinary surroundings engaged in real activities as subjects for their works.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Realism</IRI>
+        <Literal xml:lang="en">Realism</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Romance</IRI>
+        <Literal xml:lang="en">Relatively long work of narrative fiction.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Romance</IRI>
+        <Literal xml:lang="en">Romance</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#RomanticRomance</IRI>
+        <Literal xml:lang="en">Novel which places its primary focus on the relationship and romantic love between two people.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#RomanticRomance</IRI>
+        <Literal xml:lang="en">Romantic romance</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Romanticism</IRI>
+        <Literal xml:lang="en">Literary movement of the 18th century.
+Romanticism was characterized by its emphasis on emotion and individualism, clandestine literature, idealization of nature, suspicion of science and industrialization, and glorification of the past with a strong preference for the medieval rather than the classical</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Romanticism</IRI>
+        <Literal xml:lang="en">Romanticism</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Russia</IRI>
+        <Literal xml:lang="en">A country located in Eastern Europe</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Russia</IRI>
+        <Literal xml:lang="en">Russia</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#SciencefictionRomance</IRI>
+        <Literal xml:lang="en">Novel which typically deals with imaginative and futuristic concepts.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#SciencefictionRomance</IRI>
+        <Literal xml:lang="en">Sciencefiction romance</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Sei_personaggi_in_cerca_d_autore</IRI>
+        <Literal xml:lang="en">A Tragedy written by Luigi Pirandello</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Sei_personaggi_in_cerca_d_autore</IRI>
+        <Literal xml:lang="en">Sei personaggi in cerca d&apos;autore</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Sei_personaggi_in_cerca_d_autore_Mondadori</IRI>
+        <Literal xml:lang="en">Mondadori edition of &quot;Sei personaggi in cerca d&apos;autore&quot;</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Sei_personaggi_in_cerca_d_autore_Mondadori</IRI>
+        <Literal xml:lang="en">Sei personaggi in cerca d&apos;autore Mondadori</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#SequenceBook</IRI>
+        <Literal xml:lang="en">Book part of a book series.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#SequenceBook</IRI>
+        <Literal xml:lang="en">Sequence book</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#ShortStories</IRI>
+        <Literal xml:lang="en">Prose fiction that typically can be read in one sitting and focuses on a self-contained incident or series of linked incidents, with the intent of evoking a single effect or mood.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#ShortStories</IRI>
+        <Literal xml:lang="en">Short stories</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Song</IRI>
+        <Literal xml:lang="en">Musical composition accompained by specific lyrics intended to be performed by the human voice.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Song</IRI>
+        <Literal xml:lang="en">Song</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Sonnet</IRI>
+        <Literal xml:lang="en">Poetry composition of 14 lines which follows a strict rhyme sheme.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Sonnet</IRI>
+        <Literal xml:lang="en">Sonnet</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#South_America</IRI>
+        <Literal xml:lang="en">Subregion of America</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#South_America</IRI>
+        <Literal xml:lang="en">South America</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#South_Asia</IRI>
+        <Literal xml:lang="en">Subregion of Asia</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#South_Asia</IRI>
+        <Literal xml:lang="en">South Asia</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#South_East_Asia</IRI>
+        <Literal xml:lang="en">Subregion of Asia</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#South_East_Asia</IRI>
+        <Literal xml:lang="en">South East Asia</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#South_Europe</IRI>
+        <Literal xml:lang="en">Subregion of Europe</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#South_Europe</IRI>
+        <Literal xml:lang="en">South Europe</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Spain</IRI>
+        <Literal xml:lang="en">A country located in south europe</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Spain</IRI>
+        <Literal xml:lang="en">Spain</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#SpurlEditions</IRI>
+        <Literal xml:lang="en">An independent publisher of unusual literature and photography</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#SpurlEditions</IRI>
+        <Literal xml:lang="en">SpurlEditions</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Sub-Saharan_Africa</IRI>
+        <Literal xml:lang="en">Subregion of Africa</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Sub-Saharan_Africa</IRI>
+        <Literal xml:lang="en">Sub Saharan Africa</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Surrealism</IRI>
+        <Literal xml:lang="en">Literary and artistic movement, of the 19th century, in which the goal is to create something bizarre and disjointed, but still somehow understandable.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Surrealism</IRI>
+        <Literal xml:lang="en">Surrealism</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Symbolism</IRI>
+        <Literal xml:lang="en">Symbolism was a late 19th-century art movement of French and Belgian origin in poetry and other arts seeking to represent absolute truths symbolically through language and metaphorical images, mainly as a reaction against naturalism and realism.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Symbolism</IRI>
+        <Literal xml:lang="en">Symbolism</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Ted_Chiang</IRI>
+        <Literal xml:lang="en">American contemporary sci-fi writer</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Ted_Chiang</IRI>
+        <Literal xml:lang="en">Ted Chiang</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#ThrillerRomance</IRI>
+        <Literal xml:lang="en">Novel characterized by feelings of suspense, excitement, surprise, anticipation and anxiety.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#ThrillerRomance</IRI>
+        <Literal xml:lang="en">Thriller romance</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Tragedy</IRI>
+        <Literal xml:lang="en">Drama based on human suffering and, mainly, the terrible or sorrowful events that befall a main character.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Tragedy</IRI>
+        <Literal xml:lang="en">Tragedy</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Transcendentalism</IRI>
+        <Literal xml:lang="en">Transcendentalism is a 19th-century movement of writers and philosophers in New England who were loosely bound together by adherence to an idealistic system of thought based on a belief in the essential unity of all creation, the innate goodness of humanity, and the supremacy of insight over logic and experience</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Transcendentalism</IRI>
+        <Literal xml:lang="en">Trascendentalism</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Treatise</IRI>
+        <Literal xml:lang="en">A written work dealing formaly or systematically with a subject.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Treatise</IRI>
+        <Literal xml:lang="en">Treatise</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#United_States_of_America</IRI>
+        <Literal xml:lang="en">A country located in America</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#United_States_of_America</IRI>
+        <Literal xml:lang="en">United States of America</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Uno_nessuno_centomila</IRI>
+        <Literal xml:lang="en">A comedy romance book written by Luigi Pirandello</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Uno_nessuno_centomila</IRI>
+        <Literal xml:lang="en">Uno, nessuno, centomila</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Uno_nessuno_centomila_Mondadori</IRI>
+        <Literal xml:lang="en">Mondadori edition of &quot;Uno nessuno centomila&quot;</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Uno_nessuno_centomila_Mondadori</IRI>
+        <Literal xml:lang="en">Uno, nessuno, centomila Mondadori</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Uno_nessuno_centomila_SpurlEditions</IRI>
+        <Literal xml:lang="en">SpurlEditions edition of &quot;Uno nessuno centomila&quot;</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Uno_nessuno_centomila_SpurlEditions</IRI>
+        <Literal xml:lang="en">Uno, nessuno, centomila SpurlEdtions</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Verismo</IRI>
+        <Literal xml:lang="en">Italian literary movement of the late 18th century, unlike French naturalism, which was based on positivistic ideals, verist claims of the scientific nature and social usefulness of the movement</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Verismo</IRI>
+        <Literal xml:lang="en">Verismo</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Vladimir_Nabokov</IRI>
+        <Literal xml:lang="en">A russian modernist writer</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Vladimir_Nabokov</IRI>
+        <Literal xml:lang="en">Vladimir Nabokov</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#WandovagoWriter</IRI>
+        <Literal xml:lang="en">Writer who has lived in at least 2 country.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#WandovagoWriter</IRI>
+        <Literal xml:lang="en">Wandovago writer</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Western_Asia</IRI>
+        <Literal xml:lang="en">Subregion of Asia</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Western_Asia</IRI>
+        <Literal xml:lang="en">Western Asia</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Western_Europe</IRI>
+        <Literal xml:lang="en">Subregion of Europe</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Western_Europe</IRI>
+        <Literal xml:lang="en">Western Europe</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Writer</IRI>
+        <Literal xml:lang="en">Person which writes books.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Writer</IRI>
+        <Literal xml:lang="en">Writer</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#belongToMovement</IRI>
+        <Literal xml:lang="en">A writer is born in a specific epoch related to a major literary movement.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#belongToMovement</IRI>
+        <Literal xml:lang="en">belong to movement</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#birth_date</IRI>
+        <Literal xml:lang="en">Writer&apos;s birth date.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#birth_date</IRI>
+        <Literal xml:lang="en">birth date</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#country_name</IRI>
+        <Literal xml:lang="en">Name which a country is identified by.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#country_name</IRI>
+        <Literal xml:lang="en">country name</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#death_date</IRI>
+        <Literal xml:lang="en">Writer&apos;s death date.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#death_date</IRI>
+        <Literal xml:lang="en">death date</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#edition_date</IRI>
+        <Literal xml:lang="en">Book edition&apos;s publication date.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#edition_date</IRI>
+        <Literal xml:lang="en">edition date</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#edition_language</IRI>
+        <Literal xml:lang="en">Language under which book edition has been published (it can be different from the original book language).</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#edition_language</IRI>
+        <Literal xml:lang="en">edition language</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#edition_title</IRI>
+        <Literal xml:lang="en">Title under which book edition has been published.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#edition_title</IRI>
+        <Literal xml:lang="en">edition title</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#hasBeenPublished</IRI>
+        <Literal xml:lang="en">A book has been published as a specific book edition.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#hasBeenPublished</IRI>
+        <Literal xml:lang="en">has been published</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#hasBeenPublishedInCountry</IRI>
+        <Literal xml:lang="en">A book has been published as a specific book edition in a particular country.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#hasBeenPublishedInCountry</IRI>
+        <Literal xml:lang="en">has been published in country</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#hasCollection</IRI>
+        <Literal xml:lang="en">A publisher which published a book collection.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#hasCollection</IRI>
+        <Literal xml:lang="en">has collection</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#hasPublisher</IRI>
+        <Literal xml:lang="en">A book collection published by a publisher.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#hasPublisher</IRI>
+        <Literal xml:lang="en">has publisher</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#livedIn</IRI>
+        <Literal xml:lang="en">A writer lived in a country.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#livedIn</IRI>
+        <Literal xml:lang="en">lived in</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#locatedIn</IRI>
+        <Literal xml:lang="en">A geographical area can be located into an another and more restricted geographical area.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#locatedIn</IRI>
+        <Literal xml:lang="en">located in</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#original_date</IRI>
+        <Literal xml:lang="en">Original book&apos;s publication date.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#original_date</IRI>
+        <Literal xml:lang="en">original date</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#original_language</IRI>
+        <Literal xml:lang="en">Language under which the original book has been published.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#original_language</IRI>
+        <Literal xml:lang="en">original language</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#original_title</IRI>
+        <Literal xml:lang="en">Title under which the original book has been published.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#original_title</IRI>
+        <Literal xml:lang="en">original title</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#publishedBy</IRI>
+        <Literal xml:lang="en">A book edition is published by a publisher.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#publishedBy</IRI>
+        <Literal xml:lang="en">published by</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#publishedIn</IRI>
+        <Literal xml:lang="en">A book edition has been published in a country.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#publishedIn</IRI>
+        <Literal xml:lang="en">published in</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#publisher_name</IRI>
+        <Literal xml:lang="en">Name which a publisher is identified by.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#publisher_name</IRI>
+        <Literal xml:lang="en">publisher name</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#relatedTo</IRI>
+        <Literal xml:lang="en">A writer is related to a country if he is born in this country or if he is an active citizen of it.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#relatedTo</IRI>
+        <Literal xml:lang="en">related to</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#relatedToIndividualBook</IRI>
+        <Literal xml:lang="en">related to individual book</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#setIn</IRI>
+        <Literal xml:lang="en">A publisher is located in a country.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#setIn</IRI>
+        <Literal xml:lang="en">set in</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#viaf_id</IRI>
+        <Literal xml:lang="en">Writer&apos;s VIAF ID.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#viaf_id</IRI>
+        <Literal xml:lang="en">viaf id</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#writer_name</IRI>
+        <Literal xml:lang="en">Name which a writer is identified by.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#writer_name</IRI>
+        <Literal xml:lang="en">writer name</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#wrote</IRI>
+        <Literal xml:lang="en">A writer wrote a book.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#wrote</IRI>
+        <Literal xml:lang="en">wrote</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#wroteBy</IRI>
+        <Literal xml:lang="en">A book has been writter by a writer.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#wroteBy</IRI>
+        <Literal xml:lang="en">wrote by</Literal>
+    </AnnotationAssertion>
+</Ontology>
+
+
+
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+
