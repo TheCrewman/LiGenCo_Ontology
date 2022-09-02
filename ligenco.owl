@@ -1,0 +1,2183 @@
+@prefix : <http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#> .
+@prefix dc: <http://protege.stanford.edu/plugins/owl/dc/protege-dc.owl#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix ligenco: <http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#> .
+@base <http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco> .
+
+<http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco> rdf:type owl:Ontology ;
+                                                                owl:imports <http://protege.stanford.edu/plugins/owl/dc/protege-dc.owl> ,
+                                                                            <http://www.ontologydesignpatterns.org/cp/owl/list.owl> ;
+                                                                <http://purl.org/dc/elements/1.1/creator> "Daniele Liberatore"@en ,
+                                                                                                          "Matteo Palazzo"@en ;
+                                                                <http://purl.org/dc/elements/1.1/date> "2022-09-13" ;
+                                                                <http://purl.org/dc/elements/1.1/description> "An ontology used to describe the distribution and production of book genres across the world."@en ;
+                                                                <http://purl.org/dc/elements/1.1/title> "Literary Genres by Country"@en ;
+                                                                vann:preferredNamespacePrefix "ligenco" ;
+                                                                vann:preferredNamespaceUri "http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#" ;
+                                                                rdfs:label "LiGenCo"@en .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://purl.org/vocab/vann/preferredNamespacePrefix
+vann:preferredNamespacePrefix rdf:type owl:AnnotationProperty ;
+                              rdfs:comment "The preferred namespace prefix to use when using terms from this vocabulary in an XML document."@en ;
+                              rdfs:isDefinedBy "http://purl.org/vocab/vann/" ;
+                              rdfs:label "Preferred Namespace Prefix"@en .
+
+
+###  http://purl.org/vocab/vann/preferredNamespaceUri
+vann:preferredNamespaceUri rdf:type owl:AnnotationProperty ;
+                           rdfs:comment "The preferred namespace URI to use when using terms from this vocabulary in an XML document."@en ;
+                           rdfs:isDefinedBy "http://purl.org/vocab/vann/" ;
+                           rdfs:label "Preferred Namespace Uri"@en .
+
+
+###  http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled
+<http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.ontologydesignpatterns.org/cp/owl/bag.owl#itemContent
+<http://www.ontologydesignpatterns.org/cp/owl/bag.owl#itemContent> rdf:type owl:ObjectProperty .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#belongToMovement
+ligenco:belongToMovement rdf:type owl:ObjectProperty ,
+                                  owl:FunctionalProperty ;
+                         rdfs:domain ligenco:Writer ;
+                         rdfs:range ligenco:LiteraryMovement ;
+                         rdfs:comment "A writer is born in a specific epoch related to a major literary movement."@en ;
+                         rdfs:label "belong to movement"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#hasBeenPublished
+ligenco:hasBeenPublished rdf:type owl:ObjectProperty ,
+                                  owl:InverseFunctionalProperty ;
+                         rdfs:domain ligenco:Book ;
+                         rdfs:range ligenco:BookEdition ;
+                         rdfs:comment "A book has been published as a specific book edition."@en ;
+                         rdfs:label "has been published"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#hasBeenPublishedInCountry
+ligenco:hasBeenPublishedInCountry rdf:type owl:ObjectProperty ;
+                                  owl:propertyChainAxiom ( ligenco:hasBeenPublished
+                                                           ligenco:publishedIn
+                                                         ) ;
+                                  rdfs:comment "A book has been published as a specific book edition in a particular country."@en ;
+                                  rdfs:label "has been published in country"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#hasCollection
+ligenco:hasCollection rdf:type owl:ObjectProperty ;
+                      owl:inverseOf ligenco:hasPublisher ;
+                      rdfs:comment "A publisher which published a book collection."@en ;
+                      rdfs:label "has collection"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#hasPublisher
+ligenco:hasPublisher rdf:type owl:ObjectProperty ,
+                              owl:InverseFunctionalProperty ;
+                     rdfs:domain ligenco:BookCollection ;
+                     rdfs:range ligenco:Publisher ;
+                     rdfs:comment "A book collection published by a publisher."@en ;
+                     rdfs:label "has publisher"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#isCoevalTo
+ligenco:isCoevalTo rdf:type owl:ObjectProperty ,
+                            owl:SymmetricProperty ;
+                   rdfs:domain ligenco:Book ;
+                   rdfs:range ligenco:Book .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#isCompatriotWith
+ligenco:isCompatriotWith rdf:type owl:ObjectProperty ,
+                                  owl:SymmetricProperty ;
+                         rdfs:domain ligenco:Writer ;
+                         rdfs:range ligenco:Writer .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#livedIn
+ligenco:livedIn rdf:type owl:ObjectProperty ;
+                rdfs:domain ligenco:Writer ;
+                rdfs:range ligenco:Country ;
+                rdfs:comment "A writer lived in a country."@en ;
+                rdfs:label "lived in"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#livedInTheSameEpochAs
+ligenco:livedInTheSameEpochAs rdf:type owl:ObjectProperty ,
+                                       owl:SymmetricProperty ;
+                              rdfs:domain ligenco:Writer ;
+                              rdfs:range ligenco:Writer .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#locatedIn
+ligenco:locatedIn rdf:type owl:ObjectProperty ,
+                           owl:TransitiveProperty ;
+                  rdfs:domain ligenco:GeographicalArea ;
+                  rdfs:range ligenco:GeographicalArea ;
+                  rdfs:comment "A geographical area can be located into an another and more restricted geographical area."@en ;
+                  rdfs:label "located in"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#overlapsWith
+ligenco:overlapsWith rdf:type owl:ObjectProperty ,
+                              owl:SymmetricProperty ;
+                     rdfs:domain ligenco:LiteraryMovement ;
+                     rdfs:range ligenco:LiteraryMovement .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#publishedBy
+ligenco:publishedBy rdf:type owl:ObjectProperty ,
+                             owl:FunctionalProperty ;
+                    rdfs:domain ligenco:BookEdition ;
+                    rdfs:range ligenco:Publisher ;
+                    rdfs:comment "A book edition is published by a publisher."@en ;
+                    rdfs:label "published by"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#publishedIn
+ligenco:publishedIn rdf:type owl:ObjectProperty ;
+                    rdfs:domain ligenco:BookEdition ;
+                    rdfs:range ligenco:Country ;
+                    rdfs:comment "A book edition has been published in a country."@en ;
+                    rdfs:label "published in"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#relatedTo
+ligenco:relatedTo rdf:type owl:ObjectProperty ;
+                  rdfs:domain ligenco:Writer ;
+                  rdfs:range ligenco:Country ;
+                  rdfs:comment "A writer is related to a country if he is born in this country or if he is an active citizen of it."@en ;
+                  rdfs:label "related to"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#relatedToIndividualBook
+ligenco:relatedToIndividualBook rdf:type owl:ObjectProperty ;
+                                rdfs:subPropertyOf <http://www.ontologydesignpatterns.org/cp/owl/bag.owl#itemContent> ;
+                                rdfs:domain ligenco:IndividualBook ;
+                                rdfs:range ligenco:Book ;
+                                rdfs:label "related to individual book"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#relatedToSequenceBook
+ligenco:relatedToSequenceBook rdf:type owl:ObjectProperty ;
+                              rdfs:subPropertyOf <http://www.ontologydesignpatterns.org/cp/owl/bag.owl#itemContent> ;
+                              rdfs:domain ligenco:SequenceBook ;
+                              rdfs:range ligenco:Book .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#setIn
+ligenco:setIn rdf:type owl:ObjectProperty ,
+                       owl:FunctionalProperty ;
+              rdfs:domain ligenco:Publisher ;
+              rdfs:range ligenco:Country ;
+              rdfs:comment "A publisher is located in a country."@en ;
+              rdfs:label "set in"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#wrote
+ligenco:wrote rdf:type owl:ObjectProperty ;
+              owl:inverseOf ligenco:wroteBy ;
+              rdfs:domain ligenco:Writer ;
+              rdfs:range ligenco:Book ;
+              rdfs:comment "A writer wrote a book."@en ;
+              rdfs:label "wrote"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#wroteBy
+ligenco:wroteBy rdf:type owl:ObjectProperty ;
+                rdfs:domain ligenco:Book ;
+                rdfs:range ligenco:Writer ;
+                rdfs:comment "A book has been writter by a writer."@en ;
+                rdfs:label "wrote by"@en .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#birth_date
+ligenco:birth_date rdf:type owl:DatatypeProperty ,
+                            owl:FunctionalProperty ;
+                   rdfs:domain ligenco:Writer ;
+                   rdfs:range xsd:dateTime ;
+                   rdfs:comment "Writer's birth date."@en ;
+                   rdfs:label "birth date"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#country_name
+ligenco:country_name rdf:type owl:DatatypeProperty ,
+                              owl:FunctionalProperty ;
+                     rdfs:domain ligenco:Country ;
+                     rdfs:range xsd:string ;
+                     rdfs:comment "Name which a country is identified by."@en ;
+                     rdfs:label "country name"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#death_date
+ligenco:death_date rdf:type owl:DatatypeProperty ,
+                            owl:FunctionalProperty ;
+                   rdfs:domain ligenco:Writer ;
+                   rdfs:range xsd:dateTime ;
+                   rdfs:comment "Writer's death date."@en ;
+                   rdfs:label "death date"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#edition_date
+ligenco:edition_date rdf:type owl:DatatypeProperty ,
+                              owl:FunctionalProperty ;
+                     rdfs:domain ligenco:BookEdition ;
+                     rdfs:range xsd:dateTime ;
+                     rdfs:comment "Book edition's publication date."@en ;
+                     rdfs:label "edition date"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#edition_language
+ligenco:edition_language rdf:type owl:DatatypeProperty ;
+                         rdfs:domain ligenco:BookEdition ;
+                         rdfs:range xsd:string ;
+                         rdfs:comment "Language under which book edition has been published (it can be different from the original book language)."@en ;
+                         rdfs:label "edition language"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#edition_title
+ligenco:edition_title rdf:type owl:DatatypeProperty ,
+                               owl:FunctionalProperty ;
+                      rdfs:domain ligenco:BookEdition ;
+                      rdfs:range xsd:string ;
+                      rdfs:comment "Title under which book edition has been published."@en ;
+                      rdfs:label "edition title"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#end_date
+ligenco:end_date rdf:type owl:DatatypeProperty ,
+                          owl:FunctionalProperty ;
+                 rdfs:domain ligenco:LiteraryMovement ;
+                 rdfs:range xsd:nonNegativeInteger .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#original_date
+ligenco:original_date rdf:type owl:DatatypeProperty ,
+                               owl:FunctionalProperty ;
+                      rdfs:domain ligenco:Book ;
+                      rdfs:range xsd:nonNegativeInteger ;
+                      rdfs:comment "Original book's publication date."@en ;
+                      rdfs:label "original date"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#original_language
+ligenco:original_language rdf:type owl:DatatypeProperty ,
+                                   owl:FunctionalProperty ;
+                          rdfs:domain ligenco:Book ;
+                          rdfs:range xsd:string ;
+                          rdfs:comment "Language under which the original book has been published."@en ;
+                          rdfs:label "original language"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#original_title
+ligenco:original_title rdf:type owl:DatatypeProperty ,
+                                owl:FunctionalProperty ;
+                       rdfs:domain ligenco:Book ;
+                       rdfs:range xsd:string ;
+                       rdfs:comment "Title under which the original book has been published."@en ;
+                       rdfs:label "original title"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#publisher_name
+ligenco:publisher_name rdf:type owl:DatatypeProperty ,
+                                owl:FunctionalProperty ;
+                       rdfs:domain ligenco:Publisher ;
+                       rdfs:range xsd:string ;
+                       rdfs:comment "Name which a publisher is identified by."@en ;
+                       rdfs:label "publisher name"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#start_date
+ligenco:start_date rdf:type owl:DatatypeProperty ,
+                            owl:FunctionalProperty ;
+                   rdfs:domain ligenco:LiteraryMovement ;
+                   rdfs:range xsd:nonNegativeInteger .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#viaf_id
+ligenco:viaf_id rdf:type owl:DatatypeProperty ;
+                rdfs:domain ligenco:Writer ;
+                rdfs:range xsd:string ;
+                rdfs:comment "Writer's VIAF ID."@en ;
+                rdfs:label "viaf id"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#writer_name
+ligenco:writer_name rdf:type owl:DatatypeProperty ,
+                             owl:FunctionalProperty ;
+                    rdfs:domain ligenco:Writer ;
+                    rdfs:range xsd:string ;
+                    rdfs:comment "Name which a writer is identified by."@en ;
+                    rdfs:label "writer name"@en .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://purl.org/spar/fabio/Biography
+<http://purl.org/spar/fabio/Biography> rdf:type owl:Class ;
+                                       owl:equivalentClass ligenco:Biography .
+
+
+###  http://purl.org/spar/fabio/Book
+<http://purl.org/spar/fabio/Book> rdf:type owl:Class ;
+                                  owl:equivalentClass ligenco:Book .
+
+
+###  http://purl.org/spar/fabio/BookSeries
+<http://purl.org/spar/fabio/BookSeries> rdf:type owl:Class ;
+                                        owl:equivalentClass ligenco:BookCollection .
+
+
+###  http://purl.org/spar/fabio/BookSet
+<http://purl.org/spar/fabio/BookSet> rdf:type owl:Class ;
+                                     owl:equivalentClass ligenco:BookSeries .
+
+
+###  http://purl.org/spar/fabio/Diary
+<http://purl.org/spar/fabio/Diary> rdf:type owl:Class ;
+                                   owl:equivalentClass ligenco:Diary .
+
+
+###  http://purl.org/spar/fabio/Essay
+<http://purl.org/spar/fabio/Essay> rdf:type owl:Class ;
+                                   owl:equivalentClass ligenco:Essay .
+
+
+###  http://purl.org/spar/fabio/MusicalComposition
+<http://purl.org/spar/fabio/MusicalComposition> rdf:type owl:Class .
+
+
+###  http://purl.org/spar/fabio/Novel
+<http://purl.org/spar/fabio/Novel> rdf:type owl:Class ;
+                                   owl:equivalentClass ligenco:Romance .
+
+
+###  http://purl.org/spar/fabio/Play
+<http://purl.org/spar/fabio/Play> rdf:type owl:Class ;
+                                  owl:equivalentClass ligenco:Drama .
+
+
+###  http://purl.org/spar/fabio/Poem
+<http://purl.org/spar/fabio/Poem> rdf:type owl:Class ;
+                                  rdfs:subClassOf ligenco:Poetry .
+
+
+###  http://purl.org/spar/fabio/ShortStory
+<http://purl.org/spar/fabio/ShortStory> rdf:type owl:Class ;
+                                        owl:equivalentClass ligenco:ShortStories .
+
+
+###  http://purl.org/spar/fabio/Song
+<http://purl.org/spar/fabio/Song> rdf:type owl:Class ;
+                                  owl:equivalentClass ligenco:Song .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#AdventureRomance
+ligenco:AdventureRomance rdf:type owl:Class ;
+                         rdfs:subClassOf ligenco:Romance ;
+                         rdfs:comment "Type of fiction that usually presents danger, or gives the reader a sense of excitement."@en ;
+                         rdfs:label "Adventure romance"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#AncientBook
+ligenco:AncientBook rdf:type owl:Class ;
+                    owl:equivalentClass [ owl:intersectionOf ( ligenco:Book
+                                                               [ rdf:type owl:Class ;
+                                                                 owl:complementOf ligenco:ModernBook
+                                                               ]
+                                                             ) ;
+                                          rdf:type owl:Class
+                                        ] ;
+                    rdfs:subClassOf ligenco:Book ;
+                    owl:disjointWith ligenco:ModernBook ;
+                    rdfs:comment "A book written and published before 1830."@en ;
+                    rdfs:label "Ancient book"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Aphorisms
+ligenco:Aphorisms rdf:type owl:Class ;
+                  rdfs:subClassOf ligenco:Divulgative ;
+                  rdfs:comment "A concise, terse, laconic or memorable expression of a general truth or principle."@en ;
+                  rdfs:label "Aphorisms"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Ballata
+ligenco:Ballata rdf:type owl:Class ;
+                rdfs:subClassOf ligenco:LyricPoetry ;
+                rdfs:comment "Italian poetry with the musical structure AbbaA"@en ;
+                rdfs:label "Ballata"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Bildungsromance
+ligenco:Bildungsromance rdf:type owl:Class ;
+                        rdfs:subClassOf ligenco:Romance ;
+                        rdfs:comment "A novel dealing with one person's formative years or spiritual education."@en ;
+                        rdfs:label "Bildungsromance"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#BilingualWriter
+ligenco:BilingualWriter rdf:type owl:Class ;
+                        rdfs:subClassOf ligenco:Writer .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Biography
+ligenco:Biography rdf:type owl:Class ;
+                  rdfs:subClassOf ligenco:Narrative ;
+                  rdfs:comment "Detailed description of a person life."@en ;
+                  rdfs:label "Biography"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Book
+ligenco:Book rdf:type owl:Class ;
+             rdfs:comment "Medium for information recording (digital or on paper) composed of may pages."@en ;
+             rdfs:label "Book"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#BookCollection
+ligenco:BookCollection rdf:type owl:Class ;
+                       rdfs:subClassOf <http://www.ontologydesignpatterns.org/cp/owl/bag.owl#Bag> ;
+                       rdfs:comment "A collection of books grouped by gnere or aruthor and belonging to a specific publisher."@en ;
+                       rdfs:label "Book collection"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#BookEdition
+ligenco:BookEdition rdf:type owl:Class ;
+                    rdfs:comment "Book version distributed by a specific publisher."@en ;
+                    rdfs:label "Book edition"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#BookSeries
+ligenco:BookSeries rdf:type owl:Class ;
+                   rdfs:subClassOf <http://www.ontologydesignpatterns.org/cp/owl/list.owl#List> ;
+                   rdfs:comment "An ordered collection of books related to the same plot."@en ;
+                   rdfs:label "Book series"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#ChameleonicWriter
+ligenco:ChameleonicWriter rdf:type owl:Class ;
+                          owl:equivalentClass [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                                                       owl:onProperty ligenco:wrote ;
+                                                                       owl:someValuesFrom ligenco:Drama
+                                                                     ]
+                                                                     [ rdf:type owl:Restriction ;
+                                                                       owl:onProperty ligenco:wrote ;
+                                                                       owl:someValuesFrom ligenco:Poetry
+                                                                     ]
+                                                                     [ rdf:type owl:Restriction ;
+                                                                       owl:onProperty ligenco:wrote ;
+                                                                       owl:someValuesFrom ligenco:Prose
+                                                                     ]
+                                                                   ) ;
+                                                rdf:type owl:Class
+                                              ] ;
+                          rdfs:subClassOf ligenco:Writer ;
+                          rdfs:comment "Writer which wrote books of every type: drama, poetry and prose."@en ;
+                          rdfs:label "Chameleonic writer"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#ChildrenRomance
+ligenco:ChildrenRomance rdf:type owl:Class ;
+                        rdfs:subClassOf ligenco:Romance ;
+                        rdfs:comment "Novel written for children"@en ;
+                        rdfs:label "Children romance"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Comedy
+ligenco:Comedy rdf:type owl:Class ;
+               rdfs:subClassOf ligenco:Drama ;
+               owl:disjointWith ligenco:Tragedy ;
+               rdfs:comment "Dramatic works that combines elements of comedy and drama."@en ;
+               rdfs:label "Comedy"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#ComedyRomance
+ligenco:ComedyRomance rdf:type owl:Class ;
+                      rdfs:subClassOf ligenco:Romance ;
+                      rdfs:comment "Type of comedy and slice-of-life fiction, focusing on lighthearted, humorous plot lines centered on romantic ideas, such as how true love is able to surmount most obstacles."@en ;
+                      rdfs:label "Comedy romance"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Country
+ligenco:Country rdf:type owl:Class ;
+                rdfs:subClassOf ligenco:GeographicalArea ;
+                rdfs:comment "Nation with its own government occupying a particular territory."@en ;
+                rdfs:label "Country"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#CrimefictionRomance
+ligenco:CrimefictionRomance rdf:type owl:Class ;
+                            rdfs:subClassOf ligenco:Romance ;
+                            rdfs:comment "Narratives centred on criminal acts and especially on the investigation."@en ;
+                            rdfs:label "Crimefiction romance"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#DetectivefictionRomance
+ligenco:DetectivefictionRomance rdf:type owl:Class ;
+                                rdfs:subClassOf ligenco:CrimefictionRomance ;
+                                owl:disjointWith ligenco:NoirRomance ;
+                                rdfs:comment "Novel in which an investigator or a detective investigates a crime, often murder."@en ;
+                                rdfs:label "Detectivefiction romance"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Dialogue
+ligenco:Dialogue rdf:type owl:Class ;
+                 rdfs:subClassOf ligenco:Divulgative ;
+                 rdfs:comment "Transcript of a conversation between two or more speakers."@en ;
+                 rdfs:label "Dialogue"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Diary
+ligenco:Diary rdf:type owl:Class ;
+              rdfs:subClassOf ligenco:Narrative ;
+              rdfs:comment "Written record with discrete entries arranged by date reporting on what happened during a day or other period."@en ;
+              rdfs:label "Diary"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#DidacticPoetry
+ligenco:DidacticPoetry rdf:type owl:Class ;
+                       rdfs:subClassOf ligenco:Poetry ;
+                       rdfs:label "Didactic poetry"@en ;
+                       owl:versionInfo "Poetry that instructs, either in terms of morals or by providing knowledge."@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Divulgative
+ligenco:Divulgative rdf:type owl:Class ;
+                    rdfs:subClassOf ligenco:Prose ;
+                    owl:disjointWith ligenco:Narrative ;
+                    rdfs:comment "Written text with the inteded mean of spreading ideas or specific knowledge."@en ;
+                    rdfs:label "Divulgative prose"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Drama
+ligenco:Drama rdf:type owl:Class ;
+              rdfs:subClassOf ligenco:Book ;
+              rdfs:comment "Book describing the setting and plot of a show which will take place on a stage."@en ;
+              rdfs:label "Drama"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#EpicPoetry
+ligenco:EpicPoetry rdf:type owl:Class ;
+                   rdfs:subClassOf <http://purl.org/spar/fabio/Poem> ,
+                                   ligenco:Poetry ;
+                   rdfs:comment "A lengthy poem about extraordinary deeds of extraordinary characters."@en ;
+                   rdfs:label "Epic poetry"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#EroticRomance
+ligenco:EroticRomance rdf:type owl:Class ;
+                      rdfs:subClassOf ligenco:Romance ;
+                      rdfs:comment "Written stories about the development of a romantic relationship through sexual interaction."@en ;
+                      rdfs:label "Erotic romance"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Essay
+ligenco:Essay rdf:type owl:Class ;
+              rdfs:subClassOf ligenco:Divulgative ;
+              rdfs:comment "Piece of writing that give the author's own argument about a specific topic."@en ;
+              rdfs:label "Essay"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Fable
+ligenco:Fable rdf:type owl:Class ;
+              rdfs:subClassOf ligenco:Narrative ;
+              rdfs:comment "Prose that features animals, legendary creatures, etc. that illustrates o leads to a particular moral lesson."@en ;
+              rdfs:label "Fable"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#FantahistoricalRomance
+ligenco:FantahistoricalRomance rdf:type owl:Class ;
+                               rdfs:subClassOf ligenco:HistoricalRomance ;
+                               rdfs:comment "Historical fiction that incorporates fantastic elements, such as magic, into a more realistic narrative."@en ;
+                               rdfs:label "Fantahistorical romance"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#FantasyRomance
+ligenco:FantasyRomance rdf:type owl:Class ;
+                       rdfs:subClassOf ligenco:Romance ;
+                       rdfs:comment "Novel set in an imaginary universe, often but not always without any locations, events, or people from the real world."@en ;
+                       rdfs:label "Fantasy romance"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#GeographicalArea
+ligenco:GeographicalArea rdf:type owl:Class ;
+                         owl:equivalentClass [ rdf:type owl:Class ;
+                                               owl:oneOf ( ligenco:Africa
+                                                           ligenco:America
+                                                           ligenco:Antarctica
+                                                           ligenco:Asia
+                                                           ligenco:Australasia
+                                                           ligenco:Central_America
+                                                           ligenco:Central_Asia
+                                                           ligenco:Central_Europe
+                                                           ligenco:East_Asia
+                                                           ligenco:Eastern_Europe
+                                                           ligenco:Europe
+                                                           ligenco:Melanesia
+                                                           ligenco:Micronesia
+                                                           ligenco:North_Africa
+                                                           ligenco:North_America
+                                                           ligenco:North_Asia
+                                                           ligenco:North_Europe
+                                                           ligenco:Oceania
+                                                           ligenco:Polynesia
+                                                           ligenco:South_America
+                                                           ligenco:South_Asia
+                                                           ligenco:South_East_Asia
+                                                           ligenco:South_Europe
+                                                           ligenco:Sub-Saharan_Africa
+                                                           ligenco:Western_Asia
+                                                           ligenco:Western_Europe
+                                                         )
+                                             ] ;
+                         rdfs:comment "A continent or one of its part."@en ;
+                         rdfs:label "Geographical area"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#HistoricalRomance
+ligenco:HistoricalRomance rdf:type owl:Class ;
+                          rdfs:subClassOf ligenco:Romance ;
+                          rdfs:comment "Fictional text in which the plot takes place in a setting related to past events."@en ;
+                          rdfs:label "Historical romance"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#HorrorRomance
+ligenco:HorrorRomance rdf:type owl:Class ;
+                      rdfs:subClassOf ligenco:Romance ;
+                      rdfs:comment "Fiction in prose of variable length which shocks, or even frightens, the reader or perhaps induces a feeling of repulsion."@en ;
+                      rdfs:label "Horror romance"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#IndividualBook
+ligenco:IndividualBook rdf:type owl:Class ;
+                       rdfs:subClassOf <http://www.ontologydesignpatterns.org/cp/owl/bag.owl#Item> ;
+                       rdfs:comment "Book part of a book collection."@en ;
+                       rdfs:label "Individual book"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#LiteraryMovement
+ligenco:LiteraryMovement rdf:type owl:Class ;
+                         rdfs:comment "Period of time mainly characterized by a particular literary genre."@en ;
+                         rdfs:label "Literary movement"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#LyricPoetry
+ligenco:LyricPoetry rdf:type owl:Class ;
+                    rdfs:subClassOf ligenco:Poetry ;
+                    rdfs:comment "Poetry wich express personal emotions or feelings."@en ;
+                    rdfs:label "Lyric poetry"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Madrigal
+ligenco:Madrigal rdf:type owl:Class ;
+                 rdfs:subClassOf ligenco:LyricPoetry ;
+                 rdfs:comment "Secular vocal music composition"@en ;
+                 rdfs:label "Madrigal"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Manifest
+ligenco:Manifest rdf:type owl:Class ;
+                 rdfs:subClassOf ligenco:Divulgative ;
+                 rdfs:comment "A published declaration of the intentions, motives or views of the issuer."@en ;
+                 rdfs:label "Manifest"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#ModernBook
+ligenco:ModernBook rdf:type owl:Class ;
+                   owl:equivalentClass [ rdf:type owl:Restriction ;
+                                         owl:onProperty ligenco:original_date ;
+                                         owl:someValuesFrom [ rdf:type rdfs:Datatype ;
+                                                              owl:onDatatype xsd:nonNegativeInteger ;
+                                                              owl:withRestrictions ( [ xsd:minExclusive "1830"^^xsd:nonNegativeInteger
+                                                                                     ]
+                                                                                   )
+                                                            ]
+                                       ] ;
+                   rdfs:subClassOf ligenco:Book ;
+                   rdfs:comment "A book written and published after 1830."@en ;
+                   rdfs:label "Modern book"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Narrative
+ligenco:Narrative rdf:type owl:Class ;
+                  rdfs:subClassOf ligenco:Prose ;
+                  rdfs:comment "Any account of a series of related event or experience, whether non-fictional or fictional."@en ;
+                  rdfs:label "Narrative"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#NoirRomance
+ligenco:NoirRomance rdf:type owl:Class ;
+                    rdfs:subClassOf ligenco:CrimefictionRomance ;
+                    rdfs:comment "Novel marked by darkness in theme and subject matter, generally featuring a disturbing mixture of sex and violence."@en ;
+                    rdfs:label "Noir romance"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Playwright
+ligenco:Playwright rdf:type owl:Class ;
+                   owl:equivalentClass [ rdf:type owl:Restriction ;
+                                         owl:onProperty ligenco:wrote ;
+                                         owl:someValuesFrom ligenco:Drama
+                                       ] ;
+                   rdfs:subClassOf ligenco:Writer ;
+                   rdfs:comment "Writer who has written at least one drama."@en ;
+                   rdfs:label "Playwright"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Poet
+ligenco:Poet rdf:type owl:Class ;
+             owl:equivalentClass <https://d-nb.info/standards/elementset/gnd#Poet> ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty ligenco:wrote ;
+                                   owl:someValuesFrom ligenco:Poetry
+                                 ] ;
+             rdfs:subClassOf ligenco:Writer ;
+             rdfs:comment "Writer who has written at least one poetry."@en ;
+             rdfs:label "Poet"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Poetry
+ligenco:Poetry rdf:type owl:Class ;
+               rdfs:subClassOf ligenco:Book ;
+               rdfs:comment "Literary composition written by a poet that uses aesthetic and rhyhmic qualities of language."@en ;
+               rdfs:label "Poetry"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Prose
+ligenco:Prose rdf:type owl:Class ;
+              rdfs:subClassOf ligenco:Book ;
+              rdfs:comment "Written text in his ordinary form without metrical structure."@en ;
+              rdfs:label "Prose"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#ProseWriter
+ligenco:ProseWriter rdf:type owl:Class ;
+                    owl:equivalentClass [ rdf:type owl:Restriction ;
+                                          owl:onProperty ligenco:wrote ;
+                                          owl:someValuesFrom ligenco:Prose
+                                        ] ;
+                    rdfs:subClassOf ligenco:Writer ;
+                    rdfs:comment "Writer who has written at least a prose."@en ;
+                    rdfs:label "Prose writer"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Publisher
+ligenco:Publisher rdf:type owl:Class ;
+                  rdfs:comment "Entity which publish and distribute a book."@en ;
+                  rdfs:label "Publisher"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Romance
+ligenco:Romance rdf:type owl:Class ;
+                rdfs:subClassOf ligenco:Narrative ;
+                rdfs:comment "Relatively long work of narrative fiction."@en ;
+                rdfs:label "Romance"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#RomanticRomance
+ligenco:RomanticRomance rdf:type owl:Class ;
+                        rdfs:subClassOf ligenco:Romance ;
+                        rdfs:comment "Novel which places its primary focus on the relationship and romantic love between two people."@en ;
+                        rdfs:label "Romantic romance"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#SciencefictionRomance
+ligenco:SciencefictionRomance rdf:type owl:Class ;
+                              rdfs:subClassOf ligenco:Romance ;
+                              rdfs:comment "Novel which typically deals with imaginative and futuristic concepts."@en ;
+                              rdfs:label "Sciencefiction romance"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#SequenceBook
+ligenco:SequenceBook rdf:type owl:Class ;
+                     rdfs:subClassOf <http://www.ontologydesignpatterns.org/cp/owl/list.owl#ListItem> ;
+                     rdfs:comment "Book part of a book series."@en ;
+                     rdfs:label "Sequence book"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#ShortStories
+ligenco:ShortStories rdf:type owl:Class ;
+                     rdfs:subClassOf ligenco:Narrative ;
+                     rdfs:comment "Prose fiction that typically can be read in one sitting and focuses on a self-contained incident or series of linked incidents, with the intent of evoking a single effect or mood."@en ;
+                     rdfs:label "Short stories"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Song
+ligenco:Song rdf:type owl:Class ;
+             rdfs:subClassOf <http://purl.org/spar/fabio/MusicalComposition> ,
+                             ligenco:LyricPoetry ;
+             rdfs:comment "Musical composition accompained by specific lyrics intended to be performed by the human voice."@en ;
+             rdfs:label "Song"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Sonnet
+ligenco:Sonnet rdf:type owl:Class ;
+               rdfs:subClassOf ligenco:LyricPoetry ;
+               rdfs:comment "Poetry composition of 14 lines which follows a strict rhyme sheme."@en ;
+               rdfs:label "Sonnet"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#ThrillerRomance
+ligenco:ThrillerRomance rdf:type owl:Class ;
+                        rdfs:subClassOf ligenco:Romance ;
+                        rdfs:comment "Novel characterized by feelings of suspense, excitement, surprise, anticipation and anxiety."@en ;
+                        rdfs:label "Thriller romance"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Tragedy
+ligenco:Tragedy rdf:type owl:Class ;
+                rdfs:subClassOf ligenco:Drama ;
+                rdfs:comment "Drama based on human suffering and, mainly, the terrible or sorrowful events that befall a main character."@en ;
+                rdfs:label "Tragedy"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#TranslatedBook
+ligenco:TranslatedBook rdf:type owl:Class ;
+                       rdfs:subClassOf ligenco:Book .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Treatise
+ligenco:Treatise rdf:type owl:Class ;
+                 rdfs:subClassOf ligenco:Divulgative ;
+                 rdfs:comment "A written work dealing formaly or systematically with a subject."@en ;
+                 rdfs:label "Treatise"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#WandovagoWriter
+ligenco:WandovagoWriter rdf:type owl:Class ;
+                        owl:equivalentClass [ rdf:type owl:Restriction ;
+                                              owl:onProperty ligenco:livedIn ;
+                                              owl:minQualifiedCardinality "2"^^xsd:nonNegativeInteger ;
+                                              owl:onClass ligenco:Country
+                                            ] ;
+                        rdfs:subClassOf ligenco:Writer ;
+                        rdfs:comment "Writer who has lived in at least 2 country."@en ;
+                        rdfs:label "Wandovago writer"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Writer
+ligenco:Writer rdf:type owl:Class ;
+               owl:equivalentClass <https://d-nb.info/standards/elementset/gnd#Author> ;
+               rdfs:comment "Person which writes books."@en ;
+               rdfs:label "Writer"@en .
+
+
+###  https://d-nb.info/standards/elementset/gnd#Author
+<https://d-nb.info/standards/elementset/gnd#Author> rdf:type owl:Class .
+
+
+###  https://d-nb.info/standards/elementset/gnd#Poet
+<https://d-nb.info/standards/elementset/gnd#Poet> rdf:type owl:Class .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Absurdism
+ligenco:Absurdism rdf:type owl:NamedIndividual ,
+                           ligenco:LiteraryMovement ;
+                  ligenco:end_date "1960"^^xsd:nonNegativeInteger ;
+                  ligenco:start_date "1950"^^xsd:nonNegativeInteger ;
+                  rdfs:comment "Literary genre, where character cannot find a purpose in life"@en ;
+                  rdfs:label "Absurdism"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Adelphi
+ligenco:Adelphi rdf:type owl:NamedIndividual ,
+                         ligenco:Publisher ;
+                ligenco:publisher_name "Adelphi"^^xsd:string ;
+                rdfs:comment "Publishing house in Milan, Italy" ;
+                rdfs:label "Adelphi"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Africa
+ligenco:Africa rdf:type owl:NamedIndividual ,
+                        ligenco:GeographicalArea ;
+               rdfs:comment "A world continent"@en ;
+               rdfs:label "Africa"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#America
+ligenco:America rdf:type owl:NamedIndividual ,
+                         ligenco:GeographicalArea ;
+                rdfs:comment "A world continent"@en ;
+                rdfs:label "America"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Antarctica
+ligenco:Antarctica rdf:type owl:NamedIndividual ,
+                            ligenco:GeographicalArea ;
+                   rdfs:comment "A world continent"@en ;
+                   rdfs:label "Antarctica"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Antonio_Damasio
+ligenco:Antonio_Damasio rdf:type owl:NamedIndividual ,
+                                 ligenco:Writer ;
+                        ligenco:belongToMovement ligenco:Contemporary ;
+                        ligenco:livedIn ligenco:Portugal ;
+                        ligenco:relatedTo ligenco:Portugal ;
+                        ligenco:wrote ligenco:Lo_strano_ordine_delle_cose ;
+                        ligenco:birth_date "1944-02-25T00:00:00"^^xsd:dateTime ;
+                        ligenco:viaf_id "79104198"^^xsd:string ;
+                        ligenco:writer_name "Antonio Rosa Damasio"^^xsd:string ;
+                        rdfs:comment "A portuguese author born in 1944"@en ;
+                        rdfs:label "Antonio Rosa Damasio"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Asia
+ligenco:Asia rdf:type owl:NamedIndividual ,
+                      ligenco:GeographicalArea ;
+             rdfs:comment "A world continent"@en ;
+             rdfs:label "Asia"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Australasia
+ligenco:Australasia rdf:type owl:NamedIndividual ,
+                             ligenco:GeographicalArea ;
+                    ligenco:locatedIn ligenco:Oceania ;
+                    rdfs:comment "Subregion of Oceania"@en ;
+                    rdfs:label "Australasia"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Biblioteca_Scientifica
+ligenco:Biblioteca_Scientifica rdf:type owl:NamedIndividual ,
+                                        ligenco:BookCollection ;
+                               <http://www.ontologydesignpatterns.org/cp/owl/bag.owl#hasItem> ligenco:Il_prigioniero_libero_collezioneAdelphi ,
+                                                                                              ligenco:Lo_strano_ordine_delle_cose_collezioneAdelphi ;
+                               ligenco:hasPublisher ligenco:Adelphi ;
+                               rdfs:comment "An Adelphi collection mostly composed by essays."@en ;
+                               rdfs:label "Biblioteca Scientifica"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Central_America
+ligenco:Central_America rdf:type owl:NamedIndividual ,
+                                 ligenco:GeographicalArea ;
+                        ligenco:locatedIn ligenco:America ;
+                        rdfs:comment "Subregion of America"@en ;
+                        rdfs:label "Central America"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Central_Asia
+ligenco:Central_Asia rdf:type owl:NamedIndividual ,
+                              ligenco:GeographicalArea ;
+                     ligenco:locatedIn ligenco:Asia ;
+                     rdfs:comment "Subregion of Asia"@en ;
+                     rdfs:label "Central Asia"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Central_Europe
+ligenco:Central_Europe rdf:type owl:NamedIndividual ,
+                                ligenco:GeographicalArea ;
+                       ligenco:locatedIn ligenco:Europe ;
+                       rdfs:comment "Subregion of europe"@en ;
+                       rdfs:label "Central Europe"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Contemporary
+ligenco:Contemporary rdf:type owl:NamedIndividual ,
+                              ligenco:LiteraryMovement ;
+                     ligenco:end_date "2022"^^xsd:nonNegativeInteger ;
+                     ligenco:start_date "1990"^^xsd:nonNegativeInteger ;
+                     rdfs:comment """Literary movement that started in 1990 and is still going. Composed by
+the contemporary author"""@en ;
+                     rdfs:label "Contemporary"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Dada
+ligenco:Dada rdf:type owl:NamedIndividual ,
+                      ligenco:LiteraryMovement ;
+             ligenco:end_date "1920"^^xsd:nonNegativeInteger ;
+             ligenco:start_date "1910"^^xsd:nonNegativeInteger ;
+             rdfs:comment "A literary movement of the post 2 world war, that is often satirical and nonsensical."@en ;
+             rdfs:label "Dada"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Decadent_movement
+ligenco:Decadent_movement rdf:type owl:NamedIndividual ,
+                                   ligenco:LiteraryMovement ;
+                          ligenco:end_date "1890"^^xsd:nonNegativeInteger ;
+                          ligenco:start_date "1880"^^xsd:nonNegativeInteger ;
+                          rdfs:comment "A late-19th-century artistic and literary movement, centered in Western Europe, that followed an aesthetic ideology of excess and artificiality."@en ;
+                          rdfs:label "Decadent movement"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#East_Asia
+ligenco:East_Asia rdf:type owl:NamedIndividual ,
+                           ligenco:GeographicalArea ;
+                  ligenco:locatedIn ligenco:Asia ;
+                  rdfs:comment "Subregion of Asia"@en ;
+                  rdfs:label "East Asia"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Eastern_Europe
+ligenco:Eastern_Europe rdf:type owl:NamedIndividual ,
+                                ligenco:GeographicalArea ;
+                       ligenco:locatedIn ligenco:Europe ;
+                       rdfs:comment "Subregion of Europe"@en ;
+                       rdfs:label "Eastern Europe"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Europe
+ligenco:Europe rdf:type owl:NamedIndividual ,
+                        ligenco:GeographicalArea ;
+               rdfs:comment "A world continent"@en ;
+               rdfs:label "Europe"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Exhalation
+ligenco:Exhalation rdf:type owl:NamedIndividual ,
+                            ligenco:ShortStories ;
+                   ligenco:original_date "2019"^^xsd:nonNegativeInteger ;
+                   ligenco:original_language "english"^^xsd:string ;
+                   ligenco:original_title "Exhalation: Stories"^^xsd:string ;
+                   rdfs:comment "Sci-Fi short story collection, written by Ted Chiang, originally published in 2019"@en ;
+                   rdfs:label "Exhalation"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Expressionism
+ligenco:Expressionism rdf:type owl:NamedIndividual ,
+                               ligenco:LiteraryMovement ;
+                      ligenco:end_date "1920"^^xsd:nonNegativeInteger ;
+                      ligenco:start_date "1905"^^xsd:nonNegativeInteger ;
+                      rdfs:comment "Literary movement of the pre first world war society that tried to convey emotion and meaning rather than reality"@en ;
+                      rdfs:label "Expressionism"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Futurism
+ligenco:Futurism rdf:type owl:NamedIndividual ,
+                          ligenco:LiteraryMovement ;
+                 ligenco:end_date "1945"^^xsd:nonNegativeInteger ;
+                 ligenco:start_date "1909"^^xsd:nonNegativeInteger ;
+                 rdfs:comment "Futurism is a modernist avant-garde movement in literature and part of the Futurism art movement that originated in Italy in the early 20th century"@en ;
+                 rdfs:label "Futurism"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Giacomo_Leopardi
+ligenco:Giacomo_Leopardi rdf:type owl:NamedIndividual ,
+                                  ligenco:Writer ;
+                         ligenco:belongToMovement ligenco:Romanticism ;
+                         ligenco:livedIn ligenco:Italy ;
+                         ligenco:relatedTo ligenco:Italy ;
+                         ligenco:wrote ligenco:Operette_morali ;
+                         ligenco:birth_date "1798-06-29T00:00:00"^^xsd:dateTime ;
+                         ligenco:death_date "1837-06-14T00:00:00"^^xsd:dateTime ;
+                         ligenco:viaf_id "12311353"^^xsd:string ;
+                         ligenco:writer_name "Giacomo Leopardi"^^xsd:string ;
+                         rdfs:comment "Italian XIX century's poet that belonged to the romanticism movement"@en ;
+                         rdfs:label "Giacomo Leopardi"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Giuseppe_Tratteur
+ligenco:Giuseppe_Tratteur rdf:type owl:NamedIndividual ,
+                                   ligenco:Writer ;
+                          ligenco:belongToMovement ligenco:Contemporary ;
+                          ligenco:livedIn ligenco:Italy ;
+                          ligenco:relatedTo ligenco:Italy ;
+                          ligenco:wrote ligenco:Il_prigioniero_libero ;
+                          ligenco:birth_date "1936-12-05T00:00:00"^^xsd:dateTime ;
+                          ligenco:viaf_id "523155042808172402269"^^xsd:string ;
+                          ligenco:writer_name "Giuseppe Trautteur"^^xsd:string ;
+                          rdfs:comment "Italian phisic born in 1963"@en ;
+                          rdfs:label "Giuseppe Tratteur"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Il_fu_Mattia_Pascal
+ligenco:Il_fu_Mattia_Pascal rdf:type owl:NamedIndividual ,
+                                     ligenco:ComedyRomance ;
+                            ligenco:hasBeenPublished ligenco:Il_fu_Mattia_Pascal_Mondadori ;
+                            ligenco:original_date "1904"^^xsd:nonNegativeInteger ;
+                            ligenco:original_language "italian"^^xsd:string ;
+                            ligenco:original_title "Il fu Mattia Pascal"^^xsd:string ;
+                            rdfs:comment "A comedy romance book written by Pirandello in 1904"@en ;
+                            rdfs:label "Il fu Mattia Pascal"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Il_fu_Mattia_Pascal_Mondadori
+ligenco:Il_fu_Mattia_Pascal_Mondadori rdf:type owl:NamedIndividual ,
+                                               ligenco:BookEdition ;
+                                      ligenco:publishedBy ligenco:Mondadori ;
+                                      ligenco:publishedIn ligenco:Italy ;
+                                      ligenco:edition_language "italian"^^xsd:string ;
+                                      rdfs:comment "Mondadori edition of \"Il fu Mattia Pascal\""@en ;
+                                      rdfs:label "Il fu Mattia Pascal Mondadori"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Il_prigioniero_libero
+ligenco:Il_prigioniero_libero rdf:type owl:NamedIndividual ,
+                                       ligenco:Essay ;
+                              ligenco:hasBeenPublished ligenco:Il_prigioniero_libero_Adelphi ;
+                              ligenco:original_date "2020"^^xsd:nonNegativeInteger ;
+                              ligenco:original_language "italian"^^xsd:language ;
+                              ligenco:original_title "Il prigioniero libero"^^xsd:string ;
+                              rdfs:comment "Philosophic essay written by Giuseppe Tratteur, originally published in 2020"@en ;
+                              rdfs:label "Il prigioniero libero"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Il_prigioniero_libero_Adelphi
+ligenco:Il_prigioniero_libero_Adelphi rdf:type owl:NamedIndividual ,
+                                               ligenco:BookEdition ;
+                                      ligenco:publishedBy ligenco:Adelphi ;
+                                      ligenco:publishedIn ligenco:Italy ;
+                                      ligenco:edition_language "italian"^^xsd:string ;
+                                      rdfs:comment "Adelphi edition of \"Il prigioniero libero\""@en ;
+                                      rdfs:label "Il prigioniero libero Adelphi"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Il_prigioniero_libero_collezioneAdelphi
+ligenco:Il_prigioniero_libero_collezioneAdelphi rdf:type owl:NamedIndividual ,
+                                                         ligenco:IndividualBook ;
+                                                ligenco:relatedToIndividualBook ligenco:Il_prigioniero_libero ;
+                                                rdfs:comment "\"Il prigioniero libero\" edition belonging to the \"Biblioteca Scientifica Adelphi's collection"@en ;
+                                                rdfs:label "Il prigioniero libero collezione Adelphi"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Italy
+ligenco:Italy rdf:type owl:NamedIndividual ,
+                       ligenco:Country ;
+              ligenco:locatedIn ligenco:Western_Europe ;
+              ligenco:country_name "Italy"^^xsd:string ;
+              rdfs:comment "A country located in Southern Europe"@en ;
+              rdfs:label "Italy"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#LaFeltrinelli
+ligenco:LaFeltrinelli rdf:type owl:NamedIndividual ,
+                               ligenco:Publisher ;
+                      ligenco:publisher_name "LaFeltrinelli"^^xsd:string ;
+                      rdfs:comment "Publishing house in Milan, Italy"@en ;
+                      rdfs:label "LaFeltrinelli"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#La_difesa_di_Luzin
+ligenco:La_difesa_di_Luzin rdf:type owl:NamedIndividual ,
+                                    ligenco:ComedyRomance ;
+                           ligenco:original_date "1930"^^xsd:nonNegativeInteger ;
+                           ligenco:original_language "russian"^^xsd:string ;
+                           ligenco:original_title "Zaščita Lužina"^^xsd:string ;
+                           rdfs:comment "A comedy romance book written by Vladimir Nabokov 1930"@en ;
+                           rdfs:label "La difesa di Luzin"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Lo_strano_ordine_delle_cose
+ligenco:Lo_strano_ordine_delle_cose rdf:type owl:NamedIndividual ,
+                                             ligenco:Essay ;
+                                    ligenco:original_date "2017"^^xsd:nonNegativeInteger ;
+                                    ligenco:original_language "portugal"^^xsd:string ;
+                                    ligenco:original_title "A Estranha Ordem das Coisas"^^xsd:string ;
+                                    rdfs:comment "Philosophic essay written by Antonio Damasio, originally published in 2017"@en ;
+                                    rdfs:label "Lo strano ordine delle cose"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Lo_strano_ordine_delle_cose_collezioneAdelphi
+ligenco:Lo_strano_ordine_delle_cose_collezioneAdelphi rdf:type owl:NamedIndividual ,
+                                                               ligenco:IndividualBook ;
+                                                      ligenco:relatedToIndividualBook ligenco:Lo_strano_ordine_delle_cose ;
+                                                      rdfs:comment "\"Lo strano ordine delle cose\" edition belonging to the \"Biblioteca Scientifica Adelphi's collection"@en ;
+                                                      rdfs:label "Lo strano ordine delle cose collezione Adelphi"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Lolita
+ligenco:Lolita rdf:type owl:NamedIndividual ,
+                        ligenco:RomanticRomance ;
+               ligenco:original_date "1955"^^xsd:nonNegativeInteger ;
+               ligenco:original_language "english"^^xsd:string ;
+               ligenco:original_title "Lolita"^^xsd:string ;
+               rdfs:comment "A romantic romance book written by Vladimir Nabokov in 1955"@en ;
+               rdfs:label "Lolita"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Luigi_Pirandello
+ligenco:Luigi_Pirandello rdf:type owl:NamedIndividual ,
+                                  ligenco:Writer ;
+                         ligenco:belongToMovement ligenco:Modernism ;
+                         ligenco:livedIn ligenco:Italy ;
+                         ligenco:relatedTo ligenco:Italy ;
+                         ligenco:wrote ligenco:Il_fu_Mattia_Pascal ,
+                                       ligenco:Sei_personaggi_in_cerca_d_autore ,
+                                       ligenco:Uno_nessuno_centomila ;
+                         ligenco:birth_date "1867-06-28T00:00:00"^^xsd:dateTime ;
+                         ligenco:viaf_id "64010465"^^xsd:string ;
+                         ligenco:writer_name "Luigi Pirandello"^^xsd:string ;
+                         rdfs:comment "An Italian Modernist author born in 1867"@en ;
+                         rdfs:label "Luigi Pirandello"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Magical_realism
+ligenco:Magical_realism rdf:type owl:NamedIndividual ,
+                                 ligenco:LiteraryMovement ;
+                        ligenco:end_date "1967"^^xsd:nonNegativeInteger ;
+                        ligenco:start_date "1962"^^xsd:nonNegativeInteger ;
+                        rdfs:comment "Literary movement that paints a realistic view of the world while also adding magical elements"@en ;
+                        rdfs:label "Magical realism"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Melanesia
+ligenco:Melanesia rdf:type owl:NamedIndividual ,
+                           ligenco:GeographicalArea ;
+                  ligenco:locatedIn ligenco:Oceania ;
+                  rdfs:comment "Subregion of Oceania"@en ;
+                  rdfs:label "Melanesia"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Micronesia
+ligenco:Micronesia rdf:type owl:NamedIndividual ,
+                            ligenco:GeographicalArea ;
+                   ligenco:locatedIn ligenco:Oceania ;
+                   rdfs:comment "Subregion of Oceania"@en ;
+                   rdfs:label "Micronesia"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Modernism
+ligenco:Modernism rdf:type owl:NamedIndividual ,
+                           ligenco:LiteraryMovement ;
+                  ligenco:end_date "1940"^^xsd:nonNegativeInteger ;
+                  ligenco:start_date "1900"^^xsd:nonNegativeInteger ;
+                  rdfs:comment "Literary movement originated in the late 19th and early 20th centuries, mainly in Europe and North America, characterized by a self-conscious break with traditional ways of writing, in both poetry and prose fiction writing."@en ;
+                  rdfs:label "Modernism"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Mondadori
+ligenco:Mondadori rdf:type owl:NamedIndividual ,
+                           ligenco:Publisher ;
+                  ligenco:publisher_name "Mondadori"^^xsd:string ;
+                  rdfs:comment "Publishing house in Segrate, Italy"@en ;
+                  rdfs:label "Mondadori"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Naturalism
+ligenco:Naturalism rdf:type owl:NamedIndividual ,
+                            ligenco:LiteraryMovement ;
+                   ligenco:end_date "1900"^^xsd:nonNegativeInteger ;
+                   ligenco:start_date "1865"^^xsd:nonNegativeInteger ;
+                   rdfs:comment "Naturalism is a literary movement beginning in the late nineteenth century, similar to literary realism in its rejection of Romanticism, but distinct in its embrace of determinism, detachment, scientific objectivism, and social commentary."@en ;
+                   rdfs:label "Naturalism"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#North_Africa
+ligenco:North_Africa rdf:type owl:NamedIndividual ,
+                              ligenco:GeographicalArea ;
+                     ligenco:locatedIn ligenco:Africa ;
+                     rdfs:comment "Subregion of Africa"@en ;
+                     rdfs:label "North Africa"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#North_America
+ligenco:North_America rdf:type owl:NamedIndividual ,
+                               ligenco:GeographicalArea ;
+                      ligenco:locatedIn ligenco:America ;
+                      rdfs:comment "Subregion of America"@en ;
+                      rdfs:label "North America"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#North_Asia
+ligenco:North_Asia rdf:type owl:NamedIndividual ,
+                            ligenco:GeographicalArea ;
+                   ligenco:locatedIn ligenco:Asia ;
+                   rdfs:comment "Subregion of Asia"@en ;
+                   rdfs:label "North Asia"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#North_Europe
+ligenco:North_Europe rdf:type owl:NamedIndividual ,
+                              ligenco:GeographicalArea ;
+                     ligenco:locatedIn ligenco:Europe ;
+                     rdfs:comment "Subregion of Europe"@en ;
+                     rdfs:label "North Europe"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Oceania
+ligenco:Oceania rdf:type owl:NamedIndividual ,
+                         ligenco:GeographicalArea ;
+                rdfs:comment "A world continent"@en ;
+                rdfs:label "Oceania"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Operette_morali
+ligenco:Operette_morali rdf:type owl:NamedIndividual ,
+                                 ligenco:ShortStories ;
+                        ligenco:hasBeenPublished ligenco:Operette_morali_Mondadori ,
+                                                 ligenco:Operette_morali_laFeltrinelli ;
+                        ligenco:original_date "1827"^^xsd:nonNegativeInteger ;
+                        ligenco:original_language "italian"^^xsd:string ;
+                        ligenco:original_title "Operette morali"^^xsd:string ;
+                        rdfs:comment "Collection of philosophical short stories written by Giacomo Leopardi"@en ;
+                        rdfs:label "Operette morali"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Operette_morali_Mondadori
+ligenco:Operette_morali_Mondadori rdf:type owl:NamedIndividual ,
+                                           ligenco:BookEdition ;
+                                  ligenco:publishedBy ligenco:Mondadori ;
+                                  ligenco:publishedIn ligenco:Italy ;
+                                  ligenco:edition_language "italian"^^xsd:string ;
+                                  rdfs:comment "Operette morali edition published by Mondadori"@en ;
+                                  rdfs:label "Operette morali Mondadori"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Operette_morali_laFeltrinelli
+ligenco:Operette_morali_laFeltrinelli rdf:type owl:NamedIndividual ,
+                                               ligenco:BookEdition ;
+                                      ligenco:publishedBy ligenco:LaFeltrinelli ;
+                                      ligenco:publishedIn ligenco:Italy ;
+                                      ligenco:edition_language "italian"^^xsd:string ;
+                                      rdfs:comment "Operette morali edition published by La Feltrinelli"@en ;
+                                      rdfs:label "Operette morali LaFeltrinelli"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Polynesia
+ligenco:Polynesia rdf:type owl:NamedIndividual ,
+                           ligenco:GeographicalArea ;
+                  ligenco:locatedIn ligenco:Oceania ;
+                  rdfs:comment "Subregion of Oceania"@en ;
+                  rdfs:label "Polynesia"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Portugal
+ligenco:Portugal rdf:type owl:NamedIndividual ,
+                          ligenco:Country ;
+                 ligenco:locatedIn ligenco:Western_Europe ;
+                 ligenco:country_name "Portugal"^^xsd:string ;
+                 rdfs:comment "A country located in Europe"@en ;
+                 rdfs:label "Portugal"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Postmodernism
+ligenco:Postmodernism rdf:type owl:NamedIndividual ,
+                               ligenco:LiteraryMovement ;
+                      ligenco:end_date "1990"^^xsd:nonNegativeInteger ;
+                      ligenco:start_date "1970"^^xsd:nonNegativeInteger ;
+                      rdfs:comment "Form of literature that is characterized by the use of metafiction, unreliable narration, self-reflexivity, intertextuality, and which often thematizes both historical and political issues"@en ;
+                      rdfs:label "Postmodernism"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Pre_Renaissance
+ligenco:Pre_Renaissance rdf:type owl:NamedIndividual ,
+                                 ligenco:LiteraryMovement ;
+                        ligenco:end_date "1400"^^xsd:nonNegativeInteger ;
+                        ligenco:start_date "1300"^^xsd:nonNegativeInteger ;
+                        rdfs:comment "Literary movement that anticipated most of the Renaissance themes"@en ;
+                        rdfs:label "Pre-Renaissance"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Realism
+ligenco:Realism rdf:type owl:NamedIndividual ,
+                         ligenco:LiteraryMovement ;
+                ligenco:end_date "1900"^^xsd:nonNegativeInteger ;
+                ligenco:start_date "1840"^^xsd:nonNegativeInteger ;
+                rdfs:comment "The Realist movement began in the mid-19th century as a reaction to Romanticism. In favor of depictions of 'real' life, the Realist used common laborers, and ordinary people in ordinary surroundings engaged in real activities as subjects for their works."@en ;
+                rdfs:label "Realism"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Romanticism
+ligenco:Romanticism rdf:type owl:NamedIndividual ,
+                             ligenco:LiteraryMovement ;
+                    ligenco:end_date "1850"^^xsd:nonNegativeInteger ;
+                    ligenco:start_date "1800"^^xsd:nonNegativeInteger ;
+                    rdfs:comment """Literary movement of the 18th century.
+Romanticism was characterized by its emphasis on emotion and individualism, clandestine literature, idealization of nature, suspicion of science and industrialization, and glorification of the past with a strong preference for the medieval rather than the classical"""@en ;
+                    rdfs:label "Romanticism"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Russia
+ligenco:Russia rdf:type owl:NamedIndividual ,
+                        ligenco:Country ;
+               ligenco:locatedIn ligenco:Eastern_Europe ;
+               ligenco:country_name "Russia"^^xsd:string ;
+               rdfs:comment "A country located in Eastern Europe"@en ;
+               rdfs:label "Russia"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Sei_personaggi_in_cerca_d_autore
+ligenco:Sei_personaggi_in_cerca_d_autore rdf:type owl:NamedIndividual ,
+                                                  ligenco:Tragedy ;
+                                         ligenco:hasBeenPublished ligenco:Sei_personaggi_in_cerca_d_autore_Mondadori ;
+                                         ligenco:original_date "1921"^^xsd:nonNegativeInteger ;
+                                         ligenco:original_language "italian"^^xsd:string ;
+                                         ligenco:original_title "Sei personaggi in cerca d'autore"^^xsd:string ;
+                                         rdfs:comment "A Tragedy written by Luigi Pirandello"@en ;
+                                         rdfs:label "Sei personaggi in cerca d'autore"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Sei_personaggi_in_cerca_d_autore_Mondadori
+ligenco:Sei_personaggi_in_cerca_d_autore_Mondadori rdf:type owl:NamedIndividual ,
+                                                            ligenco:BookEdition ;
+                                                   ligenco:publishedBy ligenco:Mondadori ;
+                                                   ligenco:publishedIn ligenco:Italy ;
+                                                   ligenco:edition_language "italian"^^xsd:string ;
+                                                   rdfs:comment "Mondadori edition of \"Sei personaggi in cerca d'autore\""@en ;
+                                                   rdfs:label "Sei personaggi in cerca d'autore Mondadori"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#South_America
+ligenco:South_America rdf:type owl:NamedIndividual ,
+                               ligenco:GeographicalArea ;
+                      ligenco:locatedIn ligenco:America ;
+                      rdfs:comment "Subregion of America"@en ;
+                      rdfs:label "South America"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#South_Asia
+ligenco:South_Asia rdf:type owl:NamedIndividual ,
+                            ligenco:GeographicalArea ;
+                   ligenco:locatedIn ligenco:Asia ;
+                   rdfs:comment "Subregion of Asia"@en ;
+                   rdfs:label "South Asia"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#South_East_Asia
+ligenco:South_East_Asia rdf:type owl:NamedIndividual ,
+                                 ligenco:GeographicalArea ;
+                        ligenco:locatedIn ligenco:Asia ;
+                        rdfs:comment "Subregion of Asia"@en ;
+                        rdfs:label "South East Asia"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#South_Europe
+ligenco:South_Europe rdf:type owl:NamedIndividual ,
+                              ligenco:GeographicalArea ;
+                     ligenco:locatedIn ligenco:Europe ;
+                     rdfs:comment "Subregion of Europe"@en ;
+                     rdfs:label "South Europe"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Spain
+ligenco:Spain rdf:type owl:NamedIndividual ,
+                       ligenco:Country ;
+              ligenco:locatedIn ligenco:Western_Europe ;
+              ligenco:country_name "Spain"^^xsd:string ;
+              rdfs:comment "A country located in south europe"@en ;
+              rdfs:label "Spain"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#SpurlEditions
+ligenco:SpurlEditions rdf:type owl:NamedIndividual ,
+                               ligenco:Publisher ;
+                      ligenco:publisher_name "Spurl Editions"^^xsd:string ;
+                      rdfs:comment "An independent publisher of unusual literature and photography"@en ;
+                      rdfs:label "SpurlEditions"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Sub-Saharan_Africa
+ligenco:Sub-Saharan_Africa rdf:type owl:NamedIndividual ,
+                                    ligenco:GeographicalArea ;
+                           ligenco:locatedIn ligenco:Africa ;
+                           rdfs:comment "Subregion of Africa"@en ;
+                           rdfs:label "Sub Saharan Africa"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Surrealism
+ligenco:Surrealism rdf:type owl:NamedIndividual ,
+                            ligenco:LiteraryMovement ;
+                   ligenco:end_date "1950"^^xsd:nonNegativeInteger ;
+                   ligenco:start_date "1910"^^xsd:nonNegativeInteger ;
+                   rdfs:comment "Literary and artistic movement, of the 19th century, in which the goal is to create something bizarre and disjointed, but still somehow understandable."@en ;
+                   rdfs:label "Surrealism"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Symbolism
+ligenco:Symbolism rdf:type owl:NamedIndividual ,
+                           ligenco:LiteraryMovement ;
+                  ligenco:end_date "1900"^^xsd:nonNegativeInteger ;
+                  ligenco:start_date "1857"^^xsd:nonNegativeInteger ;
+                  rdfs:comment "Symbolism was a late 19th-century art movement of French and Belgian origin in poetry and other arts seeking to represent absolute truths symbolically through language and metaphorical images, mainly as a reaction against naturalism and realism."@en ;
+                  rdfs:label "Symbolism"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Ted_Chiang
+ligenco:Ted_Chiang rdf:type owl:NamedIndividual ,
+                            ligenco:Writer ;
+                   ligenco:belongToMovement ligenco:Contemporary ;
+                   ligenco:livedIn ligenco:United_States_of_America ;
+                   ligenco:relatedTo ligenco:United_States_of_America ;
+                   ligenco:wrote ligenco:Exhalation ;
+                   ligenco:birth_date "1967-01-01T00:00:00"^^xsd:dateTime ;
+                   ligenco:viaf_id "85807457"^^xsd:string ;
+                   ligenco:writer_name "Ted Chiang"^^xsd:string ;
+                   rdfs:comment "American contemporary sci-fi writer"@en ;
+                   rdfs:label "Ted Chiang"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Transcendentalism
+ligenco:Transcendentalism rdf:type owl:NamedIndividual ,
+                                   ligenco:LiteraryMovement ;
+                          ligenco:end_date "1855"^^xsd:nonNegativeInteger ;
+                          ligenco:start_date "1830"^^xsd:nonNegativeInteger ;
+                          rdfs:comment "Transcendentalism is a 19th-century movement of writers and philosophers in New England who were loosely bound together by adherence to an idealistic system of thought based on a belief in the essential unity of all creation, the innate goodness of humanity, and the supremacy of insight over logic and experience"@en ;
+                          rdfs:label "Trascendentalism"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#United_States_of_America
+ligenco:United_States_of_America rdf:type owl:NamedIndividual ,
+                                          ligenco:Country ;
+                                 ligenco:locatedIn ligenco:North_America ;
+                                 ligenco:country_name "United States of America"^^xsd:string ;
+                                 rdfs:comment "A country located in America"@en ;
+                                 rdfs:label "United States of America"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Uno_nessuno_centomila
+ligenco:Uno_nessuno_centomila rdf:type owl:NamedIndividual ,
+                                       ligenco:ComedyRomance ;
+                              ligenco:hasBeenPublished ligenco:Uno_nessuno_centomila_Mondadori ,
+                                                       ligenco:Uno_nessuno_centomila_SpurlEditions ;
+                              ligenco:original_date "1926"^^xsd:nonNegativeInteger ;
+                              ligenco:original_language "italian"^^xsd:string ;
+                              ligenco:original_title "Uno, nessuno e centomila"^^xsd:string ;
+                              rdfs:comment "A comedy romance book written by Luigi Pirandello"@en ;
+                              rdfs:label "Uno, nessuno, centomila"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Uno_nessuno_centomila_Mondadori
+ligenco:Uno_nessuno_centomila_Mondadori rdf:type owl:NamedIndividual ,
+                                                 ligenco:BookEdition ;
+                                        ligenco:publishedBy ligenco:Mondadori ;
+                                        ligenco:publishedIn ligenco:Italy ;
+                                        ligenco:edition_language "italian"^^xsd:string ;
+                                        rdfs:comment "Mondadori edition of \"Uno nessuno centomila\""@en ;
+                                        rdfs:label "Uno, nessuno, centomila Mondadori"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Uno_nessuno_centomila_SpurlEditions
+ligenco:Uno_nessuno_centomila_SpurlEditions rdf:type owl:NamedIndividual ,
+                                                     ligenco:BookEdition ;
+                                            ligenco:publishedBy ligenco:SpurlEditions ;
+                                            ligenco:publishedIn ligenco:United_States_of_America ;
+                                            ligenco:edition_date "2018-10-22T00:00:00"^^xsd:dateTime ;
+                                            ligenco:edition_language "english"^^xsd:string ;
+                                            ligenco:edition_title "One, No One, and One Hundred Thousand"^^xsd:string ;
+                                            rdfs:comment "SpurlEditions edition of \"Uno nessuno centomila\""@en ;
+                                            rdfs:label "Uno, nessuno, centomila SpurlEdtions"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Verismo
+ligenco:Verismo rdf:type owl:NamedIndividual ,
+                         ligenco:LiteraryMovement ;
+                ligenco:end_date "1900"^^xsd:nonNegativeInteger ;
+                ligenco:start_date "1875"^^xsd:nonNegativeInteger ;
+                rdfs:comment "Italian literary movement of the late 18th century, unlike French naturalism, which was based on positivistic ideals, verist claims of the scientific nature and social usefulness of the movement"@en ;
+                rdfs:label "Verismo"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Vladimir_Nabokov
+ligenco:Vladimir_Nabokov rdf:type owl:NamedIndividual ,
+                                  ligenco:Writer ;
+                         ligenco:belongToMovement ligenco:Modernism ;
+                         ligenco:livedIn ligenco:Russia ,
+                                         ligenco:United_States_of_America ;
+                         ligenco:relatedTo ligenco:Russia ;
+                         ligenco:wrote ligenco:La_difesa_di_Luzin ,
+                                       ligenco:Lolita ;
+                         ligenco:birth_date "1899-04-22T00:00:00"^^xsd:dateTime ;
+                         ligenco:death_date "1977-07-02T00:00:00"^^xsd:dateTime ;
+                         ligenco:writer_name "Vladimir Nabokov"^^xsd:string ;
+                         rdfs:comment "A russian modernist writer"@en ;
+                         rdfs:label "Vladimir Nabokov"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Western_Asia
+ligenco:Western_Asia rdf:type owl:NamedIndividual ,
+                              ligenco:GeographicalArea ;
+                     ligenco:locatedIn ligenco:Asia ;
+                     rdfs:comment "Subregion of Asia"@en ;
+                     rdfs:label "Western Asia"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Western_Europe
+ligenco:Western_Europe rdf:type owl:NamedIndividual ,
+                                ligenco:GeographicalArea ;
+                       ligenco:locatedIn ligenco:Europe ;
+                       rdfs:comment "Subregion of Europe"@en ;
+                       rdfs:label "Western Europe"@en .
+
+
+#################################################################
+#    General axioms
+#################################################################
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( <http://purl.org/spar/fabio/Poem>
+                ligenco:DidacticPoetry
+                ligenco:EpicPoetry
+                ligenco:LyricPoetry
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( <http://www.ontologydesignpatterns.org/cp/owl/bag.owl#Bag>
+                <http://www.ontologydesignpatterns.org/cp/owl/bag.owl#Item>
+                ligenco:Book
+                ligenco:BookEdition
+                ligenco:GeographicalArea
+                ligenco:LiteraryMovement
+                ligenco:Publisher
+                ligenco:Writer
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( ligenco:AdventureRomance
+                ligenco:Bildungsromance
+                ligenco:ChildrenRomance
+                ligenco:ComedyRomance
+                ligenco:CrimefictionRomance
+                ligenco:EroticRomance
+                ligenco:FantasyRomance
+                ligenco:HistoricalRomance
+                ligenco:HorrorRomance
+                ligenco:RomanticRomance
+                ligenco:SciencefictionRomance
+                ligenco:ThrillerRomance
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( ligenco:Aphorisms
+                ligenco:Dialogue
+                ligenco:Essay
+                ligenco:Manifest
+                ligenco:Treatise
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( ligenco:Ballata
+                ligenco:Madrigal
+                ligenco:Song
+                ligenco:Sonnet
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( ligenco:Biography
+                ligenco:Diary
+                ligenco:Fable
+                ligenco:Romance
+                ligenco:ShortStories
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( ligenco:Drama
+                ligenco:Poetry
+                ligenco:Prose
+              )
+] .
+
+
+[ rdf:type owl:AllDifferent ;
+  owl:distinctMembers ( ligenco:Absurdism
+                        ligenco:Contemporary
+                        ligenco:Dada
+                        ligenco:Decadent_movement
+                        ligenco:Expressionism
+                        ligenco:Futurism
+                        ligenco:Magical_realism
+                        ligenco:Modernism
+                        ligenco:Naturalism
+                        ligenco:Postmodernism
+                        ligenco:Pre_Renaissance
+                        ligenco:Realism
+                        ligenco:Romanticism
+                        ligenco:Surrealism
+                        ligenco:Symbolism
+                        ligenco:Transcendentalism
+                        ligenco:Verismo
+                      )
+] .
+
+
+[ rdf:type owl:AllDifferent ;
+  owl:distinctMembers ( ligenco:Adelphi
+                        ligenco:LaFeltrinelli
+                        ligenco:Mondadori
+                        ligenco:SpurlEditions
+                      )
+] .
+
+
+[ rdf:type owl:AllDifferent ;
+  owl:distinctMembers ( ligenco:Africa
+                        ligenco:America
+                        ligenco:Antarctica
+                        ligenco:Asia
+                        ligenco:Australasia
+                        ligenco:Central_America
+                        ligenco:Central_Asia
+                        ligenco:Central_Europe
+                        ligenco:East_Asia
+                        ligenco:Eastern_Europe
+                        ligenco:Europe
+                        ligenco:Melanesia
+                        ligenco:Micronesia
+                        ligenco:North_Africa
+                        ligenco:North_America
+                        ligenco:North_Asia
+                        ligenco:North_Europe
+                        ligenco:Oceania
+                        ligenco:Polynesia
+                        ligenco:South_America
+                        ligenco:South_Asia
+                        ligenco:South_East_Asia
+                        ligenco:South_Europe
+                        ligenco:Sub-Saharan_Africa
+                        ligenco:Western_Asia
+                        ligenco:Western_Europe
+                      )
+] .
+
+
+[ rdf:type owl:AllDifferent ;
+  owl:distinctMembers ( ligenco:Antonio_Damasio
+                        ligenco:Giacomo_Leopardi
+                        ligenco:Giuseppe_Tratteur
+                        ligenco:Luigi_Pirandello
+                        ligenco:Ted_Chiang
+                      )
+] .
+
+
+[ rdf:type owl:AllDifferent ;
+  owl:distinctMembers ( ligenco:Exhalation
+                        ligenco:Il_fu_Mattia_Pascal
+                        ligenco:Il_prigioniero_libero
+                        ligenco:La_difesa_di_Luzin
+                        ligenco:Lo_strano_ordine_delle_cose
+                        ligenco:Lolita
+                        ligenco:Operette_morali
+                        ligenco:Sei_personaggi_in_cerca_d_autore
+                        ligenco:Uno_nessuno_centomila
+                      )
+] .
+
+
+[ rdf:type owl:AllDifferent ;
+  owl:distinctMembers ( ligenco:Il_fu_Mattia_Pascal_Mondadori
+                        ligenco:Il_prigioniero_libero_Adelphi
+                        ligenco:Operette_morali_Mondadori
+                        ligenco:Operette_morali_laFeltrinelli
+                        ligenco:Sei_personaggi_in_cerca_d_autore_Mondadori
+                        ligenco:Uno_nessuno_centomila_Mondadori
+                        ligenco:Uno_nessuno_centomila_SpurlEditions
+                      )
+] .
+
+
+[ rdf:type owl:AllDifferent ;
+  owl:distinctMembers ( ligenco:Italy
+                        ligenco:Portugal
+                        ligenco:Russia
+                        ligenco:Spain
+                        ligenco:United_States_of_America
+                      )
+] .
+
+
+#################################################################
+#    Rules
+#################################################################
+
+ligenco:b rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+ligenco:ol rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+ligenco:be rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+ligenco:el rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+ligenco:b1 rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+ligenco:b2 rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+ligenco:odb1 rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+ligenco:odb2 rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+ligenco:lm1 rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+ligenco:lm2 rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+ligenco:slm1 rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+ligenco:slm2 rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+ligenco:elm1 rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+ligenco:w rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+ligenco:olb1 rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+ligenco:olb2 rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+ligenco:w1 rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+ligenco:w2 rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+ligenco:m1 rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+ligenco:m2 rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+ligenco:c rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "Check for translated books."^^xsd:string ;
+   rdfs:label "S1"^^xsd:string ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> ligenco:Book ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> ligenco:b
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> ligenco:original_language ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> ligenco:b ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> ligenco:ol
+                                                                ] ;
+                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                             <http://www.w3.org/2003/11/swrl#propertyPredicate> ligenco:hasBeenPublished ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument1> ligenco:b ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument2> ligenco:be
+                                                                           ] ;
+                                                                 rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                            rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                                        <http://www.w3.org/2003/11/swrl#propertyPredicate> ligenco:edition_language ;
+                                                                                        <http://www.w3.org/2003/11/swrl#argument1> ligenco:be ;
+                                                                                        <http://www.w3.org/2003/11/swrl#argument2> ligenco:el
+                                                                                      ] ;
+                                                                            rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                       rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                                                   <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#notEqual> ;
+                                                                                                   <http://www.w3.org/2003/11/swrl#arguments> ( ligenco:ol
+                                                                                                                                                ligenco:el
+                                                                                                                                              )
+                                                                                                 ] ;
+                                                                                       rdf:rest rdf:nil
+                                                                                     ]
+                                                                          ]
+                                                               ]
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> ligenco:TranslatedBook ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> ligenco:b
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "Find coeval books (i.e. books with the same first publication date)"^^xsd:string ;
+   rdfs:label "S3"^^xsd:string ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> ligenco:Book ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> ligenco:b1
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#classPredicate> ligenco:Book ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> ligenco:b2
+                                                                ] ;
+                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                             <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#equal> ;
+                                                                             <http://www.w3.org/2003/11/swrl#arguments> ( ligenco:odb1
+                                                                                                                          ligenco:odb2
+                                                                                                                        )
+                                                                           ] ;
+                                                                 rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                            rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DifferentIndividualsAtom> ;
+                                                                                        <http://www.w3.org/2003/11/swrl#argument1> ligenco:b1 ;
+                                                                                        <http://www.w3.org/2003/11/swrl#argument2> ligenco:b2
+                                                                                      ] ;
+                                                                            rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                       rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                                                   <http://www.w3.org/2003/11/swrl#propertyPredicate> ligenco:original_date ;
+                                                                                                   <http://www.w3.org/2003/11/swrl#argument1> ligenco:b1 ;
+                                                                                                   <http://www.w3.org/2003/11/swrl#argument2> ligenco:odb1
+                                                                                                 ] ;
+                                                                                       rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                                  rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                                                              <http://www.w3.org/2003/11/swrl#propertyPredicate> ligenco:original_date ;
+                                                                                                              <http://www.w3.org/2003/11/swrl#argument1> ligenco:b2 ;
+                                                                                                              <http://www.w3.org/2003/11/swrl#argument2> ligenco:odb2
+                                                                                                            ] ;
+                                                                                                  rdf:rest rdf:nil
+                                                                                                ]
+                                                                                     ]
+                                                                          ]
+                                                               ]
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> ligenco:isCoevalTo ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> ligenco:b1 ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> ligenco:b2
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "Check for overlapping epochs."^^xsd:string ;
+   rdfs:label "S6"^^xsd:string ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> ligenco:LiteraryMovement ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> ligenco:lm1
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#classPredicate> ligenco:LiteraryMovement ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> ligenco:lm2
+                                                                ] ;
+                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DifferentIndividualsAtom> ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument1> ligenco:lm1 ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument2> ligenco:lm2
+                                                                           ] ;
+                                                                 rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                            rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                                        <http://www.w3.org/2003/11/swrl#propertyPredicate> ligenco:start_date ;
+                                                                                        <http://www.w3.org/2003/11/swrl#argument1> ligenco:lm1 ;
+                                                                                        <http://www.w3.org/2003/11/swrl#argument2> ligenco:slm1
+                                                                                      ] ;
+                                                                            rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                       rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                                                   <http://www.w3.org/2003/11/swrl#propertyPredicate> ligenco:start_date ;
+                                                                                                   <http://www.w3.org/2003/11/swrl#argument1> ligenco:lm2 ;
+                                                                                                   <http://www.w3.org/2003/11/swrl#argument2> ligenco:slm2
+                                                                                                 ] ;
+                                                                                       rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                                  rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                                                              <http://www.w3.org/2003/11/swrl#propertyPredicate> ligenco:end_date ;
+                                                                                                              <http://www.w3.org/2003/11/swrl#argument1> ligenco:lm1 ;
+                                                                                                              <http://www.w3.org/2003/11/swrl#argument2> ligenco:elm1
+                                                                                                            ] ;
+                                                                                                  rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                                             rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                                                                         <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#lessThan> ;
+                                                                                                                         <http://www.w3.org/2003/11/swrl#arguments> ( ligenco:slm2
+                                                                                                                                                                      ligenco:elm1
+                                                                                                                                                                    )
+                                                                                                                       ] ;
+                                                                                                             rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                                                        rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                                                                                    <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#greaterThan> ;
+                                                                                                                                    <http://www.w3.org/2003/11/swrl#arguments> ( ligenco:slm2
+                                                                                                                                                                                 ligenco:slm1
+                                                                                                                                                                               )
+                                                                                                                                  ] ;
+                                                                                                                        rdf:rest rdf:nil
+                                                                                                                      ]
+                                                                                                           ]
+                                                                                                ]
+                                                                                     ]
+                                                                          ]
+                                                               ]
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> ligenco:overlapsWith ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> ligenco:lm1 ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> ligenco:lm2
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "Check for bilingual writers"^^xsd:string ;
+   rdfs:label "S2"^^xsd:string ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> ligenco:Writer ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> ligenco:w
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> ligenco:wrote ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> ligenco:w ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> ligenco:b1
+                                                                ] ;
+                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                             <http://www.w3.org/2003/11/swrl#propertyPredicate> ligenco:wrote ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument1> ligenco:w ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument2> ligenco:b2
+                                                                           ] ;
+                                                                 rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                            rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DifferentIndividualsAtom> ;
+                                                                                        <http://www.w3.org/2003/11/swrl#argument1> ligenco:b1 ;
+                                                                                        <http://www.w3.org/2003/11/swrl#argument2> ligenco:b2
+                                                                                      ] ;
+                                                                            rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                       rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                                                   <http://www.w3.org/2003/11/swrl#propertyPredicate> ligenco:original_language ;
+                                                                                                   <http://www.w3.org/2003/11/swrl#argument1> ligenco:b1 ;
+                                                                                                   <http://www.w3.org/2003/11/swrl#argument2> ligenco:olb1
+                                                                                                 ] ;
+                                                                                       rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                                  rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                                                              <http://www.w3.org/2003/11/swrl#propertyPredicate> ligenco:original_language ;
+                                                                                                              <http://www.w3.org/2003/11/swrl#argument1> ligenco:b2 ;
+                                                                                                              <http://www.w3.org/2003/11/swrl#argument2> ligenco:olb2
+                                                                                                            ] ;
+                                                                                                  rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                                             rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                                                                         <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#notEqual> ;
+                                                                                                                         <http://www.w3.org/2003/11/swrl#arguments> ( ligenco:olb1
+                                                                                                                                                                      ligenco:olb2
+                                                                                                                                                                    )
+                                                                                                                       ] ;
+                                                                                                             rdf:rest rdf:nil
+                                                                                                           ]
+                                                                                                ]
+                                                                                     ]
+                                                                          ]
+                                                               ]
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> ligenco:BilingualWriter ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> ligenco:w
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "Find writers who lived during the same epoch."^^xsd:string ;
+   rdfs:label "S4"^^xsd:string ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> ligenco:Writer ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> ligenco:w1
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#classPredicate> ligenco:Writer ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> ligenco:w2
+                                                                ] ;
+                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DifferentIndividualsAtom> ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument1> ligenco:w1 ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument2> ligenco:w2
+                                                                           ] ;
+                                                                 rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                            rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                                        <http://www.w3.org/2003/11/swrl#propertyPredicate> ligenco:belongToMovement ;
+                                                                                        <http://www.w3.org/2003/11/swrl#argument1> ligenco:w1 ;
+                                                                                        <http://www.w3.org/2003/11/swrl#argument2> ligenco:m1
+                                                                                      ] ;
+                                                                            rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                       rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                                                   <http://www.w3.org/2003/11/swrl#propertyPredicate> ligenco:belongToMovement ;
+                                                                                                   <http://www.w3.org/2003/11/swrl#argument1> ligenco:w2 ;
+                                                                                                   <http://www.w3.org/2003/11/swrl#argument2> ligenco:m2
+                                                                                                 ] ;
+                                                                                       rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                                  rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#SameIndividualAtom> ;
+                                                                                                              <http://www.w3.org/2003/11/swrl#argument1> ligenco:m1 ;
+                                                                                                              <http://www.w3.org/2003/11/swrl#argument2> ligenco:m2
+                                                                                                            ] ;
+                                                                                                  rdf:rest rdf:nil
+                                                                                                ]
+                                                                                     ]
+                                                                          ]
+                                                               ]
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> ligenco:livedInTheSameEpochAs ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> ligenco:w1 ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> ligenco:w2
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "Find writers who lived in the same country."^^xsd:string ;
+   rdfs:label "S5"^^xsd:string ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> ligenco:Writer ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> ligenco:w1
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#classPredicate> ligenco:Writer ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> ligenco:w2
+                                                                ] ;
+                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DifferentIndividualsAtom> ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument1> ligenco:w1 ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument2> ligenco:w2
+                                                                           ] ;
+                                                                 rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                            rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                                        <http://www.w3.org/2003/11/swrl#propertyPredicate> ligenco:livedIn ;
+                                                                                        <http://www.w3.org/2003/11/swrl#argument1> ligenco:w1 ;
+                                                                                        <http://www.w3.org/2003/11/swrl#argument2> ligenco:c
+                                                                                      ] ;
+                                                                            rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                       rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                                                   <http://www.w3.org/2003/11/swrl#propertyPredicate> ligenco:livedIn ;
+                                                                                                   <http://www.w3.org/2003/11/swrl#argument1> ligenco:w2 ;
+                                                                                                   <http://www.w3.org/2003/11/swrl#argument2> ligenco:c
+                                                                                                 ] ;
+                                                                                       rdf:rest rdf:nil
+                                                                                     ]
+                                                                          ]
+                                                               ]
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> ligenco:isCompatriotWith ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> ligenco:w1 ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> ligenco:w2
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
