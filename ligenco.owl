@@ -1,11 +1,14 @@
 @prefix : <http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#> .
 @prefix dc: <http://protege.stanford.edu/plugins/owl/dc/protege-dc.owl#> .
+@prefix gnd: <https://d-nb.info/standards/elementset/gnd#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/#term_> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix vann: <http://purl.org/vocab/vann/> .
+@prefix fabio: <http://purl.org/spar/fabio/> .
 @prefix ligenco: <http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#> .
 @base <http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco> .
 
@@ -52,17 +55,40 @@ vann:preferredNamespaceUri rdf:type owl:AnnotationProperty ;
 
 
 ###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#belongToMovement
-ligenco:belongToMovement rdf:type owl:ObjectProperty ,
-                                  owl:FunctionalProperty ;
+ligenco:belongToMovement rdf:type owl:ObjectProperty ;
+                         owl:inverseOf ligenco:hasExponent ;
+                         rdf:type owl:FunctionalProperty ;
                          rdfs:domain ligenco:Writer ;
                          rdfs:range ligenco:LiteraryMovement ;
                          rdfs:comment "A writer is born in a specific epoch related to a major literary movement."@en ;
                          rdfs:label "belong to movement"@en .
 
 
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#bookInMovement
+ligenco:bookInMovement rdf:type owl:ObjectProperty ;
+                       rdfs:domain ligenco:Book ;
+                       rdfs:range ligenco:LiteraryMovement ;
+                       owl:propertyChainAxiom ( ligenco:writtenBy
+                                                ligenco:belongToMovement
+                                              ) ;
+                       rdfs:comment "A book written by a writer who belongs to a specific literary movement."@en ;
+                       rdfs:label "book in movement"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#contains
+ligenco:contains rdf:type owl:ObjectProperty ;
+                 owl:inverseOf ligenco:locatedIn ;
+                 rdf:type owl:TransitiveProperty ;
+                 rdfs:domain ligenco:GeographicalArea ;
+                 rdfs:range ligenco:GeographicalArea ;
+                 rdfs:comment "A 'Geographical area' contains a 'Geographical area'"@en ;
+                 rdfs:label "contains"@en .
+
+
 ###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#hasBeenPublished
-ligenco:hasBeenPublished rdf:type owl:ObjectProperty ,
-                                  owl:InverseFunctionalProperty ;
+ligenco:hasBeenPublished rdf:type owl:ObjectProperty ;
+                         owl:inverseOf ligenco:publication_of ;
+                         rdf:type owl:InverseFunctionalProperty ;
                          rdfs:domain ligenco:Book ;
                          rdfs:range ligenco:BookEdition ;
                          rdfs:comment "A book has been published as a specific book edition."@en ;
@@ -71,6 +97,8 @@ ligenco:hasBeenPublished rdf:type owl:ObjectProperty ,
 
 ###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#hasBeenPublishedInCountry
 ligenco:hasBeenPublishedInCountry rdf:type owl:ObjectProperty ;
+                                  rdfs:domain ligenco:Book ;
+                                  rdfs:range ligenco:Country ;
                                   owl:propertyChainAxiom ( ligenco:hasBeenPublished
                                                            ligenco:publishedIn
                                                          ) ;
@@ -81,31 +109,83 @@ ligenco:hasBeenPublishedInCountry rdf:type owl:ObjectProperty ;
 ###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#hasCollection
 ligenco:hasCollection rdf:type owl:ObjectProperty ;
                       owl:inverseOf ligenco:hasPublisher ;
+                      rdfs:domain ligenco:Publisher ;
+                      rdfs:range ligenco:BookCollection ;
                       rdfs:comment "A publisher which published a book collection."@en ;
                       rdfs:label "has collection"@en .
 
 
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#hasExponent
+ligenco:hasExponent rdf:type owl:ObjectProperty ,
+                             owl:InverseFunctionalProperty ;
+                    rdfs:domain ligenco:LiteraryMovement ;
+                    rdfs:range ligenco:Writer ;
+                    rdfs:comment "A writer belong to a literary movement"@en ;
+                    rdfs:label "is exponent"@en .
+
+
 ###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#hasPublisher
 ligenco:hasPublisher rdf:type owl:ObjectProperty ,
-                              owl:InverseFunctionalProperty ;
+                              owl:FunctionalProperty ;
                      rdfs:domain ligenco:BookCollection ;
                      rdfs:range ligenco:Publisher ;
                      rdfs:comment "A book collection published by a publisher."@en ;
                      rdfs:label "has publisher"@en .
 
 
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#has_been_related_to
+ligenco:has_been_related_to rdf:type owl:ObjectProperty ;
+                            owl:inverseOf ligenco:relatedTo ;
+                            rdfs:domain ligenco:Country ;
+                            rdfs:range ligenco:Writer ;
+                            rdfs:comment "A 'Country' has been related to a 'Writer'"@en ;
+                            rdfs:label "has been related to"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#has_publication
+ligenco:has_publication rdf:type owl:ObjectProperty ;
+                        owl:inverseOf ligenco:publishedIn ;
+                        rdfs:domain ligenco:Country ;
+                        rdfs:range ligenco:BookEdition ;
+                        rdfs:comment "A book edition has been published in a country"@en ;
+                        rdfs:label "has publication"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#hosted
+ligenco:hosted rdf:type owl:ObjectProperty ;
+               owl:inverseOf ligenco:livedIn ;
+               rdfs:domain ligenco:Country ;
+               rdfs:range ligenco:Writer ;
+               rdfs:comment "A 'Country' hosted a 'Writer'"@en ;
+               rdfs:label "hosted"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#hostsPublisher
+ligenco:hostsPublisher rdf:type owl:ObjectProperty ;
+                       owl:inverseOf ligenco:setIn ;
+                       rdf:type owl:InverseFunctionalProperty ;
+                       rdfs:domain ligenco:Country ;
+                       rdfs:range ligenco:Publisher ;
+                       rdfs:comment "A 'Country' hosts a 'Publisher'"@en ;
+                       rdfs:label "hosts publisher"@en .
+
+
 ###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#isCoevalTo
 ligenco:isCoevalTo rdf:type owl:ObjectProperty ,
                             owl:SymmetricProperty ;
                    rdfs:domain ligenco:Book ;
-                   rdfs:range ligenco:Book .
+                   rdfs:range ligenco:Book ;
+                   rdfs:comment "Two books belong to the same literary movement"@en ;
+                   rdfs:label "is coeval to"@en .
 
 
 ###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#isCompatriotWith
 ligenco:isCompatriotWith rdf:type owl:ObjectProperty ,
                                   owl:SymmetricProperty ;
                          rdfs:domain ligenco:Writer ;
-                         rdfs:range ligenco:Writer .
+                         rdfs:range ligenco:Writer ;
+                         rdfs:comment "A 'Writer' isCompatriotWith a 'Writer'"@en ;
+                         rdfs:label "is compratiot with"@en .
 
 
 ###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#livedIn
@@ -120,7 +200,9 @@ ligenco:livedIn rdf:type owl:ObjectProperty ;
 ligenco:livedInTheSameEpochAs rdf:type owl:ObjectProperty ,
                                        owl:SymmetricProperty ;
                               rdfs:domain ligenco:Writer ;
-                              rdfs:range ligenco:Writer .
+                              rdfs:range ligenco:Writer ;
+                              rdfs:comment "Two writer lived in the same epoch"@en ;
+                              rdfs:label "lived in the same epoch as"@en .
 
 
 ###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#locatedIn
@@ -136,7 +218,28 @@ ligenco:locatedIn rdf:type owl:ObjectProperty ,
 ligenco:overlapsWith rdf:type owl:ObjectProperty ,
                               owl:SymmetricProperty ;
                      rdfs:domain ligenco:LiteraryMovement ;
-                     rdfs:range ligenco:LiteraryMovement .
+                     rdfs:range ligenco:LiteraryMovement ;
+                     rdfs:comment "A 'Literary movement' overlaps with a 'Literary movement'"@en ;
+                     rdfs:label "overlaps with"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#publication_of
+ligenco:publication_of rdf:type owl:ObjectProperty ,
+                                owl:FunctionalProperty ;
+                       rdfs:domain ligenco:BookEdition ;
+                       rdfs:range ligenco:Book ;
+                       rdfs:comment "A  'Book edition' is a publication of a 'Book'" ;
+                       rdfs:label "publication of" .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#published
+ligenco:published rdf:type owl:ObjectProperty ;
+                  owl:inverseOf ligenco:publishedBy ;
+                  rdf:type owl:InverseFunctionalProperty ;
+                  rdfs:domain ligenco:Publisher ;
+                  rdfs:range ligenco:BookEdition ;
+                  rdfs:comment "A 'Publisher' published a 'Book edition'"@en ;
+                  rdfs:label "published"@en .
 
 
 ###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#publishedBy
@@ -176,7 +279,17 @@ ligenco:relatedToIndividualBook rdf:type owl:ObjectProperty ;
 ligenco:relatedToSequenceBook rdf:type owl:ObjectProperty ;
                               rdfs:subPropertyOf <http://www.ontologydesignpatterns.org/cp/owl/bag.owl#itemContent> ;
                               rdfs:domain ligenco:SequenceBook ;
-                              rdfs:range ligenco:Book .
+                              rdfs:range ligenco:Book ;
+                              rdfs:label "related to sequence book"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#seriesHasPublisher
+ligenco:seriesHasPublisher rdf:type owl:ObjectProperty ,
+                                    owl:FunctionalProperty ;
+                           rdfs:domain ligenco:BookSeries ;
+                           rdfs:range ligenco:Publisher ;
+                           rdfs:comment "A book series published by a publisher."@en ;
+                           rdfs:label "series has publisher"@en .
 
 
 ###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#setIn
@@ -188,21 +301,21 @@ ligenco:setIn rdf:type owl:ObjectProperty ,
               rdfs:label "set in"@en .
 
 
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#writtenBy
+ligenco:writtenBy rdf:type owl:ObjectProperty ;
+                  owl:inverseOf ligenco:wrote ;
+                  rdfs:domain ligenco:Book ;
+                  rdfs:range ligenco:Writer ;
+                  rdfs:comment "A book has been written by a writer."@en ;
+                  rdfs:label "written by"@en .
+
+
 ###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#wrote
 ligenco:wrote rdf:type owl:ObjectProperty ;
-              owl:inverseOf ligenco:wroteBy ;
               rdfs:domain ligenco:Writer ;
               rdfs:range ligenco:Book ;
               rdfs:comment "A writer wrote a book."@en ;
               rdfs:label "wrote"@en .
-
-
-###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#wroteBy
-ligenco:wroteBy rdf:type owl:ObjectProperty ;
-                rdfs:domain ligenco:Book ;
-                rdfs:range ligenco:Writer ;
-                rdfs:comment "A book has been writter by a writer."@en ;
-                rdfs:label "wrote by"@en .
 
 
 #################################################################
@@ -266,7 +379,9 @@ ligenco:edition_title rdf:type owl:DatatypeProperty ,
 ligenco:end_date rdf:type owl:DatatypeProperty ,
                           owl:FunctionalProperty ;
                  rdfs:domain ligenco:LiteraryMovement ;
-                 rdfs:range xsd:nonNegativeInteger .
+                 rdfs:range xsd:nonNegativeInteger ;
+                 rdfs:comment "Literary movement end date"@en ;
+                 rdfs:label "end date"@en .
 
 
 ###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#original_date
@@ -309,7 +424,9 @@ ligenco:publisher_name rdf:type owl:DatatypeProperty ,
 ligenco:start_date rdf:type owl:DatatypeProperty ,
                             owl:FunctionalProperty ;
                    rdfs:domain ligenco:LiteraryMovement ;
-                   rdfs:range xsd:nonNegativeInteger .
+                   rdfs:range xsd:nonNegativeInteger ;
+                   rdfs:comment "Literary movement start date"@en ;
+                   rdfs:label "start date"@en .
 
 
 ###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#viaf_id
@@ -321,12 +438,21 @@ ligenco:viaf_id rdf:type owl:DatatypeProperty ;
 
 
 ###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#writer_name
-ligenco:writer_name rdf:type owl:DatatypeProperty ,
-                             owl:FunctionalProperty ;
+ligenco:writer_name rdf:type owl:DatatypeProperty ;
+                    owl:equivalentProperty foaf:name ;
+                    rdf:type owl:FunctionalProperty ;
                     rdfs:domain ligenco:Writer ;
                     rdfs:range xsd:string ;
                     rdfs:comment "Name which a writer is identified by."@en ;
                     rdfs:label "writer name"@en .
+
+
+###  http://xmlns.com/foaf/0.1/#term_name
+foaf:name rdf:type owl:DatatypeProperty ,
+                   owl:FunctionalProperty ;
+          rdfs:comment "A name for some thing"@en ;
+          rdfs:isDefinedBy "http://xmlns.com/foaf/0.1/" ;
+          rdfs:label "name"@en .
 
 
 #################################################################
@@ -334,62 +460,107 @@ ligenco:writer_name rdf:type owl:DatatypeProperty ,
 #################################################################
 
 ###  http://purl.org/spar/fabio/Biography
-<http://purl.org/spar/fabio/Biography> rdf:type owl:Class ;
-                                       owl:equivalentClass ligenco:Biography .
+fabio:Biography rdf:type owl:Class ;
+                owl:equivalentClass ligenco:Biography ;
+                rdfs:subClassOf ligenco:Narrative ;
+                rdfs:comment "An account of the events, works and achievements, both personal and professional, of a person, either living or dead."@en ;
+                rdfs:isDefinedBy "http://purl.org/spar/fabio/" ;
+                rdfs:label "biography"@en .
 
 
 ###  http://purl.org/spar/fabio/Book
-<http://purl.org/spar/fabio/Book> rdf:type owl:Class ;
-                                  owl:equivalentClass ligenco:Book .
+fabio:Book rdf:type owl:Class ;
+           owl:equivalentClass ligenco:BookEdition ;
+           rdfs:comment "A non-serial document that is complete in one volume or a designated finite number of volumes. A book published by a publisher is usually identified by an International Standard Book Number (ISBN), and may be manifested as a physical printed publication on paper bound in a hard or soft cover, or in electronic format as an 'e-book'."@en ;
+           rdfs:isDefinedBy "http://purl.org/spar/fabio/" ;
+           rdfs:label "book"@en .
 
 
 ###  http://purl.org/spar/fabio/BookSeries
-<http://purl.org/spar/fabio/BookSeries> rdf:type owl:Class ;
-                                        owl:equivalentClass ligenco:BookCollection .
+fabio:BookSeries rdf:type owl:Class ;
+                 owl:equivalentClass ligenco:BookCollection ;
+                 rdfs:subClassOf <http://www.ontologydesignpatterns.org/cp/owl/bag.owl#Bag> ;
+                 rdfs:comment "A sequence of books having certain characteristics in common that are formally identified together as a group - for instance, the books in the Law, Governance and Technology Series published by Springer."@en ;
+                 rdfs:isDefinedBy "http://purl.org/spar/fabio/" ;
+                 rdfs:label "book series"@en .
 
 
 ###  http://purl.org/spar/fabio/BookSet
-<http://purl.org/spar/fabio/BookSet> rdf:type owl:Class ;
-                                     owl:equivalentClass ligenco:BookSeries .
+fabio:BookSet rdf:type owl:Class ;
+              owl:equivalentClass ligenco:BookSeries ;
+              rdfs:subClassOf <http://www.ontologydesignpatterns.org/cp/owl/list.owl#List> ;
+              rdfs:comment "A set of books having certain characteristics in common that informally allow their identification together as a group - for instance, the books of the Harry Potter saga."@en ;
+              rdfs:isDefinedBy "http://purl.org/spar/fabio/" ;
+              rdfs:label "book set"@en .
 
 
 ###  http://purl.org/spar/fabio/Diary
-<http://purl.org/spar/fabio/Diary> rdf:type owl:Class ;
-                                   owl:equivalentClass ligenco:Diary .
+fabio:Diary rdf:type owl:Class ;
+            owl:equivalentClass ligenco:Diary ;
+            rdfs:subClassOf ligenco:Narrative ;
+            rdfs:comment "A personal record, in a form of book, with discrete entries (often handwritten) arranged by date, reporting what has happened over the course of a day or other period of time."@en ;
+            rdfs:isDefinedBy "http://purl.org/spar/fabio/" ;
+            rdfs:label "diary"@en .
 
 
 ###  http://purl.org/spar/fabio/Essay
-<http://purl.org/spar/fabio/Essay> rdf:type owl:Class ;
-                                   owl:equivalentClass ligenco:Essay .
+fabio:Essay rdf:type owl:Class ;
+            owl:equivalentClass ligenco:Essay ;
+            rdfs:subClassOf ligenco:Divulgative ;
+            rdfs:comment "A piece of non-fiction writing on a particular subject, usually of moderate length and without chapters."@en ;
+            rdfs:isDefinedBy "http://purl.org/spar/fabio/" ;
+            rdfs:label "essay"@en .
 
 
-###  http://purl.org/spar/fabio/MusicalComposition
-<http://purl.org/spar/fabio/MusicalComposition> rdf:type owl:Class .
+###  http://purl.org/spar/fabio/LiteraryArtisticWork
+fabio:LiteraryArtisticWork rdf:type owl:Class ;
+                           rdfs:comment "A literary creative work, such as a novel, play, poem or song."@en ;
+                           rdfs:isDefinedBy "http://purl.org/spar/fabio/" ;
+                           rdfs:label "literary artistic work"@en .
 
 
 ###  http://purl.org/spar/fabio/Novel
-<http://purl.org/spar/fabio/Novel> rdf:type owl:Class ;
-                                   owl:equivalentClass ligenco:Romance .
+fabio:Novel rdf:type owl:Class ;
+            owl:equivalentClass ligenco:Romance ;
+            rdfs:subClassOf ligenco:Narrative ;
+            rdfs:comment "A long fictitious narrative written in literary prose."@en ;
+            rdfs:isDefinedBy "http://purl.org/spar/fabio/" ;
+            rdfs:label "novel"@en .
 
 
 ###  http://purl.org/spar/fabio/Play
-<http://purl.org/spar/fabio/Play> rdf:type owl:Class ;
-                                  owl:equivalentClass ligenco:Drama .
+fabio:Play rdf:type owl:Class ;
+           owl:equivalentClass ligenco:Drama ;
+           rdfs:subClassOf ligenco:Book ;
+           rdfs:comment "A form of literature written by a playwright, usually consisting of scripted dialogue between characters, intended for theatrical performance rather than reading."@en ;
+           rdfs:isDefinedBy "http://purl.org/spar/fabio/" ;
+           rdfs:label "play"@en .
 
 
 ###  http://purl.org/spar/fabio/Poem
-<http://purl.org/spar/fabio/Poem> rdf:type owl:Class ;
-                                  rdfs:subClassOf ligenco:Poetry .
+fabio:Poem rdf:type owl:Class ;
+           rdfs:subClassOf ligenco:Poetry ;
+           rdfs:comment "An artistic work written with an intensity or beauty of language more characteristic of poetry than of prose."@en ;
+           rdfs:isDefinedBy "http://purl.org/spar/fabio/" ;
+           rdfs:label "poem"@en .
 
 
 ###  http://purl.org/spar/fabio/ShortStory
-<http://purl.org/spar/fabio/ShortStory> rdf:type owl:Class ;
-                                        owl:equivalentClass ligenco:ShortStories .
+fabio:ShortStory rdf:type owl:Class ;
+                 owl:equivalentClass ligenco:ShortStories ;
+                 rdfs:subClassOf ligenco:Narrative ;
+                 rdfs:comment "A work of fiction that is usually written in prose, often in narrative format. This format tends to be more focused and less elaborate than longer works of fiction such as novels."@en ;
+                 rdfs:isDefinedBy "http://purl.org/spar/fabio/" ;
+                 rdfs:label "short story"@en .
 
 
 ###  http://purl.org/spar/fabio/Song
-<http://purl.org/spar/fabio/Song> rdf:type owl:Class ;
-                                  owl:equivalentClass ligenco:Song .
+fabio:Song rdf:type owl:Class ;
+           owl:equivalentClass ligenco:Song ;
+           rdfs:subClassOf ligenco:LyricPoetry ;
+           rdfs:comment "A musical composition that contains vocal parts ('lyrics') that are performed ('sung')."@en ;
+           rdfs:isDefinedBy "http://purl.org/spar/fabio/" ;
+           rdfs:label "song"@en .
 
 
 ###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#AdventureRomance
@@ -437,7 +608,9 @@ ligenco:Bildungsromance rdf:type owl:Class ;
 
 ###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#BilingualWriter
 ligenco:BilingualWriter rdf:type owl:Class ;
-                        rdfs:subClassOf ligenco:Writer .
+                        rdfs:subClassOf ligenco:Writer ;
+                        rdfs:comment "A writer that wrote in more than two languages"@en ;
+                        rdfs:label "Bilingual writer"@en .
 
 
 ###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Biography
@@ -449,6 +622,8 @@ ligenco:Biography rdf:type owl:Class ;
 
 ###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Book
 ligenco:Book rdf:type owl:Class ;
+             owl:equivalentClass gnd:Manuscript ;
+             rdfs:subClassOf fabio:LiteraryArtisticWork ;
              rdfs:comment "Medium for information recording (digital or on paper) composed of may pages."@en ;
              rdfs:label "Book"@en .
 
@@ -456,7 +631,8 @@ ligenco:Book rdf:type owl:Class ;
 ###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#BookCollection
 ligenco:BookCollection rdf:type owl:Class ;
                        rdfs:subClassOf <http://www.ontologydesignpatterns.org/cp/owl/bag.owl#Bag> ;
-                       rdfs:comment "A collection of books grouped by gnere or aruthor and belonging to a specific publisher."@en ;
+                       owl:disjointWith ligenco:BookSeries ;
+                       rdfs:comment "A collection of books grouped by genre or aruthor and belonging to a specific publisher."@en ;
                        rdfs:label "Book collection"@en .
 
 
@@ -575,14 +751,6 @@ ligenco:Drama rdf:type owl:Class ;
               rdfs:label "Drama"@en .
 
 
-###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#EpicPoetry
-ligenco:EpicPoetry rdf:type owl:Class ;
-                   rdfs:subClassOf <http://purl.org/spar/fabio/Poem> ,
-                                   ligenco:Poetry ;
-                   rdfs:comment "A lengthy poem about extraordinary deeds of extraordinary characters."@en ;
-                   rdfs:label "Epic poetry"@en .
-
-
 ###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#EroticRomance
 ligenco:EroticRomance rdf:type owl:Class ;
                       rdfs:subClassOf ligenco:Romance ;
@@ -670,6 +838,7 @@ ligenco:HorrorRomance rdf:type owl:Class ;
 ###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#IndividualBook
 ligenco:IndividualBook rdf:type owl:Class ;
                        rdfs:subClassOf <http://www.ontologydesignpatterns.org/cp/owl/bag.owl#Item> ;
+                       owl:disjointWith ligenco:SequenceBook ;
                        rdfs:comment "Book part of a book collection."@en ;
                        rdfs:label "Individual book"@en .
 
@@ -744,7 +913,7 @@ ligenco:Playwright rdf:type owl:Class ;
 
 ###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Poet
 ligenco:Poet rdf:type owl:Class ;
-             owl:equivalentClass <https://d-nb.info/standards/elementset/gnd#Poet> ,
+             owl:equivalentClass gnd:poet ,
                                  [ rdf:type owl:Restriction ;
                                    owl:onProperty ligenco:wrote ;
                                    owl:someValuesFrom ligenco:Poetry
@@ -822,8 +991,7 @@ ligenco:ShortStories rdf:type owl:Class ;
 
 ###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Song
 ligenco:Song rdf:type owl:Class ;
-             rdfs:subClassOf <http://purl.org/spar/fabio/MusicalComposition> ,
-                             ligenco:LyricPoetry ;
+             rdfs:subClassOf ligenco:LyricPoetry ;
              rdfs:comment "Musical composition accompained by specific lyrics intended to be performed by the human voice."@en ;
              rdfs:label "Song"@en .
 
@@ -851,7 +1019,9 @@ ligenco:Tragedy rdf:type owl:Class ;
 
 ###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#TranslatedBook
 ligenco:TranslatedBook rdf:type owl:Class ;
-                       rdfs:subClassOf ligenco:Book .
+                       rdfs:subClassOf ligenco:Book ;
+                       rdfs:comment "A book that has been translated in at least a language"@en ;
+                       rdfs:label "Translated book"@en .
 
 
 ###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Treatise
@@ -875,17 +1045,43 @@ ligenco:WandovagoWriter rdf:type owl:Class ;
 
 ###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Writer
 ligenco:Writer rdf:type owl:Class ;
-               owl:equivalentClass <https://d-nb.info/standards/elementset/gnd#Author> ;
+               owl:equivalentClass gnd:author ;
+               rdfs:subClassOf foaf:Person ;
                rdfs:comment "Person which writes books."@en ;
                rdfs:label "Writer"@en .
 
 
-###  https://d-nb.info/standards/elementset/gnd#Author
-<https://d-nb.info/standards/elementset/gnd#Author> rdf:type owl:Class .
+###  http://xmlns.com/foaf/0.1/#term_Person
+foaf:Person rdf:type owl:Class ;
+            rdfs:comment "A person"@en ;
+            rdfs:isDefinedBy "http://xmlns.com/foaf/0.1/" ;
+            rdfs:label "Person"@en .
 
 
-###  https://d-nb.info/standards/elementset/gnd#Poet
-<https://d-nb.info/standards/elementset/gnd#Poet> rdf:type owl:Class .
+###  https://d-nb.info/standards/elementset/gnd#Manuscript
+gnd:Manuscript rdf:type owl:Class ;
+               rdfs:subClassOf fabio:LiteraryArtisticWork ;
+               rdfs:isDefinedBy "https://d-nb.info/standards/elementset/gnd" ;
+               rdfs:label "Manuscript"@en ,
+                          "Schriftdenkmal"@de .
+
+
+###  https://d-nb.info/standards/elementset/gnd#author
+gnd:author rdf:type owl:Class ;
+           rdfs:subClassOf foaf:Person ;
+           rdfs:comment "A person, family, or organization responsible for creating a work that is primarily textual in content, regardless of media type (e.g., printed text, spoken word, electronic text, tactile text) or genre (e.g., poems, novels, screenplays, blogs). Use also for persons, etc., creating a new work by paraphrasing, rewriting, or adapting works by another creator such that the modification has substantially changed the nature and content of the original or changed the medium of expression."@en ;
+           rdfs:isDefinedBy "https://d-nb.info/standards/elementset/gnd" ;
+           rdfs:label "Author"@en ,
+                      "Verfasser"@de .
+
+
+###  https://d-nb.info/standards/elementset/gnd#poet
+gnd:poet rdf:type owl:Class ;
+         rdfs:subClassOf ligenco:Writer ;
+         rdfs:comment "An author of the words of a non-dramatic musical work (e.g. the text of a song), except for oratorios"@en ;
+         rdfs:isDefinedBy "https://d-nb.info/standards/elementset/gnd" ;
+         rdfs:label "Dichter"@de ,
+                    "Poet"@en .
 
 
 #################################################################
@@ -904,6 +1100,7 @@ ligenco:Absurdism rdf:type owl:NamedIndividual ,
 ###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Adelphi
 ligenco:Adelphi rdf:type owl:NamedIndividual ,
                          ligenco:Publisher ;
+                ligenco:setIn ligenco:Italy ;
                 ligenco:publisher_name "Adelphi"^^xsd:string ;
                 rdfs:comment "Publishing house in Milan, Italy" ;
                 rdfs:label "Adelphi"@en .
@@ -1047,11 +1244,24 @@ ligenco:Europe rdf:type owl:NamedIndividual ,
 ###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Exhalation
 ligenco:Exhalation rdf:type owl:NamedIndividual ,
                             ligenco:ShortStories ;
+                   ligenco:hasBeenPublished ligenco:ExhalationPickwick ;
                    ligenco:original_date "2019"^^xsd:nonNegativeInteger ;
                    ligenco:original_language "english"^^xsd:string ;
                    ligenco:original_title "Exhalation: Stories"^^xsd:string ;
                    rdfs:comment "Sci-Fi short story collection, written by Ted Chiang, originally published in 2019"@en ;
                    rdfs:label "Exhalation"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#ExhalationPickwick
+ligenco:ExhalationPickwick rdf:type owl:NamedIndividual ,
+                                    ligenco:BookEdition ;
+                           ligenco:publishedBy ligenco:Pickwick ;
+                           ligenco:publishedIn ligenco:Italy ;
+                           ligenco:edition_date "2021-08-01T00:00:00"^^xsd:dateTime ;
+                           ligenco:edition_language "italian"^^xsd:string ;
+                           ligenco:edition_title "Respiro"^^xsd:string ;
+                           rdfs:comment "Pickwick edition of Exhalation"@en ;
+                           rdfs:label "Exhalation Pickwick"@en .
 
 
 ###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Expressionism
@@ -1097,8 +1307,51 @@ ligenco:Giuseppe_Tratteur rdf:type owl:NamedIndividual ,
                           ligenco:birth_date "1936-12-05T00:00:00"^^xsd:dateTime ;
                           ligenco:viaf_id "523155042808172402269"^^xsd:string ;
                           ligenco:writer_name "Giuseppe Trautteur"^^xsd:string ;
-                          rdfs:comment "Italian phisic born in 1963"@en ;
+                          rdfs:comment "Italian physicist born in 1963"@en ;
                           rdfs:label "Giuseppe Tratteur"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#IlRItornoDelReMinotauro
+ligenco:IlRItornoDelReMinotauro rdf:type owl:NamedIndividual ,
+                                         ligenco:BookEdition ;
+                                ligenco:publishedBy ligenco:Minotauro ;
+                                ligenco:publishedIn ligenco:Spain ;
+                                ligenco:edition_date "2009-01-01T00:00:00"^^xsd:dateTime ;
+                                ligenco:edition_language "spanish"^^xsd:string ;
+                                ligenco:edition_title "El retorno del rey"^^xsd:string ;
+                                rdfs:comment "Minotauro edition of The Return of The King"@en ;
+                                rdfs:label "Il Ritorno del Re Minotauro"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#IlRitornoDelRe
+ligenco:IlRitornoDelRe rdf:type owl:NamedIndividual ,
+                                ligenco:FantasyRomance ;
+                       ligenco:hasBeenPublished ligenco:IlRItornoDelReMinotauro ;
+                       ligenco:original_date "1955"^^xsd:nonNegativeInteger ;
+                       ligenco:original_language "english"^^xsd:string ;
+                       ligenco:original_title "The Return of the King"^^xsd:string ;
+                       rdfs:comment "Third book of the Lord of The Rings trilogy by Tolkien"@en ;
+                       rdfs:label "Il ritorno del re"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#IlRitornoDelReSerieMinotauro
+ligenco:IlRitornoDelReSerieMinotauro rdf:type owl:NamedIndividual ,
+                                              ligenco:SequenceBook ;
+                                     <http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#directlyFollows> ligenco:LaCompagniaDellAnelloSerieMinotauro ;
+                                     ligenco:relatedToSequenceBook ligenco:IlRitornoDelRe ;
+                                     rdfs:comment "third book of the the fellowship of the ring series by Minotauro"@en ;
+                                     rdfs:label "Il RItorno del Re Serie Minotauro"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#IlSignoreDegliAnelliMinotauro
+ligenco:IlSignoreDegliAnelliMinotauro rdf:type owl:NamedIndividual ,
+                                               ligenco:BookSeries ;
+                                      <http://www.ontologydesignpatterns.org/cp/owl/bag.owl#hasItem> ligenco:IlRitornoDelReSerieMinotauro ,
+                                                                                                     ligenco:LaCompagniaDellAnelloSerieMinotauro ,
+                                                                                                     ligenco:LeDueTorriSerieMinotauro ;
+                                      ligenco:seriesHasPublisher ligenco:Minotauro ;
+                                      rdfs:comment "The Lord of The Rings series by Minotauro"@en ;
+                                      rdfs:label "Il Signore degli Anelli Minotauro"@en .
 
 
 ###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Il_fu_Mattia_Pascal
@@ -1117,7 +1370,9 @@ ligenco:Il_fu_Mattia_Pascal_Mondadori rdf:type owl:NamedIndividual ,
                                                ligenco:BookEdition ;
                                       ligenco:publishedBy ligenco:Mondadori ;
                                       ligenco:publishedIn ligenco:Italy ;
+                                      ligenco:edition_date "2001-01-01T00:00:00"^^xsd:dateTime ;
                                       ligenco:edition_language "italian"^^xsd:string ;
+                                      ligenco:edition_title "Il fu Mattia Pascal"^^xsd:string ;
                                       rdfs:comment "Mondadori edition of \"Il fu Mattia Pascal\""@en ;
                                       rdfs:label "Il fu Mattia Pascal Mondadori"@en .
 
@@ -1138,7 +1393,9 @@ ligenco:Il_prigioniero_libero_Adelphi rdf:type owl:NamedIndividual ,
                                                ligenco:BookEdition ;
                                       ligenco:publishedBy ligenco:Adelphi ;
                                       ligenco:publishedIn ligenco:Italy ;
+                                      ligenco:edition_date "2020-01-01T00:00:00"^^xsd:dateTime ;
                                       ligenco:edition_language "italian"^^xsd:string ;
+                                      ligenco:edition_title "Il prigioniero libero"^^xsd:string ;
                                       rdfs:comment "Adelphi edition of \"Il prigioniero libero\""@en ;
                                       rdfs:label "Il prigioniero libero Adelphi"@en .
 
@@ -1154,10 +1411,42 @@ ligenco:Il_prigioniero_libero_collezioneAdelphi rdf:type owl:NamedIndividual ,
 ###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Italy
 ligenco:Italy rdf:type owl:NamedIndividual ,
                        ligenco:Country ;
-              ligenco:locatedIn ligenco:Western_Europe ;
+              ligenco:locatedIn ligenco:South_Europe ;
               ligenco:country_name "Italy"^^xsd:string ;
-              rdfs:comment "A country located in Southern Europe"@en ;
+              rdfs:comment "A country named \"Italy\" located in \"South Europe\""@en ;
               rdfs:label "Italy"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#LaCompagniaDellAnello
+ligenco:LaCompagniaDellAnello rdf:type owl:NamedIndividual ,
+                                       ligenco:FantasyRomance ;
+                              ligenco:hasBeenPublished ligenco:LaCompagniaDellAnelloMinotauro ;
+                              ligenco:original_date "1954"^^xsd:nonNegativeInteger ;
+                              ligenco:original_language "english"^^xsd:string ;
+                              ligenco:original_title "The Fellowship of the Ring"^^xsd:string ;
+                              rdfs:comment "First book of the Lord of The Rings trilogy by Tolkien"@en ;
+                              rdfs:label "La Compagnia dell'Anello"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#LaCompagniaDellAnelloMinotauro
+ligenco:LaCompagniaDellAnelloMinotauro rdf:type owl:NamedIndividual ,
+                                                ligenco:BookEdition ;
+                                       ligenco:publishedBy ligenco:Minotauro ;
+                                       ligenco:publishedIn ligenco:Italy ;
+                                       ligenco:edition_date "1999-07-29T00:00:00"^^xsd:dateTime ;
+                                       ligenco:edition_language "La Comunidad Del Anillo"^^xsd:string ,
+                                                                "spanish"^^xsd:string ;
+                                       rdfs:comment "Minotauro edition of The Fellowship of the RIng"@en ;
+                                       rdfs:label "La Compagnia dell'Anello Minotauro"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#LaCompagniaDellAnelloSerieMinotauro
+ligenco:LaCompagniaDellAnelloSerieMinotauro rdf:type owl:NamedIndividual ,
+                                                     ligenco:SequenceBook ;
+                                            <http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#directlyPrecedes> ligenco:LeDueTorriSerieMinotauro ;
+                                            ligenco:relatedToSequenceBook ligenco:LaCompagniaDellAnello ;
+                                            rdfs:comment "first book of the the fellowship of the ring series by Minotauro"@en ;
+                                            rdfs:label "La Compagnia dell'Anello Serie Minotauro"@en .
 
 
 ###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#LaFeltrinelli
@@ -1171,6 +1460,7 @@ ligenco:LaFeltrinelli rdf:type owl:NamedIndividual ,
 ###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#La_difesa_di_Luzin
 ligenco:La_difesa_di_Luzin rdf:type owl:NamedIndividual ,
                                     ligenco:ComedyRomance ;
+                           ligenco:hasBeenPublished ligenco:La_difesa_di_Luzin_Adelphi ;
                            ligenco:original_date "1930"^^xsd:nonNegativeInteger ;
                            ligenco:original_language "russian"^^xsd:string ;
                            ligenco:original_title "Zaščita Lužina"^^xsd:string ;
@@ -1178,14 +1468,72 @@ ligenco:La_difesa_di_Luzin rdf:type owl:NamedIndividual ,
                            rdfs:label "La difesa di Luzin"@en .
 
 
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#La_difesa_di_Luzin_Adelphi
+ligenco:La_difesa_di_Luzin_Adelphi rdf:type owl:NamedIndividual ,
+                                            ligenco:BookEdition ;
+                                   ligenco:publishedBy ligenco:Adelphi ;
+                                   ligenco:publishedIn ligenco:Italy ;
+                                   ligenco:edition_date "2001-01-01T00:00:00"^^xsd:dateTime ;
+                                   ligenco:edition_language "italian"^^xsd:string ;
+                                   ligenco:edition_title "La difesa di Luzin"^^xsd:string ;
+                                   rdfs:comment "Adelphi edition of La difesa di Luzin"@en ;
+                                   rdfs:label "La difesa di Luzin Adelphi"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#LeDueTorri
+ligenco:LeDueTorri rdf:type owl:NamedIndividual ,
+                            ligenco:FantasyRomance ;
+                   ligenco:hasBeenPublished ligenco:LeDueTorriMinotauro ;
+                   ligenco:original_date "1954"^^xsd:nonNegativeInteger ;
+                   ligenco:original_language "english"^^xsd:string ;
+                   ligenco:original_title "The Two Towers"^^xsd:string ;
+                   rdfs:comment "Second book of the Lord of The Rings trilogy by Tolkien"@en ;
+                   rdfs:label "Le due Torri"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#LeDueTorriMinotauro
+ligenco:LeDueTorriMinotauro rdf:type owl:NamedIndividual ,
+                                     ligenco:BookEdition ;
+                            ligenco:publishedBy ligenco:Minotauro ;
+                            ligenco:publishedIn ligenco:Spain ;
+                            ligenco:edition_date "1999-01-01T00:00:00"^^xsd:dateTime ;
+                            ligenco:edition_language "spanish"^^xsd:string ;
+                            ligenco:edition_title "Las Dos Torres"^^xsd:string ;
+                            rdfs:comment "Minotauro edition of The Two Towers"@en ;
+                            rdfs:label "Le due Torri Minotauro"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#LeDueTorriSerieMinotauro
+ligenco:LeDueTorriSerieMinotauro rdf:type owl:NamedIndividual ,
+                                          ligenco:SequenceBook ;
+                                 <http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#directlyFollows> ligenco:LaCompagniaDellAnelloSerieMinotauro ;
+                                 <http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#directlyPrecedes> ligenco:IlRitornoDelReSerieMinotauro ;
+                                 ligenco:relatedToSequenceBook ligenco:LeDueTorri ;
+                                 rdfs:comment "second book of the the fellowship of the ring series by Minotauro"@en ;
+                                 rdfs:label "Le Due Torri Serie Minotauro"@en .
+
+
 ###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Lo_strano_ordine_delle_cose
 ligenco:Lo_strano_ordine_delle_cose rdf:type owl:NamedIndividual ,
                                              ligenco:Essay ;
+                                    ligenco:hasBeenPublished ligenco:Lo_strano_ordine_delle_cose_Adelphi ;
                                     ligenco:original_date "2017"^^xsd:nonNegativeInteger ;
                                     ligenco:original_language "portugal"^^xsd:string ;
                                     ligenco:original_title "A Estranha Ordem das Coisas"^^xsd:string ;
                                     rdfs:comment "Philosophic essay written by Antonio Damasio, originally published in 2017"@en ;
                                     rdfs:label "Lo strano ordine delle cose"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Lo_strano_ordine_delle_cose_Adelphi
+ligenco:Lo_strano_ordine_delle_cose_Adelphi rdf:type owl:NamedIndividual ,
+                                                     ligenco:BookEdition ;
+                                            ligenco:publishedBy ligenco:Adelphi ;
+                                            ligenco:publishedIn ligenco:Italy ;
+                                            ligenco:edition_date "2018-01-01T00:00:00"^^xsd:dateTime ;
+                                            ligenco:edition_language "italian"^^xsd:string ;
+                                            ligenco:edition_title "Lo strano ordine delle cose"^^xsd:string ;
+                                            rdfs:comment "Adelphi edition of Lo Strano ordine delle Cose"@en ;
+                                            rdfs:label "Lo strano ordine delle cose adelphi"@en .
 
 
 ###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Lo_strano_ordine_delle_cose_collezioneAdelphi
@@ -1199,11 +1547,24 @@ ligenco:Lo_strano_ordine_delle_cose_collezioneAdelphi rdf:type owl:NamedIndividu
 ###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Lolita
 ligenco:Lolita rdf:type owl:NamedIndividual ,
                         ligenco:RomanticRomance ;
+               ligenco:hasBeenPublished ligenco:Lolita_Adelphi ;
                ligenco:original_date "1955"^^xsd:nonNegativeInteger ;
                ligenco:original_language "english"^^xsd:string ;
                ligenco:original_title "Lolita"^^xsd:string ;
                rdfs:comment "A romantic romance book written by Vladimir Nabokov in 1955"@en ;
                rdfs:label "Lolita"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Lolita_Adelphi
+ligenco:Lolita_Adelphi rdf:type owl:NamedIndividual ,
+                                ligenco:BookEdition ;
+                       ligenco:publishedBy ligenco:Adelphi ;
+                       ligenco:publishedIn ligenco:Italy ;
+                       ligenco:edition_date "1996-01-01T00:00:00"^^xsd:dateTime ;
+                       ligenco:edition_language "italian"^^xsd:string ;
+                       ligenco:edition_title "Lolita"^^xsd:string ;
+                       rdfs:comment "Adelphi edition of Lolita"@en ;
+                       rdfs:label "Lolita Adelphi"@en .
 
 
 ###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Luigi_Pirandello
@@ -1216,6 +1577,7 @@ ligenco:Luigi_Pirandello rdf:type owl:NamedIndividual ,
                                        ligenco:Sei_personaggi_in_cerca_d_autore ,
                                        ligenco:Uno_nessuno_centomila ;
                          ligenco:birth_date "1867-06-28T00:00:00"^^xsd:dateTime ;
+                         ligenco:death_date "1936-12-10T00:00:00"^^xsd:dateTime ;
                          ligenco:viaf_id "64010465"^^xsd:string ;
                          ligenco:writer_name "Luigi Pirandello"^^xsd:string ;
                          rdfs:comment "An Italian Modernist author born in 1867"@en ;
@@ -1247,6 +1609,15 @@ ligenco:Micronesia rdf:type owl:NamedIndividual ,
                    rdfs:label "Micronesia"@en .
 
 
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Minotauro
+ligenco:Minotauro rdf:type owl:NamedIndividual ,
+                           ligenco:Publisher ;
+                  ligenco:setIn ligenco:Spain ;
+                  ligenco:publisher_name "Minotauro"^^xsd:string ;
+                  rdfs:comment "Spanish Editor"@en ;
+                  rdfs:label "Minotauro"@en .
+
+
 ###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Modernism
 ligenco:Modernism rdf:type owl:NamedIndividual ,
                            ligenco:LiteraryMovement ;
@@ -1259,6 +1630,7 @@ ligenco:Modernism rdf:type owl:NamedIndividual ,
 ###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Mondadori
 ligenco:Mondadori rdf:type owl:NamedIndividual ,
                            ligenco:Publisher ;
+                  ligenco:setIn ligenco:Italy ;
                   ligenco:publisher_name "Mondadori"^^xsd:string ;
                   rdfs:comment "Publishing house in Segrate, Italy"@en ;
                   rdfs:label "Mondadori"@en .
@@ -1329,7 +1701,9 @@ ligenco:Operette_morali_Mondadori rdf:type owl:NamedIndividual ,
                                            ligenco:BookEdition ;
                                   ligenco:publishedBy ligenco:Mondadori ;
                                   ligenco:publishedIn ligenco:Italy ;
+                                  ligenco:edition_date "1998-01-01T00:00:00"^^xsd:dateTime ;
                                   ligenco:edition_language "italian"^^xsd:string ;
+                                  ligenco:edition_title "Operette morali"^^xsd:string ;
                                   rdfs:comment "Operette morali edition published by Mondadori"@en ;
                                   rdfs:label "Operette morali Mondadori"@en .
 
@@ -1339,9 +1713,20 @@ ligenco:Operette_morali_laFeltrinelli rdf:type owl:NamedIndividual ,
                                                ligenco:BookEdition ;
                                       ligenco:publishedBy ligenco:LaFeltrinelli ;
                                       ligenco:publishedIn ligenco:Italy ;
+                                      ligenco:edition_date "1992-01-01T00:00:00"^^xsd:dateTime ;
                                       ligenco:edition_language "italian"^^xsd:string ;
+                                      ligenco:edition_title "Operette morali"^^xsd:string ;
                                       rdfs:comment "Operette morali edition published by La Feltrinelli"@en ;
                                       rdfs:label "Operette morali LaFeltrinelli"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Pickwick
+ligenco:Pickwick rdf:type owl:NamedIndividual ,
+                          ligenco:Publisher ;
+                 ligenco:setIn ligenco:Italy ;
+                 ligenco:publisher_name "Pickwick"^^xsd:string ;
+                 rdfs:comment "Italian Editor"@en ;
+                 rdfs:label "Pickwick"@en .
 
 
 ###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Polynesia
@@ -1357,7 +1742,7 @@ ligenco:Portugal rdf:type owl:NamedIndividual ,
                           ligenco:Country ;
                  ligenco:locatedIn ligenco:Western_Europe ;
                  ligenco:country_name "Portugal"^^xsd:string ;
-                 rdfs:comment "A country located in Europe"@en ;
+                 rdfs:comment "A country named \"Portugal\" located in \" Western Europe\""@en ;
                  rdfs:label "Portugal"@en .
 
 
@@ -1403,7 +1788,7 @@ ligenco:Russia rdf:type owl:NamedIndividual ,
                         ligenco:Country ;
                ligenco:locatedIn ligenco:Eastern_Europe ;
                ligenco:country_name "Russia"^^xsd:string ;
-               rdfs:comment "A country located in Eastern Europe"@en ;
+               rdfs:comment "A country named \"Russia\" located in \"Eastern Europe\""@en ;
                rdfs:label "Russia"@en .
 
 
@@ -1423,7 +1808,9 @@ ligenco:Sei_personaggi_in_cerca_d_autore_Mondadori rdf:type owl:NamedIndividual 
                                                             ligenco:BookEdition ;
                                                    ligenco:publishedBy ligenco:Mondadori ;
                                                    ligenco:publishedIn ligenco:Italy ;
+                                                   ligenco:edition_date "2019-03-05T00:00:00"^^xsd:dateTime ;
                                                    ligenco:edition_language "italian"^^xsd:string ;
+                                                   ligenco:edition_title "Sei personaggi in cerca d'autore"^^xsd:string ;
                                                    rdfs:comment "Mondadori edition of \"Sei personaggi in cerca d'autore\""@en ;
                                                    rdfs:label "Sei personaggi in cerca d'autore Mondadori"@en .
 
@@ -1463,15 +1850,16 @@ ligenco:South_Europe rdf:type owl:NamedIndividual ,
 ###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Spain
 ligenco:Spain rdf:type owl:NamedIndividual ,
                        ligenco:Country ;
-              ligenco:locatedIn ligenco:Western_Europe ;
+              ligenco:locatedIn ligenco:South_Europe ;
               ligenco:country_name "Spain"^^xsd:string ;
-              rdfs:comment "A country located in south europe"@en ;
+              rdfs:comment "A country named \"Spain\" located in \"South Europe\""@en ;
               rdfs:label "Spain"@en .
 
 
 ###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#SpurlEditions
 ligenco:SpurlEditions rdf:type owl:NamedIndividual ,
                                ligenco:Publisher ;
+                      ligenco:setIn ligenco:United_States_of_America ;
                       ligenco:publisher_name "Spurl Editions"^^xsd:string ;
                       rdfs:comment "An independent publisher of unusual literature and photography"@en ;
                       rdfs:label "SpurlEditions"@en .
@@ -1517,6 +1905,33 @@ ligenco:Ted_Chiang rdf:type owl:NamedIndividual ,
                    rdfs:label "Ted Chiang"@en .
 
 
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#The_Beginnings_of_English_Poetry
+ligenco:The_Beginnings_of_English_Poetry rdf:type owl:NamedIndividual ,
+                                                  ligenco:Essay ;
+                                         ligenco:original_language "english"^^xsd:string ;
+                                         ligenco:original_title "The Beginnings of English Poetry"^^xsd:string ;
+                                         rdfs:comment "Unpublished essay about old English poetry written by Tolkien"@en ;
+                                         rdfs:label "The Beginnings of English Poetry"@en .
+
+
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Tolkien
+ligenco:Tolkien rdf:type owl:NamedIndividual ,
+                         ligenco:Writer ;
+                ligenco:belongToMovement ligenco:Modernism ;
+                ligenco:livedIn ligenco:United_Kingdom ;
+                ligenco:relatedTo ligenco:United_Kingdom ;
+                ligenco:wrote ligenco:IlRitornoDelRe ,
+                              ligenco:LaCompagniaDellAnello ,
+                              ligenco:LeDueTorri ,
+                              ligenco:The_Beginnings_of_English_Poetry ;
+                ligenco:birth_date "1892-01-03T00:00:00"^^xsd:dateTime ;
+                ligenco:death_date "1973-09-02T00:00:00"^^xsd:dateTime ;
+                ligenco:viaf_id "95218067"^^xsd:string ;
+                ligenco:writer_name "John Ronald Reuel Tolkien"^^xsd:string ;
+                rdfs:comment "English writer"@en ,
+                             "JRR Tolkien"@en .
+
+
 ###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Transcendentalism
 ligenco:Transcendentalism rdf:type owl:NamedIndividual ,
                                    ligenco:LiteraryMovement ;
@@ -1526,12 +1941,21 @@ ligenco:Transcendentalism rdf:type owl:NamedIndividual ,
                           rdfs:label "Trascendentalism"@en .
 
 
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#United_Kingdom
+ligenco:United_Kingdom rdf:type owl:NamedIndividual ,
+                                ligenco:Country ;
+                       ligenco:locatedIn ligenco:Western_Europe ;
+                       ligenco:country_name "United Kingdom"^^xsd:string ;
+                       rdfs:comment "A country named \"United Kingdom\" located in \"Western Europe\"."@en ;
+                       rdfs:label "United Kingdom"@en .
+
+
 ###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#United_States_of_America
 ligenco:United_States_of_America rdf:type owl:NamedIndividual ,
                                           ligenco:Country ;
                                  ligenco:locatedIn ligenco:North_America ;
                                  ligenco:country_name "United States of America"^^xsd:string ;
-                                 rdfs:comment "A country located in America"@en ;
+                                 rdfs:comment "A country named \"United States of America\" located in \"North America\""@en ;
                                  rdfs:label "United States of America"@en .
 
 
@@ -1552,7 +1976,9 @@ ligenco:Uno_nessuno_centomila_Mondadori rdf:type owl:NamedIndividual ,
                                                  ligenco:BookEdition ;
                                         ligenco:publishedBy ligenco:Mondadori ;
                                         ligenco:publishedIn ligenco:Italy ;
+                                        ligenco:edition_date "2016-05-18T00:00:00"^^xsd:dateTime ;
                                         ligenco:edition_language "italian"^^xsd:string ;
+                                        ligenco:edition_title "Uno,  nessuno, centomila"^^xsd:string ;
                                         rdfs:comment "Mondadori edition of \"Uno nessuno centomila\""@en ;
                                         rdfs:label "Uno, nessuno, centomila Mondadori"@en .
 
@@ -1615,23 +2041,22 @@ ligenco:Western_Europe rdf:type owl:NamedIndividual ,
 #################################################################
 
 [ rdf:type owl:AllDisjointClasses ;
-  owl:members ( <http://purl.org/spar/fabio/Poem>
-                ligenco:DidacticPoetry
-                ligenco:EpicPoetry
-                ligenco:LyricPoetry
+  owl:members ( fabio:LiteraryArtisticWork
+                <http://www.ontologydesignpatterns.org/cp/owl/bag.owl#Bag>
+                <http://www.ontologydesignpatterns.org/cp/owl/bag.owl#Item>
+                ligenco:BookEdition
+                ligenco:GeographicalArea
+                ligenco:LiteraryMovement
+                ligenco:Publisher
+                foaf:Person
               )
 ] .
 
 
 [ rdf:type owl:AllDisjointClasses ;
-  owl:members ( <http://www.ontologydesignpatterns.org/cp/owl/bag.owl#Bag>
-                <http://www.ontologydesignpatterns.org/cp/owl/bag.owl#Item>
-                ligenco:Book
-                ligenco:BookEdition
-                ligenco:GeographicalArea
-                ligenco:LiteraryMovement
-                ligenco:Publisher
-                ligenco:Writer
+  owl:members ( fabio:Poem
+                ligenco:DidacticPoetry
+                ligenco:LyricPoetry
               )
 ] .
 
@@ -1715,7 +2140,9 @@ ligenco:Western_Europe rdf:type owl:NamedIndividual ,
 [ rdf:type owl:AllDifferent ;
   owl:distinctMembers ( ligenco:Adelphi
                         ligenco:LaFeltrinelli
+                        ligenco:Minotauro
                         ligenco:Mondadori
+                        ligenco:Pickwick
                         ligenco:SpurlEditions
                       )
 ] .
@@ -1758,27 +2185,47 @@ ligenco:Western_Europe rdf:type owl:NamedIndividual ,
                         ligenco:Giuseppe_Tratteur
                         ligenco:Luigi_Pirandello
                         ligenco:Ted_Chiang
+                        ligenco:Tolkien
+                        ligenco:Vladimir_Nabokov
+                      )
+] .
+
+
+[ rdf:type owl:AllDifferent ;
+  owl:distinctMembers ( ligenco:Biblioteca_Scientifica
+                        ligenco:IlSignoreDegliAnelliMinotauro
                       )
 ] .
 
 
 [ rdf:type owl:AllDifferent ;
   owl:distinctMembers ( ligenco:Exhalation
+                        ligenco:IlRitornoDelRe
                         ligenco:Il_fu_Mattia_Pascal
                         ligenco:Il_prigioniero_libero
+                        ligenco:LaCompagniaDellAnello
                         ligenco:La_difesa_di_Luzin
+                        ligenco:LeDueTorri
                         ligenco:Lo_strano_ordine_delle_cose
                         ligenco:Lolita
                         ligenco:Operette_morali
                         ligenco:Sei_personaggi_in_cerca_d_autore
+                        ligenco:The_Beginnings_of_English_Poetry
                         ligenco:Uno_nessuno_centomila
                       )
 ] .
 
 
 [ rdf:type owl:AllDifferent ;
-  owl:distinctMembers ( ligenco:Il_fu_Mattia_Pascal_Mondadori
+  owl:distinctMembers ( ligenco:ExhalationPickwick
+                        ligenco:IlRItornoDelReMinotauro
+                        ligenco:Il_fu_Mattia_Pascal_Mondadori
                         ligenco:Il_prigioniero_libero_Adelphi
+                        ligenco:LaCompagniaDellAnelloMinotauro
+                        ligenco:La_difesa_di_Luzin_Adelphi
+                        ligenco:LeDueTorriMinotauro
+                        ligenco:Lo_strano_ordine_delle_cose_Adelphi
+                        ligenco:Lolita_Adelphi
                         ligenco:Operette_morali_Mondadori
                         ligenco:Operette_morali_laFeltrinelli
                         ligenco:Sei_personaggi_in_cerca_d_autore_Mondadori
@@ -1793,6 +2240,7 @@ ligenco:Western_Europe rdf:type owl:NamedIndividual ,
                         ligenco:Portugal
                         ligenco:Russia
                         ligenco:Spain
+                        ligenco:United_Kingdom
                         ligenco:United_States_of_America
                       )
 ] .

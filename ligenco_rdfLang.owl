@@ -3,10 +3,12 @@
      xml:base="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco"
      xmlns:dc="http://protege.stanford.edu/plugins/owl/dc/protege-dc.owl#"
      xmlns:bag="http://www.ontologydesignpatterns.org/cp/owl/bag.owl#"
+     xmlns:gnd="https://d-nb.info/standards/elementset/gnd#"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:foaf="http://xmlns.com/foaf/0.1/#term_"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
      xmlns:swrl="http://www.w3.org/2003/11/swrl#"
      xmlns:vann="http://purl.org/vocab/vann/"
@@ -14,6 +16,7 @@
      xmlns:swrla="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#"
      xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
      xmlns:ligenco="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#"
+     xmlns:sequence="http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#"
      xmlns:cpannotationschema="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#">
     <owl:Ontology rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco">
         <owl:imports rdf:resource="http://protege.stanford.edu/plugins/owl/dc/protege-dc.owl"/>
@@ -87,12 +90,27 @@
     <!-- http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#belongToMovement -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#belongToMovement">
-        <owl:inverseOf rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#has_member"/>
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#hasExponent"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Writer"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#LiteraryMovement"/>
         <rdfs:comment xml:lang="en">A writer is born in a specific epoch related to a major literary movement.</rdfs:comment>
         <rdfs:label xml:lang="en">belong to movement</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#bookInMovement -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#bookInMovement">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Book"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#LiteraryMovement"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#writtenBy"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#belongToMovement"/>
+        </owl:propertyChainAxiom>
+        <rdfs:comment xml:lang="en">A book written by a writer who belongs to a specific literary movement.</rdfs:comment>
+        <rdfs:label xml:lang="en">book in movement</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -104,6 +122,8 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#GeographicalArea"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#GeographicalArea"/>
+        <rdfs:comment xml:lang="en">A &apos;Geographical area&apos; contains a &apos;Geographical area&apos;</rdfs:comment>
+        <rdfs:label xml:lang="en">contains</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -148,10 +168,22 @@
     
 
 
+    <!-- http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#hasExponent -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#hasExponent">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#LiteraryMovement"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Writer"/>
+        <rdfs:comment xml:lang="en">A writer belong to a literary movement</rdfs:comment>
+        <rdfs:label xml:lang="en">is exponent</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#hasPublisher -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#hasPublisher">
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#BookCollection"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Publisher"/>
         <rdfs:comment xml:lang="en">A book collection published by a publisher.</rdfs:comment>
@@ -166,16 +198,8 @@
         <owl:inverseOf rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#relatedTo"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Country"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Writer"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#has_member -->
-
-    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#has_member">
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#LiteraryMovement"/>
-        <rdfs:range rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Writer"/>
+        <rdfs:comment xml:lang="en">A &apos;Country&apos; has been related to a &apos;Writer&apos;</rdfs:comment>
+        <rdfs:label xml:lang="en">has been related to</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -186,6 +210,8 @@
         <owl:inverseOf rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#publishedIn"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Country"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#BookEdition"/>
+        <rdfs:comment xml:lang="en">A book edition has been published in a country</rdfs:comment>
+        <rdfs:label xml:lang="en">has publication</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -196,17 +222,21 @@
         <owl:inverseOf rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#livedIn"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Country"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Writer"/>
+        <rdfs:comment xml:lang="en">A &apos;Country&apos; hosted a &apos;Writer&apos;</rdfs:comment>
+        <rdfs:label xml:lang="en">hosted</rdfs:label>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#hosts_publisher -->
+    <!-- http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#hostsPublisher -->
 
-    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#hosts_publisher">
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#hostsPublisher">
         <owl:inverseOf rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#setIn"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Country"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Publisher"/>
+        <rdfs:comment xml:lang="en">A &apos;Country&apos; hosts a &apos;Publisher&apos;</rdfs:comment>
+        <rdfs:label xml:lang="en">hosts publisher</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -217,6 +247,8 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Book"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Book"/>
+        <rdfs:comment xml:lang="en">Two books belong to the same literary movement</rdfs:comment>
+        <rdfs:label xml:lang="en">is coeval to</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -227,6 +259,8 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Writer"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Writer"/>
+        <rdfs:comment xml:lang="en">A &apos;Writer&apos; isCompatriotWith a &apos;Writer&apos;</rdfs:comment>
+        <rdfs:label xml:lang="en">is compratiot with</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -248,6 +282,8 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Writer"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Writer"/>
+        <rdfs:comment xml:lang="en">Two writer lived in the same epoch</rdfs:comment>
+        <rdfs:label xml:lang="en">lived in the same epoch as</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -270,6 +306,8 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#LiteraryMovement"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#LiteraryMovement"/>
+        <rdfs:comment xml:lang="en">A &apos;Literary movement&apos; overlaps with a &apos;Literary movement&apos;</rdfs:comment>
+        <rdfs:label xml:lang="en">overlaps with</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -280,6 +318,8 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#BookEdition"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Book"/>
+        <rdfs:comment>A  &apos;Book edition&apos; is a publication of a &apos;Book&apos;</rdfs:comment>
+        <rdfs:label>publication of</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -291,6 +331,8 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Publisher"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#BookEdition"/>
+        <rdfs:comment xml:lang="en">A &apos;Publisher&apos; published a &apos;Book edition&apos;</rdfs:comment>
+        <rdfs:label xml:lang="en">published</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -346,6 +388,19 @@
         <rdfs:subPropertyOf rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/bag.owl#itemContent"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#SequenceBook"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Book"/>
+        <rdfs:label xml:lang="en">related to sequence book</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#seriesHasPublisher -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#seriesHasPublisher">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#BookSeries"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Publisher"/>
+        <rdfs:comment xml:lang="en">A book series published by a publisher.</rdfs:comment>
+        <rdfs:label xml:lang="en">series has publisher</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -362,25 +417,25 @@
     
 
 
-    <!-- http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#wrote -->
+    <!-- http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#writtenBy -->
 
-    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#wrote">
-        <owl:inverseOf rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#wroteBy"/>
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Writer"/>
-        <rdfs:range rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Book"/>
-        <rdfs:comment xml:lang="en">A writer wrote a book.</rdfs:comment>
-        <rdfs:label xml:lang="en">wrote</rdfs:label>
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#writtenBy">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#wrote"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Book"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Writer"/>
+        <rdfs:comment xml:lang="en">A book has been written by a writer.</rdfs:comment>
+        <rdfs:label xml:lang="en">written by</rdfs:label>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#wroteBy -->
+    <!-- http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#wrote -->
 
-    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#wroteBy">
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Book"/>
-        <rdfs:range rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Writer"/>
-        <rdfs:comment xml:lang="en">A book has been writter by a writer.</rdfs:comment>
-        <rdfs:label xml:lang="en">wrote by</rdfs:label>
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#wrote">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Writer"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Book"/>
+        <rdfs:comment xml:lang="en">A writer wrote a book.</rdfs:comment>
+        <rdfs:label xml:lang="en">wrote</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -473,6 +528,8 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#LiteraryMovement"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+        <rdfs:comment xml:lang="en">Literary movement end date</rdfs:comment>
+        <rdfs:label xml:lang="en">end date</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -531,6 +588,8 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#LiteraryMovement"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+        <rdfs:comment xml:lang="en">Literary movement start date</rdfs:comment>
+        <rdfs:label xml:lang="en">start date</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -549,11 +608,23 @@
     <!-- http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#writer_name -->
 
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#writer_name">
+        <owl:equivalentProperty rdf:resource="http://xmlns.com/foaf/0.1/#term_name"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Writer"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment xml:lang="en">Name which a writer is identified by.</rdfs:comment>
         <rdfs:label xml:lang="en">writer name</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/#term_name -->
+
+    <owl:DatatypeProperty rdf:about="http://xmlns.com/foaf/0.1/#term_name">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:comment xml:lang="en">A name for some thing</rdfs:comment>
+        <rdfs:isDefinedBy>http://xmlns.com/foaf/0.1/</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="en">name</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -573,6 +644,7 @@
 
     <owl:Class rdf:about="http://purl.org/spar/fabio/Biography">
         <owl:equivalentClass rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Biography"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Narrative"/>
         <rdfs:comment xml:lang="en">An account of the events, works and achievements, both personal and professional, of a person, either living or dead.</rdfs:comment>
         <rdfs:isDefinedBy>http://purl.org/spar/fabio/</rdfs:isDefinedBy>
         <rdfs:label xml:lang="en">biography</rdfs:label>
@@ -595,7 +667,7 @@
 
     <owl:Class rdf:about="http://purl.org/spar/fabio/BookSeries">
         <owl:equivalentClass rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#BookCollection"/>
-        <owl:disjointWith rdf:resource="http://purl.org/spar/fabio/BookSet"/>
+        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/bag.owl#Bag"/>
         <rdfs:comment xml:lang="en">A sequence of books having certain characteristics in common that are formally identified together as a group - for instance, the books in the Law, Governance and Technology Series published by Springer.</rdfs:comment>
         <rdfs:isDefinedBy>http://purl.org/spar/fabio/</rdfs:isDefinedBy>
         <rdfs:label xml:lang="en">book series</rdfs:label>
@@ -607,6 +679,7 @@
 
     <owl:Class rdf:about="http://purl.org/spar/fabio/BookSet">
         <owl:equivalentClass rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#BookSeries"/>
+        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/list.owl#List"/>
         <rdfs:comment xml:lang="en">A set of books having certain characteristics in common that informally allow their identification together as a group - for instance, the books of the Harry Potter saga.</rdfs:comment>
         <rdfs:isDefinedBy>http://purl.org/spar/fabio/</rdfs:isDefinedBy>
         <rdfs:label xml:lang="en">book set</rdfs:label>
@@ -618,6 +691,7 @@
 
     <owl:Class rdf:about="http://purl.org/spar/fabio/Diary">
         <owl:equivalentClass rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Diary"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Narrative"/>
         <rdfs:comment xml:lang="en">A personal record, in a form of book, with discrete entries (often handwritten) arranged by date, reporting what has happened over the course of a day or other period of time.</rdfs:comment>
         <rdfs:isDefinedBy>http://purl.org/spar/fabio/</rdfs:isDefinedBy>
         <rdfs:label xml:lang="en">diary</rdfs:label>
@@ -629,6 +703,7 @@
 
     <owl:Class rdf:about="http://purl.org/spar/fabio/Essay">
         <owl:equivalentClass rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Essay"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Divulgative"/>
         <rdfs:comment xml:lang="en">A piece of non-fiction writing on a particular subject, usually of moderate length and without chapters.</rdfs:comment>
         <rdfs:isDefinedBy>http://purl.org/spar/fabio/</rdfs:isDefinedBy>
         <rdfs:label xml:lang="en">essay</rdfs:label>
@@ -650,6 +725,7 @@
 
     <owl:Class rdf:about="http://purl.org/spar/fabio/Novel">
         <owl:equivalentClass rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Romance"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Narrative"/>
         <rdfs:comment xml:lang="en">A long fictitious narrative written in literary prose.</rdfs:comment>
         <rdfs:isDefinedBy>http://purl.org/spar/fabio/</rdfs:isDefinedBy>
         <rdfs:label xml:lang="en">novel</rdfs:label>
@@ -661,6 +737,7 @@
 
     <owl:Class rdf:about="http://purl.org/spar/fabio/Play">
         <owl:equivalentClass rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Drama"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Book"/>
         <rdfs:comment xml:lang="en">A form of literature written by a playwright, usually consisting of scripted dialogue between characters, intended for theatrical performance rather than reading.</rdfs:comment>
         <rdfs:isDefinedBy>http://purl.org/spar/fabio/</rdfs:isDefinedBy>
         <rdfs:label xml:lang="en">play</rdfs:label>
@@ -683,6 +760,7 @@
 
     <owl:Class rdf:about="http://purl.org/spar/fabio/ShortStory">
         <owl:equivalentClass rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#ShortStories"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Narrative"/>
         <rdfs:comment xml:lang="en">A work of fiction that is usually written in prose, often in narrative format. This format tends to be more focused and less elaborate than longer works of fiction such as novels.</rdfs:comment>
         <rdfs:isDefinedBy>http://purl.org/spar/fabio/</rdfs:isDefinedBy>
         <rdfs:label xml:lang="en">short story</rdfs:label>
@@ -694,6 +772,7 @@
 
     <owl:Class rdf:about="http://purl.org/spar/fabio/Song">
         <owl:equivalentClass rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Song"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#LyricPoetry"/>
         <rdfs:comment xml:lang="en">A musical composition that contains vocal parts (&apos;lyrics&apos;) that are performed (&apos;sung&apos;).</rdfs:comment>
         <rdfs:isDefinedBy>http://purl.org/spar/fabio/</rdfs:isDefinedBy>
         <rdfs:label xml:lang="en">song</rdfs:label>
@@ -766,6 +845,8 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#BilingualWriter">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Writer"/>
+        <rdfs:comment xml:lang="en">A writer that wrote in more than two languages</rdfs:comment>
+        <rdfs:label xml:lang="en">Bilingual writer</rdfs:label>
     </owl:Class>
     
 
@@ -783,6 +864,7 @@
     <!-- http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Book -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Book">
+        <owl:equivalentClass rdf:resource="https://d-nb.info/standards/elementset/gnd#Manuscript"/>
         <rdfs:subClassOf rdf:resource="http://purl.org/spar/fabio/LiteraryArtisticWork"/>
         <rdfs:comment xml:lang="en">Medium for information recording (digital or on paper) composed of may pages.</rdfs:comment>
         <rdfs:label xml:lang="en">Book</rdfs:label>
@@ -795,7 +877,7 @@
     <owl:Class rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#BookCollection">
         <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/bag.owl#Bag"/>
         <owl:disjointWith rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#BookSeries"/>
-        <rdfs:comment xml:lang="en">A collection of books grouped by gnere or aruthor and belonging to a specific publisher.</rdfs:comment>
+        <rdfs:comment xml:lang="en">A collection of books grouped by genre or aruthor and belonging to a specific publisher.</rdfs:comment>
         <rdfs:label xml:lang="en">Book collection</rdfs:label>
     </owl:Class>
     
@@ -1339,6 +1421,8 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#TranslatedBook">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Book"/>
+        <rdfs:comment xml:lang="en">A book that has been translated in at least a language</rdfs:comment>
+        <rdfs:label xml:lang="en">Translated book</rdfs:label>
     </owl:Class>
     
 
@@ -1374,8 +1458,30 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Writer">
         <owl:equivalentClass rdf:resource="https://d-nb.info/standards/elementset/gnd#author"/>
+        <rdfs:subClassOf rdf:resource="http://xmlns.com/foaf/0.1/#term_Person"/>
         <rdfs:comment xml:lang="en">Person which writes books.</rdfs:comment>
         <rdfs:label xml:lang="en">Writer</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/#term_Person -->
+
+    <owl:Class rdf:about="http://xmlns.com/foaf/0.1/#term_Person">
+        <rdfs:comment xml:lang="en">A person</rdfs:comment>
+        <rdfs:isDefinedBy>http://xmlns.com/foaf/0.1/</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="en">Person</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://d-nb.info/standards/elementset/gnd#Manuscript -->
+
+    <owl:Class rdf:about="https://d-nb.info/standards/elementset/gnd#Manuscript">
+        <rdfs:subClassOf rdf:resource="http://purl.org/spar/fabio/LiteraryArtisticWork"/>
+        <rdfs:isDefinedBy>https://d-nb.info/standards/elementset/gnd</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="en">Manuscript</rdfs:label>
+        <rdfs:label xml:lang="de">Schriftdenkmal</rdfs:label>
     </owl:Class>
     
 
@@ -1383,6 +1489,7 @@
     <!-- https://d-nb.info/standards/elementset/gnd#author -->
 
     <owl:Class rdf:about="https://d-nb.info/standards/elementset/gnd#author">
+        <rdfs:subClassOf rdf:resource="http://xmlns.com/foaf/0.1/#term_Person"/>
         <rdfs:comment xml:lang="en">A person, family, or organization responsible for creating a work that is primarily textual in content, regardless of media type (e.g., printed text, spoken word, electronic text, tactile text) or genre (e.g., poems, novels, screenplays, blogs). Use also for persons, etc., creating a new work by paraphrasing, rewriting, or adapting works by another creator such that the modification has substantially changed the nature and content of the original or changed the medium of expression.</rdfs:comment>
         <rdfs:isDefinedBy>https://d-nb.info/standards/elementset/gnd</rdfs:isDefinedBy>
         <rdfs:label xml:lang="en">Author</rdfs:label>
@@ -1394,6 +1501,7 @@
     <!-- https://d-nb.info/standards/elementset/gnd#poet -->
 
     <owl:Class rdf:about="https://d-nb.info/standards/elementset/gnd#poet">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Writer"/>
         <rdfs:comment xml:lang="en">An author of the words of a non-dramatic musical work (e.g. the text of a song), except for oratorios</rdfs:comment>
         <rdfs:isDefinedBy>https://d-nb.info/standards/elementset/gnd</rdfs:isDefinedBy>
         <rdfs:label xml:lang="de">Dichter</rdfs:label>
@@ -1429,6 +1537,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Adelphi">
         <rdf:type rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Publisher"/>
+        <setIn rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Italy"/>
         <publisher_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Adelphi</publisher_name>
         <rdfs:comment>Publishing house in Milan, Italy</rdfs:comment>
         <rdfs:label xml:lang="en">Adelphi</rdfs:label>
@@ -1623,11 +1732,27 @@ the contemporary author</rdfs:comment>
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Exhalation">
         <rdf:type rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#ShortStories"/>
+        <hasBeenPublished rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#ExhalationPickwick"/>
         <original_date rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2019</original_date>
         <original_language rdf:datatype="http://www.w3.org/2001/XMLSchema#string">english</original_language>
         <original_title rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Exhalation: Stories</original_title>
         <rdfs:comment xml:lang="en">Sci-Fi short story collection, written by Ted Chiang, originally published in 2019</rdfs:comment>
         <rdfs:label xml:lang="en">Exhalation</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#ExhalationPickwick -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#ExhalationPickwick">
+        <rdf:type rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#BookEdition"/>
+        <publishedBy rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Pickwick"/>
+        <publishedIn rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Italy"/>
+        <edition_date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2021-08-01T00:00:00</edition_date>
+        <edition_language rdf:datatype="http://www.w3.org/2001/XMLSchema#string">italian</edition_language>
+        <edition_title rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Respiro</edition_title>
+        <rdfs:comment xml:lang="en">Pickwick edition of Exhalation</rdfs:comment>
+        <rdfs:label xml:lang="en">Exhalation Pickwick</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -1685,8 +1810,63 @@ the contemporary author</rdfs:comment>
         <birth_date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1936-12-05T00:00:00</birth_date>
         <viaf_id rdf:datatype="http://www.w3.org/2001/XMLSchema#string">523155042808172402269</viaf_id>
         <writer_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Giuseppe Trautteur</writer_name>
-        <rdfs:comment xml:lang="en">Italian phisic born in 1963</rdfs:comment>
+        <rdfs:comment xml:lang="en">Italian physicist born in 1963</rdfs:comment>
         <rdfs:label xml:lang="en">Giuseppe Tratteur</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#IlRItornoDelReMinotauro -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#IlRItornoDelReMinotauro">
+        <rdf:type rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#BookEdition"/>
+        <publishedBy rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Minotauro"/>
+        <publishedIn rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Spain"/>
+        <edition_date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2009-01-01T00:00:00</edition_date>
+        <edition_language rdf:datatype="http://www.w3.org/2001/XMLSchema#string">spanish</edition_language>
+        <edition_title rdf:datatype="http://www.w3.org/2001/XMLSchema#string">El retorno del rey</edition_title>
+        <rdfs:comment xml:lang="en">Minotauro edition of The Return of The King</rdfs:comment>
+        <rdfs:label xml:lang="en">Il Ritorno del Re Minotauro</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#IlRitornoDelRe -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#IlRitornoDelRe">
+        <rdf:type rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#FantasyRomance"/>
+        <hasBeenPublished rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#IlRItornoDelReMinotauro"/>
+        <original_date rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1955</original_date>
+        <original_language rdf:datatype="http://www.w3.org/2001/XMLSchema#string">english</original_language>
+        <original_title rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The Return of the King</original_title>
+        <rdfs:comment xml:lang="en">Third book of the Lord of The Rings trilogy by Tolkien</rdfs:comment>
+        <rdfs:label xml:lang="en">Il ritorno del re</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#IlRitornoDelReSerieMinotauro -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#IlRitornoDelReSerieMinotauro">
+        <rdf:type rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#SequenceBook"/>
+        <sequence:directlyFollows rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#LaCompagniaDellAnelloSerieMinotauro"/>
+        <relatedToSequenceBook rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#IlRitornoDelRe"/>
+        <rdfs:comment xml:lang="en">third book of the the fellowship of the ring series by Minotauro</rdfs:comment>
+        <rdfs:label xml:lang="en">Il RItorno del Re Serie Minotauro</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#IlSignoreDegliAnelliMinotauro -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#IlSignoreDegliAnelliMinotauro">
+        <rdf:type rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#BookSeries"/>
+        <bag:hasItem rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#IlRitornoDelReSerieMinotauro"/>
+        <bag:hasItem rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#LaCompagniaDellAnelloSerieMinotauro"/>
+        <bag:hasItem rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#LeDueTorriSerieMinotauro"/>
+        <seriesHasPublisher rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Minotauro"/>
+        <rdfs:comment xml:lang="en">The Lord of The Rings series by Minotauro</rdfs:comment>
+        <rdfs:label xml:lang="en">Il Signore degli Anelli Minotauro</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -1711,7 +1891,9 @@ the contemporary author</rdfs:comment>
         <rdf:type rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#BookEdition"/>
         <publishedBy rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Mondadori"/>
         <publishedIn rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Italy"/>
+        <edition_date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2001-01-01T00:00:00</edition_date>
         <edition_language rdf:datatype="http://www.w3.org/2001/XMLSchema#string">italian</edition_language>
+        <edition_title rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Il fu Mattia Pascal</edition_title>
         <rdfs:comment xml:lang="en">Mondadori edition of &quot;Il fu Mattia Pascal&quot;</rdfs:comment>
         <rdfs:label xml:lang="en">Il fu Mattia Pascal Mondadori</rdfs:label>
     </owl:NamedIndividual>
@@ -1738,7 +1920,9 @@ the contemporary author</rdfs:comment>
         <rdf:type rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#BookEdition"/>
         <publishedBy rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Adelphi"/>
         <publishedIn rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Italy"/>
+        <edition_date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2020-01-01T00:00:00</edition_date>
         <edition_language rdf:datatype="http://www.w3.org/2001/XMLSchema#string">italian</edition_language>
+        <edition_title rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Il prigioniero libero</edition_title>
         <rdfs:comment xml:lang="en">Adelphi edition of &quot;Il prigioniero libero&quot;</rdfs:comment>
         <rdfs:label xml:lang="en">Il prigioniero libero Adelphi</rdfs:label>
     </owl:NamedIndividual>
@@ -1760,10 +1944,51 @@ the contemporary author</rdfs:comment>
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Italy">
         <rdf:type rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Country"/>
-        <locatedIn rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Western_Europe"/>
+        <locatedIn rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#South_Europe"/>
         <country_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Italy</country_name>
-        <rdfs:comment xml:lang="en">A country located in Southern Europe</rdfs:comment>
+        <rdfs:comment xml:lang="en">A country named &quot;Italy&quot; located in &quot;South Europe&quot;</rdfs:comment>
         <rdfs:label xml:lang="en">Italy</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#LaCompagniaDellAnello -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#LaCompagniaDellAnello">
+        <rdf:type rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#FantasyRomance"/>
+        <hasBeenPublished rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#LaCompagniaDellAnelloMinotauro"/>
+        <original_date rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1954</original_date>
+        <original_language rdf:datatype="http://www.w3.org/2001/XMLSchema#string">english</original_language>
+        <original_title rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The Fellowship of the Ring</original_title>
+        <rdfs:comment xml:lang="en">First book of the Lord of The Rings trilogy by Tolkien</rdfs:comment>
+        <rdfs:label xml:lang="en">La Compagnia dell&apos;Anello</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#LaCompagniaDellAnelloMinotauro -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#LaCompagniaDellAnelloMinotauro">
+        <rdf:type rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#BookEdition"/>
+        <publishedBy rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Minotauro"/>
+        <publishedIn rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Italy"/>
+        <edition_date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1999-07-29T00:00:00</edition_date>
+        <edition_language rdf:datatype="http://www.w3.org/2001/XMLSchema#string">La Comunidad Del Anillo</edition_language>
+        <edition_language rdf:datatype="http://www.w3.org/2001/XMLSchema#string">spanish</edition_language>
+        <rdfs:comment xml:lang="en">Minotauro edition of The Fellowship of the RIng</rdfs:comment>
+        <rdfs:label xml:lang="en">La Compagnia dell&apos;Anello Minotauro</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#LaCompagniaDellAnelloSerieMinotauro -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#LaCompagniaDellAnelloSerieMinotauro">
+        <rdf:type rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#SequenceBook"/>
+        <sequence:directlyPrecedes rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#LeDueTorriSerieMinotauro"/>
+        <relatedToSequenceBook rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#LaCompagniaDellAnello"/>
+        <rdfs:comment xml:lang="en">first book of the the fellowship of the ring series by Minotauro</rdfs:comment>
+        <rdfs:label xml:lang="en">La Compagnia dell&apos;Anello Serie Minotauro</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -1783,6 +2008,7 @@ the contemporary author</rdfs:comment>
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#La_difesa_di_Luzin">
         <rdf:type rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#ComedyRomance"/>
+        <hasBeenPublished rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#La_difesa_di_Luzin_Adelphi"/>
         <original_date rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1930</original_date>
         <original_language rdf:datatype="http://www.w3.org/2001/XMLSchema#string">russian</original_language>
         <original_title rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Zaščita Lužina</original_title>
@@ -1792,15 +2018,88 @@ the contemporary author</rdfs:comment>
     
 
 
+    <!-- http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#La_difesa_di_Luzin_Adelphi -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#La_difesa_di_Luzin_Adelphi">
+        <rdf:type rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#BookEdition"/>
+        <publishedBy rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Adelphi"/>
+        <publishedIn rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Italy"/>
+        <edition_date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2001-01-01T00:00:00</edition_date>
+        <edition_language rdf:datatype="http://www.w3.org/2001/XMLSchema#string">italian</edition_language>
+        <edition_title rdf:datatype="http://www.w3.org/2001/XMLSchema#string">La difesa di Luzin</edition_title>
+        <rdfs:comment xml:lang="en">Adelphi edition of La difesa di Luzin</rdfs:comment>
+        <rdfs:label xml:lang="en">La difesa di Luzin Adelphi</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#LeDueTorri -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#LeDueTorri">
+        <rdf:type rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#FantasyRomance"/>
+        <hasBeenPublished rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#LeDueTorriMinotauro"/>
+        <original_date rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1954</original_date>
+        <original_language rdf:datatype="http://www.w3.org/2001/XMLSchema#string">english</original_language>
+        <original_title rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The Two Towers</original_title>
+        <rdfs:comment xml:lang="en">Second book of the Lord of The Rings trilogy by Tolkien</rdfs:comment>
+        <rdfs:label xml:lang="en">Le due Torri</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#LeDueTorriMinotauro -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#LeDueTorriMinotauro">
+        <rdf:type rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#BookEdition"/>
+        <publishedBy rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Minotauro"/>
+        <publishedIn rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Spain"/>
+        <edition_date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1999-01-01T00:00:00</edition_date>
+        <edition_language rdf:datatype="http://www.w3.org/2001/XMLSchema#string">spanish</edition_language>
+        <edition_title rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Las Dos Torres</edition_title>
+        <rdfs:comment xml:lang="en">Minotauro edition of The Two Towers</rdfs:comment>
+        <rdfs:label xml:lang="en">Le due Torri Minotauro</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#LeDueTorriSerieMinotauro -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#LeDueTorriSerieMinotauro">
+        <rdf:type rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#SequenceBook"/>
+        <sequence:directlyFollows rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#LaCompagniaDellAnelloSerieMinotauro"/>
+        <sequence:directlyPrecedes rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#IlRitornoDelReSerieMinotauro"/>
+        <relatedToSequenceBook rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#LeDueTorri"/>
+        <rdfs:comment xml:lang="en">second book of the the fellowship of the ring series by Minotauro</rdfs:comment>
+        <rdfs:label xml:lang="en">Le Due Torri Serie Minotauro</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Lo_strano_ordine_delle_cose -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Lo_strano_ordine_delle_cose">
         <rdf:type rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Essay"/>
+        <hasBeenPublished rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Lo_strano_ordine_delle_cose_Adelphi"/>
         <original_date rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2017</original_date>
         <original_language rdf:datatype="http://www.w3.org/2001/XMLSchema#string">portugal</original_language>
         <original_title rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A Estranha Ordem das Coisas</original_title>
         <rdfs:comment xml:lang="en">Philosophic essay written by Antonio Damasio, originally published in 2017</rdfs:comment>
         <rdfs:label xml:lang="en">Lo strano ordine delle cose</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Lo_strano_ordine_delle_cose_Adelphi -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Lo_strano_ordine_delle_cose_Adelphi">
+        <rdf:type rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#BookEdition"/>
+        <publishedBy rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Adelphi"/>
+        <publishedIn rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Italy"/>
+        <edition_date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2018-01-01T00:00:00</edition_date>
+        <edition_language rdf:datatype="http://www.w3.org/2001/XMLSchema#string">italian</edition_language>
+        <edition_title rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Lo strano ordine delle cose</edition_title>
+        <rdfs:comment xml:lang="en">Adelphi edition of Lo Strano ordine delle Cose</rdfs:comment>
+        <rdfs:label xml:lang="en">Lo strano ordine delle cose adelphi</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -1820,11 +2119,27 @@ the contemporary author</rdfs:comment>
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Lolita">
         <rdf:type rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#RomanticRomance"/>
+        <hasBeenPublished rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Lolita_Adelphi"/>
         <original_date rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1955</original_date>
         <original_language rdf:datatype="http://www.w3.org/2001/XMLSchema#string">english</original_language>
         <original_title rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Lolita</original_title>
         <rdfs:comment xml:lang="en">A romantic romance book written by Vladimir Nabokov in 1955</rdfs:comment>
         <rdfs:label xml:lang="en">Lolita</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Lolita_Adelphi -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Lolita_Adelphi">
+        <rdf:type rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#BookEdition"/>
+        <publishedBy rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Adelphi"/>
+        <publishedIn rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Italy"/>
+        <edition_date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1996-01-01T00:00:00</edition_date>
+        <edition_language rdf:datatype="http://www.w3.org/2001/XMLSchema#string">italian</edition_language>
+        <edition_title rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Lolita</edition_title>
+        <rdfs:comment xml:lang="en">Adelphi edition of Lolita</rdfs:comment>
+        <rdfs:label xml:lang="en">Lolita Adelphi</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -1840,6 +2155,7 @@ the contemporary author</rdfs:comment>
         <wrote rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Sei_personaggi_in_cerca_d_autore"/>
         <wrote rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Uno_nessuno_centomila"/>
         <birth_date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1867-06-28T00:00:00</birth_date>
+        <death_date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1936-12-10T00:00:00</death_date>
         <viaf_id rdf:datatype="http://www.w3.org/2001/XMLSchema#string">64010465</viaf_id>
         <writer_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Luigi Pirandello</writer_name>
         <rdfs:comment xml:lang="en">An Italian Modernist author born in 1867</rdfs:comment>
@@ -1882,6 +2198,18 @@ the contemporary author</rdfs:comment>
     
 
 
+    <!-- http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Minotauro -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Minotauro">
+        <rdf:type rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Publisher"/>
+        <setIn rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Spain"/>
+        <publisher_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Minotauro</publisher_name>
+        <rdfs:comment xml:lang="en">Spanish Editor</rdfs:comment>
+        <rdfs:label xml:lang="en">Minotauro</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Modernism -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Modernism">
@@ -1898,6 +2226,7 @@ the contemporary author</rdfs:comment>
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Mondadori">
         <rdf:type rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Publisher"/>
+        <setIn rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Italy"/>
         <publisher_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Mondadori</publisher_name>
         <rdfs:comment xml:lang="en">Publishing house in Segrate, Italy</rdfs:comment>
         <rdfs:label xml:lang="en">Mondadori</rdfs:label>
@@ -1992,7 +2321,9 @@ the contemporary author</rdfs:comment>
         <rdf:type rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#BookEdition"/>
         <publishedBy rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Mondadori"/>
         <publishedIn rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Italy"/>
+        <edition_date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1998-01-01T00:00:00</edition_date>
         <edition_language rdf:datatype="http://www.w3.org/2001/XMLSchema#string">italian</edition_language>
+        <edition_title rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Operette morali</edition_title>
         <rdfs:comment xml:lang="en">Operette morali edition published by Mondadori</rdfs:comment>
         <rdfs:label xml:lang="en">Operette morali Mondadori</rdfs:label>
     </owl:NamedIndividual>
@@ -2005,9 +2336,23 @@ the contemporary author</rdfs:comment>
         <rdf:type rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#BookEdition"/>
         <publishedBy rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#LaFeltrinelli"/>
         <publishedIn rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Italy"/>
+        <edition_date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1992-01-01T00:00:00</edition_date>
         <edition_language rdf:datatype="http://www.w3.org/2001/XMLSchema#string">italian</edition_language>
+        <edition_title rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Operette morali</edition_title>
         <rdfs:comment xml:lang="en">Operette morali edition published by La Feltrinelli</rdfs:comment>
         <rdfs:label xml:lang="en">Operette morali LaFeltrinelli</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Pickwick -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Pickwick">
+        <rdf:type rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Publisher"/>
+        <setIn rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Italy"/>
+        <publisher_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Pickwick</publisher_name>
+        <rdfs:comment xml:lang="en">Italian Editor</rdfs:comment>
+        <rdfs:label xml:lang="en">Pickwick</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -2029,7 +2374,7 @@ the contemporary author</rdfs:comment>
         <rdf:type rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Country"/>
         <locatedIn rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Western_Europe"/>
         <country_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Portugal</country_name>
-        <rdfs:comment xml:lang="en">A country located in Europe</rdfs:comment>
+        <rdfs:comment xml:lang="en">A country named &quot;Portugal&quot; located in &quot; Western Europe&quot;</rdfs:comment>
         <rdfs:label xml:lang="en">Portugal</rdfs:label>
     </owl:NamedIndividual>
     
@@ -2090,7 +2435,7 @@ Romanticism was characterized by its emphasis on emotion and individualism, clan
         <rdf:type rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Country"/>
         <locatedIn rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Eastern_Europe"/>
         <country_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Russia</country_name>
-        <rdfs:comment xml:lang="en">A country located in Eastern Europe</rdfs:comment>
+        <rdfs:comment xml:lang="en">A country named &quot;Russia&quot; located in &quot;Eastern Europe&quot;</rdfs:comment>
         <rdfs:label xml:lang="en">Russia</rdfs:label>
     </owl:NamedIndividual>
     
@@ -2116,7 +2461,9 @@ Romanticism was characterized by its emphasis on emotion and individualism, clan
         <rdf:type rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#BookEdition"/>
         <publishedBy rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Mondadori"/>
         <publishedIn rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Italy"/>
+        <edition_date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2019-03-05T00:00:00</edition_date>
         <edition_language rdf:datatype="http://www.w3.org/2001/XMLSchema#string">italian</edition_language>
+        <edition_title rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Sei personaggi in cerca d&apos;autore</edition_title>
         <rdfs:comment xml:lang="en">Mondadori edition of &quot;Sei personaggi in cerca d&apos;autore&quot;</rdfs:comment>
         <rdfs:label xml:lang="en">Sei personaggi in cerca d&apos;autore Mondadori</rdfs:label>
     </owl:NamedIndividual>
@@ -2171,9 +2518,9 @@ Romanticism was characterized by its emphasis on emotion and individualism, clan
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Spain">
         <rdf:type rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Country"/>
-        <locatedIn rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Western_Europe"/>
+        <locatedIn rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#South_Europe"/>
         <country_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Spain</country_name>
-        <rdfs:comment xml:lang="en">A country located in south europe</rdfs:comment>
+        <rdfs:comment xml:lang="en">A country named &quot;Spain&quot; located in &quot;South Europe&quot;</rdfs:comment>
         <rdfs:label xml:lang="en">Spain</rdfs:label>
     </owl:NamedIndividual>
     
@@ -2183,6 +2530,7 @@ Romanticism was characterized by its emphasis on emotion and individualism, clan
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#SpurlEditions">
         <rdf:type rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Publisher"/>
+        <setIn rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#United_States_of_America"/>
         <publisher_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Spurl Editions</publisher_name>
         <rdfs:comment xml:lang="en">An independent publisher of unusual literature and photography</rdfs:comment>
         <rdfs:label xml:lang="en">SpurlEditions</rdfs:label>
@@ -2242,6 +2590,39 @@ Romanticism was characterized by its emphasis on emotion and individualism, clan
     
 
 
+    <!-- http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#The_Beginnings_of_English_Poetry -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#The_Beginnings_of_English_Poetry">
+        <rdf:type rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Essay"/>
+        <original_language rdf:datatype="http://www.w3.org/2001/XMLSchema#string">english</original_language>
+        <original_title rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The Beginnings of English Poetry</original_title>
+        <rdfs:comment xml:lang="en">Unpublished essay about old English poetry written by Tolkien</rdfs:comment>
+        <rdfs:label xml:lang="en">The Beginnings of English Poetry</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Tolkien -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Tolkien">
+        <rdf:type rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Writer"/>
+        <belongToMovement rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Modernism"/>
+        <livedIn rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#United_Kingdom"/>
+        <relatedTo rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#United_Kingdom"/>
+        <wrote rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#IlRitornoDelRe"/>
+        <wrote rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#LaCompagniaDellAnello"/>
+        <wrote rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#LeDueTorri"/>
+        <wrote rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#The_Beginnings_of_English_Poetry"/>
+        <birth_date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1892-01-03T00:00:00</birth_date>
+        <death_date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1973-09-02T00:00:00</death_date>
+        <viaf_id rdf:datatype="http://www.w3.org/2001/XMLSchema#string">95218067</viaf_id>
+        <writer_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">John Ronald Reuel Tolkien</writer_name>
+        <rdfs:comment xml:lang="en">English writer</rdfs:comment>
+        <rdfs:comment xml:lang="en">JRR Tolkien</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Transcendentalism -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Transcendentalism">
@@ -2254,13 +2635,25 @@ Romanticism was characterized by its emphasis on emotion and individualism, clan
     
 
 
+    <!-- http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#United_Kingdom -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#United_Kingdom">
+        <rdf:type rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Country"/>
+        <locatedIn rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Western_Europe"/>
+        <country_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">United Kingdom</country_name>
+        <rdfs:comment xml:lang="en">A country named &quot;United Kingdom&quot; located in &quot;Western Europe&quot;.</rdfs:comment>
+        <rdfs:label xml:lang="en">United Kingdom</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#United_States_of_America -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#United_States_of_America">
         <rdf:type rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Country"/>
         <locatedIn rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#North_America"/>
         <country_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">United States of America</country_name>
-        <rdfs:comment xml:lang="en">A country located in America</rdfs:comment>
+        <rdfs:comment xml:lang="en">A country named &quot;United States of America&quot; located in &quot;North America&quot;</rdfs:comment>
         <rdfs:label xml:lang="en">United States of America</rdfs:label>
     </owl:NamedIndividual>
     
@@ -2287,7 +2680,9 @@ Romanticism was characterized by its emphasis on emotion and individualism, clan
         <rdf:type rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#BookEdition"/>
         <publishedBy rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Mondadori"/>
         <publishedIn rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Italy"/>
+        <edition_date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2016-05-18T00:00:00</edition_date>
         <edition_language rdf:datatype="http://www.w3.org/2001/XMLSchema#string">italian</edition_language>
+        <edition_title rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Uno,  nessuno, centomila</edition_title>
         <rdfs:comment xml:lang="en">Mondadori edition of &quot;Uno nessuno centomila&quot;</rdfs:comment>
         <rdfs:label xml:lang="en">Uno, nessuno, centomila Mondadori</rdfs:label>
     </owl:NamedIndividual>
@@ -2373,69 +2768,14 @@ Romanticism was characterized by its emphasis on emotion and individualism, clan
     <rdf:Description>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
         <owl:members rdf:parseType="Collection">
-            <rdf:Description rdf:about="http://purl.org/spar/fabio/Biography"/>
-            <rdf:Description rdf:about="http://purl.org/spar/fabio/Diary"/>
-            <rdf:Description rdf:about="http://purl.org/spar/fabio/Novel"/>
-            <rdf:Description rdf:about="http://purl.org/spar/fabio/ShortStory"/>
-            <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Fable"/>
-        </owl:members>
-    </rdf:Description>
-    <rdf:Description>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
-        <owl:members rdf:parseType="Collection">
-            <rdf:Description rdf:about="http://purl.org/spar/fabio/Biography"/>
-            <rdf:Description rdf:about="http://purl.org/spar/fabio/Diary"/>
-            <rdf:Description rdf:about="http://purl.org/spar/fabio/Novel"/>
-            <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Fable"/>
-            <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#ShortStories"/>
-        </owl:members>
-    </rdf:Description>
-    <rdf:Description>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
-        <owl:members rdf:parseType="Collection">
-            <rdf:Description rdf:about="http://purl.org/spar/fabio/Biography"/>
-            <rdf:Description rdf:about="http://purl.org/spar/fabio/Diary"/>
-            <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Fable"/>
-            <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Romance"/>
-            <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#ShortStories"/>
-        </owl:members>
-    </rdf:Description>
-    <rdf:Description>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
-        <owl:members rdf:parseType="Collection">
-            <rdf:Description rdf:about="http://purl.org/spar/fabio/Biography"/>
-            <rdf:Description rdf:about="http://purl.org/spar/fabio/Novel"/>
-            <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Diary"/>
-            <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Fable"/>
-            <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#ShortStories"/>
-        </owl:members>
-    </rdf:Description>
-    <rdf:Description>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
-        <owl:members rdf:parseType="Collection">
-            <rdf:Description rdf:about="http://purl.org/spar/fabio/Diary"/>
-            <rdf:Description rdf:about="http://purl.org/spar/fabio/Novel"/>
-            <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Biography"/>
-            <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Fable"/>
-            <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#ShortStories"/>
-        </owl:members>
-    </rdf:Description>
-    <rdf:Description>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
-        <owl:members rdf:parseType="Collection">
-            <rdf:Description rdf:about="http://purl.org/spar/fabio/Essay"/>
-            <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Aphorisms"/>
-            <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Dialogue"/>
-            <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Manifest"/>
-            <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Treatise"/>
-        </owl:members>
-    </rdf:Description>
-    <rdf:Description>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
-        <owl:members rdf:parseType="Collection">
-            <rdf:Description rdf:about="http://purl.org/spar/fabio/Play"/>
-            <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Poetry"/>
-            <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Prose"/>
+            <rdf:Description rdf:about="http://purl.org/spar/fabio/LiteraryArtisticWork"/>
+            <rdf:Description rdf:about="http://www.ontologydesignpatterns.org/cp/owl/bag.owl#Bag"/>
+            <rdf:Description rdf:about="http://www.ontologydesignpatterns.org/cp/owl/bag.owl#Item"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#BookEdition"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#GeographicalArea"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#LiteraryMovement"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Publisher"/>
+            <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/#term_Person"/>
         </owl:members>
     </rdf:Description>
     <rdf:Description>
@@ -2444,15 +2784,6 @@ Romanticism was characterized by its emphasis on emotion and individualism, clan
             <rdf:Description rdf:about="http://purl.org/spar/fabio/Poem"/>
             <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#DidacticPoetry"/>
             <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#LyricPoetry"/>
-        </owl:members>
-    </rdf:Description>
-    <rdf:Description>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
-        <owl:members rdf:parseType="Collection">
-            <rdf:Description rdf:about="http://purl.org/spar/fabio/Song"/>
-            <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Ballata"/>
-            <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Madrigal"/>
-            <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Sonnet"/>
         </owl:members>
     </rdf:Description>
     <rdf:Description>
@@ -2494,6 +2825,16 @@ Romanticism was characterized by its emphasis on emotion and individualism, clan
     <rdf:Description>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
         <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Biography"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Diary"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Fable"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Romance"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#ShortStories"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
             <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Drama"/>
             <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Poetry"/>
             <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Prose"/>
@@ -2526,7 +2867,9 @@ Romanticism was characterized by its emphasis on emotion and individualism, clan
         <owl:distinctMembers rdf:parseType="Collection">
             <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Adelphi"/>
             <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#LaFeltrinelli"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Minotauro"/>
             <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Mondadori"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Pickwick"/>
             <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#SpurlEditions"/>
         </owl:distinctMembers>
     </rdf:Description>
@@ -2569,27 +2912,47 @@ Romanticism was characterized by its emphasis on emotion and individualism, clan
             <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Giuseppe_Tratteur"/>
             <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Luigi_Pirandello"/>
             <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Ted_Chiang"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Tolkien"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Vladimir_Nabokov"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Biblioteca_Scientifica"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#IlSignoreDegliAnelliMinotauro"/>
         </owl:distinctMembers>
     </rdf:Description>
     <rdf:Description>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDifferent"/>
         <owl:distinctMembers rdf:parseType="Collection">
             <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Exhalation"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#IlRitornoDelRe"/>
             <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Il_fu_Mattia_Pascal"/>
             <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Il_prigioniero_libero"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#LaCompagniaDellAnello"/>
             <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#La_difesa_di_Luzin"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#LeDueTorri"/>
             <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Lo_strano_ordine_delle_cose"/>
             <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Lolita"/>
             <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Operette_morali"/>
             <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Sei_personaggi_in_cerca_d_autore"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#The_Beginnings_of_English_Poetry"/>
             <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Uno_nessuno_centomila"/>
         </owl:distinctMembers>
     </rdf:Description>
     <rdf:Description>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDifferent"/>
         <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#ExhalationPickwick"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#IlRItornoDelReMinotauro"/>
             <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Il_fu_Mattia_Pascal_Mondadori"/>
             <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Il_prigioniero_libero_Adelphi"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#LaCompagniaDellAnelloMinotauro"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#La_difesa_di_Luzin_Adelphi"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#LeDueTorriMinotauro"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Lo_strano_ordine_delle_cose_Adelphi"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Lolita_Adelphi"/>
             <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Operette_morali_Mondadori"/>
             <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Operette_morali_laFeltrinelli"/>
             <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Sei_personaggi_in_cerca_d_autore_Mondadori"/>
@@ -2604,6 +2967,7 @@ Romanticism was characterized by its emphasis on emotion and individualism, clan
             <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Portugal"/>
             <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Russia"/>
             <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Spain"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#United_Kingdom"/>
             <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#United_States_of_America"/>
         </owl:distinctMembers>
     </rdf:Description>
