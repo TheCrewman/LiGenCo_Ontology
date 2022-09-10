@@ -2042,8 +2042,8 @@ ligenco:Western_Europe rdf:type owl:NamedIndividual ,
 
 [ rdf:type owl:AllDisjointClasses ;
   owl:members ( fabio:LiteraryArtisticWork
-                <http://www.ontologydesignpatterns.org/cp/owl/bag.owl#Bag>
                 <http://www.ontologydesignpatterns.org/cp/owl/bag.owl#Item>
+                <http://www.ontologydesignpatterns.org/cp/owl/collectionentity.owl#Collection>
                 ligenco:BookEdition
                 ligenco:GeographicalArea
                 ligenco:LiteraryMovement
