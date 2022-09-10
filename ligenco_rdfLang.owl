@@ -2769,8 +2769,8 @@ Romanticism was characterized by its emphasis on emotion and individualism, clan
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
         <owl:members rdf:parseType="Collection">
             <rdf:Description rdf:about="http://purl.org/spar/fabio/LiteraryArtisticWork"/>
-            <rdf:Description rdf:about="http://www.ontologydesignpatterns.org/cp/owl/bag.owl#Bag"/>
             <rdf:Description rdf:about="http://www.ontologydesignpatterns.org/cp/owl/bag.owl#Item"/>
+            <rdf:Description rdf:about="http://www.ontologydesignpatterns.org/cp/owl/collectionentity.owl#Collection"/>
             <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#BookEdition"/>
             <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#GeographicalArea"/>
             <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#LiteraryMovement"/>
