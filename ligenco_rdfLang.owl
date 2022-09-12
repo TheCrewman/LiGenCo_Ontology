@@ -1063,6 +1063,22 @@
     
 
 
+    <!-- http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Essayist -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Essayist">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Writer"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#wrote"/>
+                <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Essay"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">A writer who wrote only essays</rdfs:comment>
+        <rdfs:label xml:lang="en">Essayist</rdfs:label>
+    </owl:Class>
+    
+
+
     <!-- http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Fable -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Fable">
@@ -1403,6 +1419,23 @@
     
 
 
+    <!-- http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#StableWriter -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#StableWriter">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Writer"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#livedIn"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Country"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">A writer who lived only in one country.</rdfs:comment>
+        <rdfs:label xml:lang="en">Stable writer</rdfs:label>
+    </owl:Class>
+    
+
+
     <!-- http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#ThrillerRomance -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#ThrillerRomance">
@@ -1584,7 +1617,7 @@
     <!-- http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Antonio_Damasio -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Antonio_Damasio">
-        <rdf:type rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Writer"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Essayist"/>
         <belongToMovement rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Contemporary"/>
         <livedIn rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Portugal"/>
         <relatedTo rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Portugal"/>
@@ -1790,7 +1823,7 @@ the contemporary author</rdfs:comment>
     <!-- http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Giacomo_Leopardi -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Giacomo_Leopardi">
-        <rdf:type rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Writer"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#StableWriter"/>
         <belongToMovement rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Romanticism"/>
         <livedIn rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Italy"/>
         <relatedTo rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Italy"/>
@@ -1808,7 +1841,7 @@ the contemporary author</rdfs:comment>
     <!-- http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Giuseppe_Tratteur -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Giuseppe_Tratteur">
-        <rdf:type rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Writer"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Essayist"/>
         <belongToMovement rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Contemporary"/>
         <livedIn rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Italy"/>
         <relatedTo rdf:resource="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Italy"/>

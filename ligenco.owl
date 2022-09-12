@@ -765,6 +765,17 @@ ligenco:Essay rdf:type owl:Class ;
               rdfs:label "Essay"@en .
 
 
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Essayist
+ligenco:Essayist rdf:type owl:Class ;
+                 rdfs:subClassOf ligenco:Writer ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty ligenco:wrote ;
+                                   owl:allValuesFrom ligenco:Essay
+                                 ] ;
+                 rdfs:comment "A writer who wrote only essays"@en ;
+                 rdfs:label "Essayist"@en .
+
+
 ###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Fable
 ligenco:Fable rdf:type owl:Class ;
               rdfs:subClassOf ligenco:Narrative ;
@@ -1009,6 +1020,18 @@ ligenco:Sonnet rdf:type owl:Class ;
                rdfs:label "Sonnet"@en .
 
 
+###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#StableWriter
+ligenco:StableWriter rdf:type owl:Class ;
+                     rdfs:subClassOf ligenco:Writer ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty ligenco:livedIn ;
+                                       owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                       owl:onClass ligenco:Country
+                                     ] ;
+                     rdfs:comment "A writer who lived only in one country."@en ;
+                     rdfs:label "Stable writer"@en .
+
+
 ###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#ThrillerRomance
 ligenco:ThrillerRomance rdf:type owl:Class ;
                         rdfs:subClassOf ligenco:Romance ;
@@ -1135,7 +1158,7 @@ ligenco:Antarctica rdf:type owl:NamedIndividual ,
 
 ###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Antonio_Damasio
 ligenco:Antonio_Damasio rdf:type owl:NamedIndividual ,
-                                 ligenco:Writer ;
+                                 ligenco:Essayist ;
                         ligenco:belongToMovement ligenco:Contemporary ;
                         ligenco:livedIn ligenco:Portugal ;
                         ligenco:relatedTo ligenco:Portugal ;
@@ -1290,7 +1313,7 @@ ligenco:Futurism rdf:type owl:NamedIndividual ,
 
 ###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Giacomo_Leopardi
 ligenco:Giacomo_Leopardi rdf:type owl:NamedIndividual ,
-                                  ligenco:Writer ;
+                                  ligenco:StableWriter ;
                          ligenco:belongToMovement ligenco:Romanticism ;
                          ligenco:livedIn ligenco:Italy ;
                          ligenco:relatedTo ligenco:Italy ;
@@ -1305,7 +1328,7 @@ ligenco:Giacomo_Leopardi rdf:type owl:NamedIndividual ,
 
 ###  http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Giuseppe_Tratteur
 ligenco:Giuseppe_Tratteur rdf:type owl:NamedIndividual ,
-                                   ligenco:Writer ;
+                                   ligenco:Essayist ;
                           ligenco:belongToMovement ligenco:Contemporary ;
                           ligenco:livedIn ligenco:Italy ;
                           ligenco:relatedTo ligenco:Italy ;
