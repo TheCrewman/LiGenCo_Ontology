@@ -800,6 +800,7 @@ ligenco:GeographicalArea rdf:type owl:Class ;
                                                            ligenco:East_Asia
                                                            ligenco:Eastern_Europe
                                                            ligenco:Europe
+                                                           ligenco:Italy
                                                            ligenco:Melanesia
                                                            ligenco:Micronesia
                                                            ligenco:North_Africa
@@ -808,11 +809,16 @@ ligenco:GeographicalArea rdf:type owl:Class ;
                                                            ligenco:North_Europe
                                                            ligenco:Oceania
                                                            ligenco:Polynesia
+                                                           ligenco:Portugal
+                                                           ligenco:Russia
                                                            ligenco:South_America
                                                            ligenco:South_Asia
                                                            ligenco:South_East_Asia
                                                            ligenco:South_Europe
+                                                           ligenco:Spain
                                                            ligenco:Sub-Saharan_Africa
+                                                           ligenco:United_Kingdom
+                                                           ligenco:United_States_of_America
                                                            ligenco:Western_Asia
                                                            ligenco:Western_Europe
                                                          )
@@ -2160,6 +2166,7 @@ ligenco:Western_Europe rdf:type owl:NamedIndividual ,
                         ligenco:East_Asia
                         ligenco:Eastern_Europe
                         ligenco:Europe
+                        ligenco:Italy
                         ligenco:Melanesia
                         ligenco:Micronesia
                         ligenco:North_Africa
@@ -2168,11 +2175,16 @@ ligenco:Western_Europe rdf:type owl:NamedIndividual ,
                         ligenco:North_Europe
                         ligenco:Oceania
                         ligenco:Polynesia
+                        ligenco:Portugal
+                        ligenco:Russia
                         ligenco:South_America
                         ligenco:South_Asia
                         ligenco:South_East_Asia
                         ligenco:South_Europe
+                        ligenco:Spain
                         ligenco:Sub-Saharan_Africa
+                        ligenco:United_Kingdom
+                        ligenco:United_States_of_America
                         ligenco:Western_Asia
                         ligenco:Western_Europe
                       )
@@ -2231,17 +2243,6 @@ ligenco:Western_Europe rdf:type owl:NamedIndividual ,
                         ligenco:Sei_personaggi_in_cerca_d_autore_Mondadori
                         ligenco:Uno_nessuno_centomila_Mondadori
                         ligenco:Uno_nessuno_centomila_SpurlEditions
-                      )
-] .
-
-
-[ rdf:type owl:AllDifferent ;
-  owl:distinctMembers ( ligenco:Italy
-                        ligenco:Portugal
-                        ligenco:Russia
-                        ligenco:Spain
-                        ligenco:United_Kingdom
-                        ligenco:United_States_of_America
                       )
 ] .
 

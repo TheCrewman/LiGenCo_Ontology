@@ -1110,6 +1110,7 @@
                     <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#East_Asia"/>
                     <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Eastern_Europe"/>
                     <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Europe"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Italy"/>
                     <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Melanesia"/>
                     <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Micronesia"/>
                     <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#North_Africa"/>
@@ -1118,11 +1119,16 @@
                     <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#North_Europe"/>
                     <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Oceania"/>
                     <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Polynesia"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Portugal"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Russia"/>
                     <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#South_America"/>
                     <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#South_Asia"/>
                     <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#South_East_Asia"/>
                     <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#South_Europe"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Spain"/>
                     <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Sub-Saharan_Africa"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#United_Kingdom"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#United_States_of_America"/>
                     <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Western_Asia"/>
                     <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Western_Europe"/>
                 </owl:oneOf>
@@ -2887,6 +2893,7 @@ Romanticism was characterized by its emphasis on emotion and individualism, clan
             <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#East_Asia"/>
             <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Eastern_Europe"/>
             <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Europe"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Italy"/>
             <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Melanesia"/>
             <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Micronesia"/>
             <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#North_Africa"/>
@@ -2895,11 +2902,16 @@ Romanticism was characterized by its emphasis on emotion and individualism, clan
             <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#North_Europe"/>
             <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Oceania"/>
             <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Polynesia"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Portugal"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Russia"/>
             <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#South_America"/>
             <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#South_Asia"/>
             <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#South_East_Asia"/>
             <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#South_Europe"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Spain"/>
             <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Sub-Saharan_Africa"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#United_Kingdom"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#United_States_of_America"/>
             <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Western_Asia"/>
             <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Western_Europe"/>
         </owl:distinctMembers>
@@ -2958,17 +2970,6 @@ Romanticism was characterized by its emphasis on emotion and individualism, clan
             <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Sei_personaggi_in_cerca_d_autore_Mondadori"/>
             <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Uno_nessuno_centomila_Mondadori"/>
             <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Uno_nessuno_centomila_SpurlEditions"/>
-        </owl:distinctMembers>
-    </rdf:Description>
-    <rdf:Description>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDifferent"/>
-        <owl:distinctMembers rdf:parseType="Collection">
-            <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Italy"/>
-            <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Portugal"/>
-            <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Russia"/>
-            <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#Spain"/>
-            <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#United_Kingdom"/>
-            <rdf:Description rdf:about="http://www.semanticweb.org/daniele/ontologies/2022/5/ligenco#United_States_of_America"/>
         </owl:distinctMembers>
     </rdf:Description>
     
